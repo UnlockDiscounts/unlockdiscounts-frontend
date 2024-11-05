@@ -1,0 +1,119 @@
+/* Footer Container */
+.footer-container {
+	width: 100%;
+	background: #171a1f;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	gap: 2rem;
+	padding: 3%;
+}
+
+/* Text and Links Columns with Grid */
+.footer-text-container {
+	width: 80%;
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+	grid-gap: 2rem;
+	justify-content: space-between;
+}
+
+/* Individual Column */
+.footer-column-container {
+	display: flex;
+	flex-direction: column;
+	gap: 0.75rem;
+}
+
+/* Column Headings */
+.footer-column-heading {
+	color: #f3f4f6;
+	font-family: "Archivo", sans-serif;
+	font-size: 1.25rem;
+	font-weight: 700;
+	line-height: 1.875rem;
+}
+
+.footer-column-text {
+	color: #f3f4f6;
+	font-family: "Inter", sans-serif;
+	font-size: 0.875rem;
+	font-weight: 400;
+	line-height: 1.375rem;
+}
+
+/* Terms Section */
+.footer-terms {
+	width: 80%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: white;
+	gap: 0.45rem;
+}
+
+/* Social Media Icons */
+.footer-social-container {
+	position: absolute;
+	display: flex;
+	gap: 1rem;
+	right: 8%;
+	bottom: 1%;
+}
+
+.footer-social-logo {
+	color: #f3f4f6;
+	width: 1.5rem;
+	height: 1.5rem;
+	cursor: pointer;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 950px) {
+	.footer-text-container {
+		grid-template-columns: repeat(3, 1fr);
+	}
+	.footer-terms {
+		justify-content: start;
+		align-items: center;
+	}
+	.footer-terms-text {
+		color: #f3f4f6;
+		font-family: "Inter", sans-serif;
+		font-size: 0.2875rem;
+		font-style: normal;
+		font-weight: 400;
+		line-height: 1.375rem; /* 440% */
+	}
+
+	.footer-terms-dot {
+		color: #f3f4f6;
+		font-family: "Inter", sans-serif;
+		font-size: 0.6875rem;
+		font-style: normal;
+		font-weight: 400;
+		line-height: 1.125rem; /* 163.636% */
+	}
+
+	.footer-social-logo {
+		width: 0.9375rem;
+		height: 0.9375rem;
+		flex-shrink: 0;
+	}
+}
+
+@media (max-width: 600px) {
+	.footer-text-container {
+		grid-template-columns: repeat(2, 1fr); /* 2 columns on small screens */
+		grid-template-rows: auto;
+	}
+
+	.footer-column-heading {
+		font-size: 1rem;
+	}
+
+	.footer-column-text {
+		font-size: 0.75rem;
+	}
+}

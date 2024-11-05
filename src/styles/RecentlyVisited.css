@@ -1,0 +1,78 @@
+.recently-visited {
+	width: 100%;
+	margin: 100px 0;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: flex-start;
+	gap: 30px;
+}
+
+.recently-visited-heading {
+	color: #0f0705;
+	font-family: "Sora", sans-serif;
+	font-size: 36px;
+	font-weight: 680;
+	line-height: normal;
+}
+
+.recently-visited-cards-container {
+	width: 100%;
+	display: flex;
+	gap: 1.5rem;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.recently-visited-card {
+	flex-basis: calc(33.33% - 1rem);
+	flex-shrink: 0;
+	border-radius: 12px;
+	background: lightgray;
+	overflow: hidden;
+	position: relative;
+}
+
+/* Aspect ratio trick */
+.recently-visited-card::before {
+	content: "";
+	display: block;
+	padding-top: 80%; /* Adjust this for desired height, e.g., 100% for a square ratio */
+}
+
+.recently-visited-card img {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	border-radius: 12px;
+	object-fit: cover;
+	object-position: center;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+	.recently-visited-heading {
+		font-size: 28px;
+	}
+
+	.recently-visited-cards-container {
+		gap: 1rem;
+	}
+
+	.recently-visited-card {
+		flex-basis: calc(32.33% - 0.5rem);
+	}
+}
+
+@media (max-width: 480px) {
+	.recently-visited-heading {
+		font-size: 24px;
+	}
+
+	.recently-visited-card {
+		flex-basis: calc(32.33% - 0.5rem);
+	}
+}

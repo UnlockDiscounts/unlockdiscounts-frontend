@@ -1,0 +1,265 @@
+.popular-picks {
+	width: 100%;
+	height: auto;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: start;
+	margin-top: 20px;
+	margin-bottom: 4rem;
+	gap: 2.94rem;
+}
+
+.popular-picks-heading {
+	color: #0f0705;
+
+	/* Section Title */
+	font-family: "Sora", sans-serif;
+	font-size: 2.25rem;
+	font-style: normal;
+	font-weight: 680;
+	line-height: normal;
+	margin-top: 2rem;
+}
+
+.popular-picks-products-container {
+	width: 100%;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	gap: 2.56rem;
+	align-items: center;
+}
+
+.popular-picks-card {
+	position: relative;
+	display: flex;
+	width: 20%;
+	flex-direction: column;
+	align-items: center;
+	gap: 1.25rem;
+	flex-shrink: 0;
+}
+
+.popular-picks-card:hover {
+	cursor: pointer;
+}
+
+.popular-picks-card__image {
+	height: 16.5625rem;
+	flex-shrink: 0;
+	align-self: stretch;
+}
+
+.popular-picks-card__image img {
+	width: 100%;
+	height: 100%;
+	border-radius: 12px;
+	background: lightgray;
+	object-fit: cover;
+	object-position: center;
+}
+
+.popular-picks-card_info {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 0.75rem;
+}
+
+.popular-picks-card__name {
+	color: #000;
+	text-align: center;
+	font-family: "DM Sans", sans-serif;
+	font-size: 1rem;
+	font-style: normal;
+	font-weight: 600;
+}
+
+.popular-picks-card_footer {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	align-self: stretch;
+}
+
+.popular-picks-card_description {
+	color: #000;
+	text-align: center;
+	font-family: "DM Sans", sans-serif;
+	font-size: 1.125rem;
+	font-style: normal;
+	font-weight: 500;
+}
+
+.popular-picks-card_discount {
+	display: flex;
+	padding: 0.25rem 0rem;
+	justify-content: center;
+	align-items: center;
+	border-radius: 0.5rem;
+	background: #d62b2b;
+	width: 5.25rem;
+	height: 1.875rem;
+}
+
+.popular-picks-card_discount-text {
+	color: #fff;
+	text-align: center;
+	font-family: "DM Sans", sans-serif;
+	font-size: 0.75rem;
+	font-style: normal;
+	font-weight: 700;
+}
+
+/* for meduim sized devices  */
+@media (max-width: 1140px) {
+	.popular-picks-products-container {
+		width: 100%;
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		gap: 1.56rem;
+		align-items: center;
+	}
+	.popular-picks-card {
+		width: 30%;
+		gap: 0.15rem;
+	}
+	.popular-picks-card__image {
+		height: 8.5625rem;
+	}
+	.popular-picks-card__name {
+		width: 100%;
+		color: #000;
+		text-align: center;
+		font-family: "DM Sans", sans-serif;
+		font-size: 0.625rem;
+		font-style: normal;
+		font-weight: 500;
+		line-height: normal;
+	}
+	.popular-picks-card_footer {
+		justify-content: center;
+	}
+	.popular-picks-card_description {
+		color: rgba(0, 0, 0, 0.8);
+		text-align: center;
+		font-family: "DM Sans", sans-serif;
+		font-size: 80%;
+		font-style: normal;
+		font-weight: 500;
+		line-height: normal;
+	}
+	.popular-picks-card_discount {
+		position: absolute;
+		top: 3%;
+		right: 3%;
+
+		width: 20%;
+		height: 5%;
+		border-radius: 0.125rem;
+		background: #d62b2b;
+	}
+
+	.popular-picks-card_discount-text {
+		color: #fff;
+		text-align: center;
+		font-family: "DM Sans", sans-serif;
+		font-style: normal;
+		font-weight: 500;
+		font-size: 0.5em;
+		line-height: normal;
+	}
+}
+
+@media (max-width: 600px) {
+	.popular-picks {
+		width: 100%;
+		height: auto;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: start;
+		margin-bottom: 4rem;
+		gap: 0.94rem;
+	}
+
+	.popular-picks-heading {
+		width: 10.875rem;
+		height: 2.125rem;
+		flex-shrink: 0;
+
+		/* Section Title */
+		color: #0f0705;
+		font-family: "DM Sans", sans-serif;
+		font-size: 1.625rem;
+		font-style: normal;
+		font-weight: 700;
+		line-height: normal;
+	}
+	.popular-picks-products-container {
+		width: 100%;
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		gap: 0.76rem;
+		align-items: center;
+	}
+	.popular-picks-card {
+		width: 30%;
+	}
+	.popular-picks-card__image {
+		height: 5.5625rem;
+	}
+	.popular-picks-card__image img {
+		border-radius: 0.3125rem;
+	}
+	.popular-picks-card_info {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		gap: 0.15rem;
+	}
+	.popular-picks-card__name {
+		color: #000;
+		text-align: center;
+		font-family: "DM Sans";
+		font-size: 0.425rem;
+		font-style: normal;
+		font-weight: 500;
+		line-height: normal;
+	}
+	.popular-picks-card_footer {
+		justify-content: center;
+	}
+	.popular-picks-card_description {
+		color: rgba(0, 0, 0, 0.8);
+		text-align: center;
+		font-family: "DM Sans", sans-serif;
+		font-size: 0.5rem;
+		font-style: normal;
+		font-weight: 500;
+		line-height: normal;
+	}
+	.popular-picks-card_discount {
+		position: absolute;
+		top: 5%;
+		right: 5%;
+
+		width: 20%;
+		height: 3%;
+		border-radius: 0.125rem;
+		background: #d62b2b;
+	}
+
+	.popular-picks-card_discount-text {
+		color: #fff;
+		text-align: center;
+		font-family: "DM Sans", sans-serif;
+		font-size: 0.3125rem;
+		font-style: normal;
+		font-weight: 500;
+		line-height: normal;
+	}
+}
