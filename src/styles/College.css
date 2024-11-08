@@ -1,0 +1,159 @@
+.college_container {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	gap: 1rem;
+	margin-bottom: 2rem;
+}
+
+.cc_cards_container {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+	gap: 4%;
+}
+
+.college_card {
+	display: flex;
+	width: 48%;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	gap: 0.625rem;
+	margin-top: 4%;
+}
+
+.college_card_img {
+	height: 9.375rem;
+	align-self: stretch;
+}
+
+.college_card_img img {
+	border-radius: 0.5rem;
+	background: lightgray 50% / cover no-repeat;
+	width: 100%;
+	height: 100%;
+}
+
+.college_card_name {
+	color: #000;
+	font-family: "Sora", sans-serif;
+	font-size: 0.5rem;
+	font-style: normal;
+	font-weight: 600;
+	line-height: normal;
+}
+
+.college_card_footer {
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.college_card_description {
+	color: #000;
+	font-family: "Sora", sans-serif;
+	font-size: 0.4375rem;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 1.5rem; /* 342.857% */
+}
+
+.college_card_button {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 0.625rem;
+	border-radius: 0.5rem;
+	background: rgba(0, 128, 0, 0.8);
+}
+
+.college_card_button_text {
+	color: #fff;
+	font-family: "Sora", sans-serif;
+	font-size: 0.5rem;
+	font-style: normal;
+	font-weight: 600;
+	line-height: 1.5rem; /* 300% */
+	padding: 0.15rem 0.62rem 0.15rem 0.62rem;
+}
+
+.cc_pages_button_container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 0.5rem;
+	margin-top: 1rem;
+}
+
+.page_button {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 2rem;
+	height: 2rem;
+	border: 1px solid #ccc;
+	border-radius: 0.25rem;
+	background-color: #fff;
+	color: #333;
+	font-size: 0.875rem;
+	cursor: pointer;
+	transition: background-color 0.3s, color 0.3s;
+}
+
+.page_button:hover {
+	background-color: #f2f2f2;
+}
+
+.page_button.active {
+	background-color: black;
+	color: #fff;
+}
+
+.page_button:disabled {
+	opacity: 0.5;
+	cursor: not-allowed;
+}
+
+@media (min-width: 600px) {
+	.college_container {
+		gap: 1rem;
+		margin-bottom: 2rem;
+	}
+
+	.cc_cards_container {
+		gap: 4%;
+	}
+
+	.college_card {
+		width: 30%;
+	}
+}
+
+@media (min-width: 1100px) {
+	.college_card {
+		width: 22%;
+	}
+
+	.college_card_img {
+		height: 14.1875rem;
+	}
+
+	.college_card_name {
+		font-size: 0.8rem;
+	}
+
+	.college_card_description {
+		width: 60%;
+		font-size: 0.875rem;
+		line-height: 1.5rem; /* 342.857% */
+	}
+
+	.college_card_button_text {
+		font-size: 0.8rem;
+		padding: 0.25rem 0.82rem 0.25rem 0.82rem;
+	}
+}
