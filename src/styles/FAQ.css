@@ -1,0 +1,93 @@
+.App {
+  padding: 15px;
+  font-family: Arial, sans-serif;
+  background-color: #ffffff; /* White background */
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  background-color: #ffffff; /* White background */
+}
+
+.navbar h2 {
+  font-size: 18px;
+}
+
+.navbar-links {
+  display: flex;
+  gap: 20px; /* Space between links */
+  justify-content: center;
+  margin-top: 10px;
+  flex-wrap: wrap; /* Allow wrapping on smaller screens */
+}
+.navbar-links a {
+  color: #333;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.faq-sections {
+  padding: 10px;
+  background-color: #ffffff; /* White background */
+}
+
+.faq-section {
+  margin-bottom: 20px;
+}
+
+.faq-question {
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  font-weight: bold;
+  padding: 10px;
+  background-color: #ffffff;
+  border-radius: 5px;
+}
+
+.faq-answer {
+  margin: 10px 0;
+  padding: 10px;
+  background-color: #ffffff;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+@media (max-width: 768px) {
+  .navbar-links {
+    gap: 15px; /* Reduce gap on smaller screens */
+    font-size: 14px;
+  }
+}
+/* Assuming your buttons have classes "back-button" and "menu-button" */
+
+.back-button,
+.menu-button {
+  background: none;         /* Removes the background box */
+  border: none;             /* Removes any border around the button */
+  color: black;             /* Sets the text/icon color to white */
+  font-size: 1.2em;         /* Adjust font size as needed */
+  cursor: pointer;          /* Changes cursor to pointer on hover */
+}
+
+.back-button:hover,
+.menu-button:hover {
+  opacity: 0.8;             /* Optional: adds a subtle hover effect */
+}
+
+/* Remove all margins and padding from the page */
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;       /* Make sure it takes full width */
+  height: 100%;      /* Make sure it takes full height */
+  overflow-x: hidden; /* Prevent horizontal scrolling if any overflow occurs */
+}
+
+/* Ensure the main container or App content also takes the full viewport width */
+.App {
+  width: 100%;
+}
