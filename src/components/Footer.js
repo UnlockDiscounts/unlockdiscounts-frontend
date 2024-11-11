@@ -42,6 +42,8 @@ const Footer = () => {
 					<div className="footer-column-heading">Company</div>
 					<div className="footer-column-text">About us</div>
 					<div className="footer-column-text">Contact us</div>
+					<div className="footer-column-text">Internships</div>
+					<div className="footer-column-text">Certificate Verification</div>
 				</div>
 			</div>
 			<div className="footer-terms">
