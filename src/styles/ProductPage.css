@@ -1,5 +1,5 @@
 /* navbar stylings  */
-.navbar {
+.pp-navbar {
 	height: auto;
 	width: 90%;
 	padding: 19px 0px 19px 0px;
@@ -10,15 +10,16 @@
 	flex-wrap: wrap;
 }
 
-.navbar-logo {
+.pp-navbar-logo {
 	width: 4.25rem;
-	height: 4.0625rem;
-	border-radius: 50%;
-	flex-shrink: 0;
-	background-color: #101010;
 }
 
-.navbar-fonts {
+.pp-navbar-logo img {
+	width: 100%;
+	height: 100%;
+}
+
+.pp-navbar-fonts {
 	color: #000;
 	font-family: "Sora", sans-serif;
 	font-size: 1.25rem;
@@ -27,7 +28,7 @@
 	line-height: normal;
 }
 
-.navbar-fonts:hover {
+.pp-navbar-fonts:hover {
 	cursor: pointer;
 }
 
@@ -94,12 +95,22 @@
 	display: none;
 }
 
+.relative {
+	position: relative;
+}
+
+.absolute {
+	position: absolute;
+}
+
+.z-50 {
+	z-index: 50;
+}
+
 /* mobile and versions below 1200px  */
-@media (max-width: 1443px) {
-	.navbar-logo {
-		width: 2.9375rem;
-		height: 2.9375rem;
-		flex-shrink: 0;
+@media (max-width: 1100px) {
+	.pp-navbar-logo {
+		display: none;
 	}
 	.navbar-fonts {
 		display: none;
@@ -107,6 +118,7 @@
 	.search-container {
 		display: none;
 	}
+
 	.navbar-login {
 		display: none;
 	}
@@ -373,13 +385,15 @@
 
 /* card stylings  */
 .pp_card {
-	width: 30%;
+	width: 27%;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: flex-start;
 	padding: 0.2rem;
 	box-sizing: border-box;
+	gap: 0.2rem;
+	margin-bottom: 2%;
 }
 
 .pp_image {
@@ -422,7 +436,6 @@
 	font-size: 0.625rem;
 	font-style: normal;
 	font-weight: 400;
-	line-height: 1.875rem;
 	margin: 0;
 }
 
@@ -432,7 +445,6 @@
 	font-size: 0.625rem;
 	font-style: normal;
 	font-weight: 700;
-	line-height: normal;
 	margin: 0;
 }
 
@@ -450,7 +462,6 @@
 	font-size: 0.425rem;
 	font-style: normal;
 	font-weight: 400;
-	line-height: 1.875rem;
 	margin: 0;
 }
 
@@ -461,16 +472,15 @@
 	font-size: 0.4rem;
 	font-style: normal;
 	font-weight: 400;
-	line-height: 1.875rem;
 	margin: 0;
 }
 
 .pp-prevPrice-stroke {
 	position: absolute;
 	left: 0;
-	top: 50%;
+	top: 47%;
 	width: 100%;
-	height: 2px;
+	height: 1px;
 	background-color: rgba(0, 0, 0, 0.65);
 	transform: translateY(-50%);
 }
@@ -481,11 +491,32 @@
 	font-size: 0.5rem;
 	font-style: normal;
 	font-weight: 400;
-	line-height: 1.875rem;
 	margin: 0;
 }
 
+.pp-card-button {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 0.425rem;
+	background: #882a2a;
+
+	color: #fff;
+	font-family: "Sora", sans-serif;
+	font-size: 0.5rem;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 0.875rem;
+}
+
 @media (min-width: 750px) {
+	.pp_card {
+		width: 28%;
+		margin-bottom: 2%;
+		gap: 0.5rem;
+	}
+
 	.pp_image {
 		height: 8rem;
 	}
@@ -519,16 +550,26 @@
 		font-size: 0.7rem;
 		line-height: 1.875rem;
 	}
+
+	.pp-card-button {
+		font-size: 0.9rem;
+		line-height: 1.175rem;
+	}
 }
 
 @media (min-width: 1000px) {
 	.pp_card {
-		width: 21%;
+		width: 28%;
+		margin-bottom: 2%;
+		gap: 0.5rem;
+	}
+
+	.pp_image {
+		height: 15rem;
 	}
 
 	.pp-company {
 		font-size: 1.125rem;
-		line-height: 1.875rem;
 		margin: 0;
 	}
 
@@ -538,17 +579,19 @@
 
 	.pp-price {
 		font-size: 0.925rem;
-		line-height: 1.875rem;
 	}
 
 	.pp-prevPrice {
 		font-size: 0.9rem;
-		line-height: 1.875rem;
 	}
 
 	.pp-discount {
 		font-size: 0.9rem;
-		line-height: 1.875rem;
+	}
+
+	.pp-card-button {
+		font-size: 1.2rem;
+		line-height: 1.775rem;
 	}
 }
 
@@ -618,11 +661,12 @@
 
 	/* Adjust card widths for the new layout */
 	.pp_card {
-		width: 30%;
+		width: 28%;
 		margin-bottom: 2%;
+		gap: 0.5rem;
 	}
 	.pp_image {
-		height: 24.5625rem;
+		height: 22.5625rem;
 	}
 	.pp-image-discount {
 		display: none;
@@ -663,5 +707,11 @@
 		font-weight: 500;
 		line-height: 1.875rem; /* 187.5% */
 		padding: 1% 2% 1% 2%;
+	}
+
+	.pp-card-button {
+		border-radius: 0.825rem;
+		font-size: 1.3rem;
+		line-height: 2.75rem;
 	}
 }

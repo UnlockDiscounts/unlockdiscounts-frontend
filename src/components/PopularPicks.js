@@ -2,6 +2,7 @@ import React from "react";
 import "../styles/PopularPicks.css";
 import data from "../data/data";
 import PopularPickCard from "./PopularPickCard";
+import ProductPageCard from "./ProductPageCard";
 
 const PopularPicks = () => {
 	return (
@@ -9,7 +10,7 @@ const PopularPicks = () => {
 			<div className="popular-picks-heading">Popular Picks</div>
 			<div className="popular-picks-products-container">
 				{data.map((item, index) => (
-					<PopularPickCard data={item} key={index} />
+					<ProductPageCard data={item} key={index} />
 				))}
 			</div>
 		</div>

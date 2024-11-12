@@ -1,0 +1,463 @@
+.banking-page-container {
+	width: 90%;
+	flex-grow: 1;
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 1.2rem;
+}
+
+.bp_filter_container {
+	width: 100%;
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+	gap: 3%;
+}
+
+.bp_filter_text {
+	color: #000;
+	font-family: "Sora", sans-serif;
+	font-size: 0.625rem;
+	font-style: normal;
+	font-weight: 600;
+	line-height: normal;
+}
+
+.bp_filter_dropdown {
+	display: flex;
+	justify-content: center;
+	align-items: baseline;
+
+	color: #000;
+	font-family: "Sora", sans-serif;
+	font-size: 0.625rem;
+	font-style: normal;
+	font-weight: 400;
+	line-height: normal;
+}
+
+.bp_heading {
+	width: 120%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: black;
+	align-items: center;
+	flex-shrink: 0;
+	margin-left: -3%;
+}
+
+.bp_heading_text {
+	width: 80%;
+	color: #fff;
+	text-align: center;
+	font-family: "Sora", sans-serif;
+	font-size: 0.875rem;
+	font-style: normal;
+	font-weight: 680;
+	line-height: normal;
+	padding-top: 0.96rem;
+	padding-bottom: 0.96rem;
+}
+
+/* Credit Cards Section */
+.credit_cards {
+	position: relative;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	margin-bottom: 3%;
+}
+
+.cc_heading {
+	color: #0f0705;
+	font-family: "Sora", sans-serif;
+	font-size: 1.25rem;
+	font-style: normal;
+	font-weight: 680;
+	line-height: normal;
+}
+
+.cc_cards_container {
+	width: 100%;
+	display: flex;
+	justify-content: flex-start;
+	gap: 1rem;
+	overflow-x: auto;
+	padding: 1rem 0;
+	flex-wrap: nowrap; /* Prevents wrapping */
+	-webkit-overflow-scrolling: touch;
+}
+
+.cc_card {
+	width: 49%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.cc_card_image {
+	width: 16rem;
+	height: 7.6875rem;
+}
+
+.cc_card_image img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	background-position: center;
+}
+
+.cc_card_button {
+	display: flex;
+	width: 5.125rem;
+	height: 2rem;
+	padding-right: 0.0625rem;
+	justify-content: center;
+	align-items: center;
+	flex-shrink: 0;
+	border-radius: 0.3125rem;
+	border: 0.819px solid #882a2a;
+	background: #882a2a;
+	box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+
+	color: #fff;
+	font-family: "Sora", sans-serif;
+	font-size: 0.625rem;
+	font-style: normal;
+	font-weight: 520;
+	line-height: 100%; /* 0.625rem */
+}
+
+/* for zero saving accounts  */
+.zero-saving-account {
+	position: relative;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+
+	margin-bottom: 3%;
+}
+
+.zsa_heading {
+	color: #0f0705;
+	font-family: "Sora", sans-serif;
+	font-size: 1.25rem;
+	font-style: normal;
+	font-weight: 680;
+	line-height: normal;
+}
+
+.zsa_cards_container {
+	width: 100%;
+	display: flex;
+	justify-content: flex-start;
+	gap: 2rem;
+	overflow-x: auto;
+	padding: 1rem 0;
+	flex-wrap: nowrap; /* Prevents wrapping */
+	-webkit-overflow-scrolling: touch;
+}
+
+.zsa_card {
+	width: 49%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	gap: 1rem;
+}
+
+.zsa_card_image {
+	width: 11rem;
+	height: 5.8125rem;
+}
+
+.zsa_card_image img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	background-position: center;
+	border-radius: 0.75rem;
+	box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+.zsa_card_button {
+	display: flex;
+	width: 5.125rem;
+	height: 2rem;
+	padding-right: 0.0625rem;
+	justify-content: center;
+	align-items: center;
+	flex-shrink: 0;
+	border-radius: 0.3125rem;
+	border: 0.819px solid #882a2a;
+	background: #882a2a;
+	box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+
+	color: #fff;
+	font-family: "Sora", sans-serif;
+	font-size: 0.625rem;
+	font-style: normal;
+	font-weight: 520;
+	line-height: 100%; /* 0.625rem */
+}
+
+/* for saving application section  */
+.saving-applications {
+	position: relative;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	margin-bottom: 3%;
+}
+
+.sap_heading {
+	color: #0f0705;
+	font-family: "Sora", sans-serif;
+	font-size: 1.25rem;
+	font-style: normal;
+	font-weight: 680;
+	line-height: normal;
+}
+
+.sap_cards_container {
+	width: 100%;
+	display: flex;
+	justify-content: flex-start;
+	gap: 2rem;
+	overflow-x: auto;
+	padding: 1rem 0;
+	flex-wrap: nowrap; /* Prevents wrapping */
+	-webkit-overflow-scrolling: touch;
+}
+
+.sap_card {
+	width: 47%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	gap: 1rem;
+}
+
+.sap_card_header {
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: 1.5rem;
+}
+
+.sap_card_image {
+	width: 3.1875rem;
+}
+
+.sap_card_image img {
+	width: 100%;
+	height: 100%;
+	border-radius: 4.6875rem;
+
+	background: lightgray 50% / cover no-repeat;
+}
+
+.sap_card_heading {
+	color: #000;
+	font-family: "Sora", sans-serif;
+	font-size: 1.5rem;
+	font-style: normal;
+	font-weight: 700;
+	line-height: normal;
+}
+
+.sap_card_description {
+	color: #000;
+	text-align: justify;
+	font-family: "Sora", sans-serif;
+	font-size: 0.875rem;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 1.5rem; /* 171.429% */
+}
+
+.sap_card_button {
+	width: 100%;
+	display: flex;
+	padding: 0.75rem 0.625rem;
+	justify-content: center;
+	align-items: center;
+	gap: 0.75rem;
+	align-self: stretch;
+	border-radius: 0.5rem;
+	background: #101010;
+
+	color: #fff;
+	font-family: "Sora", sans-serif;
+	font-size: 0.475rem;
+	font-style: normal;
+	font-weight: 680;
+	line-height: normal;
+}
+
+/* scroll button stylings  */
+
+.scroll_button {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	width: 2rem;
+	height: 2rem;
+	border: none;
+	border-radius: 50%;
+	background-color: #cccccc;
+	color: #333;
+	cursor: pointer;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.scroll_button.left {
+	left: -2%;
+}
+
+.scroll_button.right {
+	right: -2%;
+}
+
+.scroll_button:hover {
+	background-color: #888888;
+}
+
+/* Medium-sized devices (e.g., tablets) */
+@media (min-width: 768px) and (max-width: 1325px) {
+	.bp_filter_text {
+		font-size: 0.925rem;
+		font-weight: 600;
+	}
+
+	.bp_filter_dropdown {
+		font-size: 0.725rem;
+		font-weight: 600;
+	}
+
+	.cc_card,
+	.zsa_card,
+	.sap_card {
+		width: 30%; /* Adjust width to fit 3 cards per row */
+	}
+
+	.cc_card_image {
+		width: 21.31544rem;
+		height: 9.125rem;
+	}
+
+	.zsa_card_image {
+		width: 14rem;
+		height: 7.06219rem;
+	}
+
+	.sap_cards_container {
+		gap: 3rem;
+	}
+
+	.sap_card_header {
+		gap: 4rem;
+	}
+
+	.sap_card_image {
+		width: 4.6875rem;
+	}
+
+	.sap_card_button {
+		font-size: 0.675rem;
+	}
+}
+
+/* Large-sized devices (e.g., desktops) */
+@media (min-width: 1325px) {
+	.bp_filter_text {
+		font-size: 1.025rem;
+		font-weight: 600;
+	}
+
+	.bp_filter_dropdown {
+		font-size: 1.025rem;
+		font-weight: 600;
+	}
+
+	.cc_card,
+	.zsa_card,
+	.sap_card {
+		width: 22%; /* Adjust width to fit 4 cards per row */
+	}
+
+	.cc_card_image {
+		width: 26.31544rem;
+		height: 12.125rem;
+	}
+
+	.zsa_card_image {
+		width: 18rem;
+		height: 9.06219rem;
+	}
+
+	.sap_cards_container {
+		gap: 3rem;
+	}
+
+	.sap_card_header {
+		gap: 6rem;
+	}
+
+	.sap_card_image {
+		width: 6.6875rem;
+	}
+
+	.sap_card_button {
+		font-size: 0.875rem;
+	}
+}
+
+/* Scrollbar styling for all scrollable containers */
+.cc_cards_container,
+.zsa_cards_container,
+.sap_cards_container {
+	scrollbar-width: thin; /* For Firefox */
+	scrollbar-color: #cccccc transparent; /* For Firefox */
+}
+
+/* WebKit browsers (Chrome, Safari, Edge) */
+.cc_cards_container::-webkit-scrollbar,
+.zsa_cards_container::-webkit-scrollbar,
+.sap_cards_container::-webkit-scrollbar {
+	width: 6px; /* Thinner scrollbar width */
+	height: 6px; /* Thinner scrollbar height for horizontal scrolling */
+}
+
+.cc_cards_container::-webkit-scrollbar-track,
+.zsa_cards_container::-webkit-scrollbar-track,
+.sap_cards_container::-webkit-scrollbar-track {
+	background: transparent; /* Transparent track */
+}
+
+.cc_cards_container::-webkit-scrollbar-thumb,
+.zsa_cards_container::-webkit-scrollbar-thumb,
+.sap_cards_container::-webkit-scrollbar-thumb {
+	background-color: #888888; /* Subtle thumb color */
+	border-radius: 3px; /* Rounded edges for a softer look */
+}
+
+/* Optional: Hover effect for scrollbar thumb */
+.cc_cards_container::-webkit-scrollbar-thumb:hover,
+.zsa_cards_container::-webkit-scrollbar-thumb:hover,
+.sap_cards_container::-webkit-scrollbar-thumb:hover {
+	background-color: #666666; /* Darker color on hover */
+}

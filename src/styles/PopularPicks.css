@@ -119,7 +119,6 @@
 		display: flex;
 		flex-wrap: wrap;
 		justify-content: space-between;
-		gap: 1.56rem;
 		align-items: center;
 	}
 	.popular-picks-card {
@@ -181,7 +180,7 @@
 		flex-direction: column;
 		justify-content: center;
 		align-items: start;
-		margin-bottom: 4rem;
+		margin-bottom: 2rem;
 		gap: 0.94rem;
 	}
 
@@ -189,6 +188,7 @@
 		width: 10.875rem;
 		height: 2.125rem;
 		flex-shrink: 0;
+		margin-top: 0.5rem;
 
 		/* Section Title */
 		color: #0f0705;
@@ -198,6 +198,7 @@
 		font-weight: 700;
 		line-height: normal;
 	}
+
 	.popular-picks-products-container {
 		width: 100%;
 		display: flex;
@@ -207,12 +208,15 @@
 		align-items: center;
 	}
 	.popular-picks-card {
+		gap: 0.15rem;
 		width: 30%;
 	}
 	.popular-picks-card__image {
-		height: 5.5625rem;
+		height: 4.5625rem;
 	}
 	.popular-picks-card__image img {
+		width: 100%;
+		height: 100%;
 		border-radius: 0.3125rem;
 	}
 	.popular-picks-card_info {

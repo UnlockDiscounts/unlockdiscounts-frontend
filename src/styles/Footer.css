@@ -70,7 +70,7 @@
 }
 
 /* Responsive Adjustments */
-@media (max-width: 950px) {
+@media (min-width: 950px) {
 	.footer-text-container {
 		grid-template-columns: repeat(3, 1fr);
 	}

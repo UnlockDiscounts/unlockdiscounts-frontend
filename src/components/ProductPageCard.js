@@ -17,6 +17,7 @@ const ProductPageCard = ({ data }) => {
 				</div>
 				<div className="pp-discount">{data.discount}% OFF</div>
 			</div>
+			<div className="pp-card-button">Buy Now</div>
 		</div>
 	);
 };

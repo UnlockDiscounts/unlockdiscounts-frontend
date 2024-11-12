@@ -12,10 +12,11 @@
 
 .navbar-logo {
 	width: 4.25rem;
-	height: 4.0625rem;
-	border-radius: 50%;
-	flex-shrink: 0;
-	background-color: #101010;
+}
+
+.navbar-logo img {
+	width: 100%;
+	height: 100%;
 }
 
 .navbar-fonts {
@@ -31,7 +32,7 @@
 	cursor: pointer;
 }
 
-.search-container {
+.navbar-search-container {
 	width: 20.6875rem;
 	height: 3rem;
 	border-radius: 2.1875rem;
@@ -44,13 +45,13 @@
 	padding: 6px 10px 6px 10px;
 }
 
-.search-icon {
+.navbar-search-icon {
 	width: 1.75rem;
 	height: 1.75rem;
 	flex-shrink: 0;
 }
 
-.search-input {
+.navbar-search-input {
 	width: 331px;
 	border: none;
 
@@ -62,7 +63,7 @@
 	line-height: normal;
 }
 
-.search-input:focus {
+.navbar-search-input:focus {
 	outline: none;
 	border: none;
 }
@@ -95,16 +96,40 @@
 }
 
 /* mobile and versions below 1200px  */
-@media (max-width: 1443px) {
+@media (max-width: 1100px) {
 	.navbar-logo {
 		width: 2.9375rem;
 		height: 2.9375rem;
+	}
+
+	.navbar-search-container {
+		width: 70%;
+		height: 1.75rem;
 		flex-shrink: 0;
+
+		border-radius: 0.5rem;
+		border: 0.5px solid #000;
+		background: #fff;
+
+		padding: 2px 10px 2px 10px;
 	}
+
+	.navbar-search-icon {
+		background-color: black;
+		color: white;
+		width: 0.925rem;
+		height: 0.925rem;
+		flex-shrink: 0;
+		border-radius: 50%;
+		padding: 0.1rem;
+	}
+
+	.navbar-search-input {
+		font-size: 0.5rem;
+		font-weight: 400;
+	}
+
 	.navbar-fonts {
-		display: none;
-	}
-	.search-container {
 		display: none;
 	}
 	.navbar-login {
@@ -234,4 +259,81 @@
 
 .sidebar {
 	animation: slideIn 0.3s ease-out;
+}
+
+/* Add these styles to your existing Navbar.css file */
+
+.relative {
+	position: relative;
+}
+
+.absolute {
+	position: absolute;
+}
+
+.top-full {
+	top: 100%;
+}
+
+.mt-2 {
+	margin-top: 0.5rem;
+}
+
+.bg-white {
+	background-color: white;
+}
+
+.border {
+	border-width: 1px;
+}
+
+.border-gray-200 {
+	border-color: #e5e7eb;
+}
+
+.rounded-md {
+	border-radius: 0.375rem;
+}
+
+.shadow-lg {
+	box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+		0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+.z-50 {
+	z-index: 50;
+}
+
+.px-4 {
+	padding-left: 1rem;
+	padding-right: 1rem;
+}
+
+.py-2 {
+	padding-top: 0.5rem;
+	padding-bottom: 0.5rem;
+}
+
+.hover\:bg-gray-100:hover {
+	background-color: #f3f4f6;
+}
+
+.cursor-pointer {
+	cursor: pointer;
+}
+
+.flex {
+	display: flex;
+}
+
+.items-center {
+	align-items: center;
+}
+
+.w-full {
+	width: 100%;
+}
+
+.ml-4 {
+	margin-left: 1rem;
 }

@@ -1,6 +1,6 @@
 .recently-visited {
 	width: 100%;
-	margin: 100px 0;
+	margin: 5rem 0;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -54,6 +54,10 @@
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
+	.recently-visited {
+		margin: 3rem 0;
+	}
+
 	.recently-visited-heading {
 		font-size: 28px;
 	}
@@ -68,6 +72,10 @@
 }
 
 @media (max-width: 480px) {
+	.recently-visited {
+		margin: 1rem 0;
+	}
+
 	.recently-visited-heading {
 		font-size: 24px;
 	}

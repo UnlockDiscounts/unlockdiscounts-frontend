@@ -8,13 +8,15 @@ import { FaSortDown } from "react-icons/fa";
 import { IoMdClose } from "react-icons/io";
 import product_data from "../data/product_data";
 import ProductPageCard from "./ProductPageCard";
+import Logo from "../assets/Logo.svg";
 
 const ProductPage = () => {
-	var { category_param } = useParams();
+	const { category_param } = useParams();
 	const [category, setCategory] = useState(category_param);
 	const navigate = useNavigate();
 	const [showFilter, setShowFilter] = useState(false);
 	const [filteredProducts, setFilteredProducts] = useState(product_data);
+	const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 	const [filters, setFilters] = useState({
 		category: category_param,
 		minPrice: 0,
@@ -24,32 +26,12 @@ const ProductPage = () => {
 
 	useEffect(() => {
 		applyFilters();
-	}, category_param);
+	}, [category_param]);
 
-	const categories = [
-		"Men",
-		"Women",
-		"Kids",
-		"Electronic",
-		"Pet Care",
-		"Home Appliance",
-		"Mobile & Accessories",
-	];
-
-	const discountOptions = [
-		{ value: 10, label: "10% Off or more" },
-		{ value: 20, label: "20% Off or more" },
-		{ value: 30, label: "30% Off or more" },
-		{ value: 50, label: "50% Off or more" },
-		{ value: 70, label: "70% Off or more" },
-	];
-
-	// Update filters when category_param changes
 	useEffect(() => {
 		setFilters((prev) => ({ ...prev, category: category_param }));
 	}, [category_param]);
 
-	// Apply filters to product data
 	const applyFilters = () => {
 		let filtered = product_data.filter((product) => {
 			const matchesCategory =
@@ -66,33 +48,81 @@ const ProductPage = () => {
 		setShowFilter(false);
 	};
 
-	// Handle category change
-	const handleCategoryChange = (newCategory) => {
+	const handleCategoryClick = (newCategory) => {
 		setCategory(newCategory);
 		setFilters((prev) => ({ ...prev, category: newCategory }));
 		navigate(`/products/${newCategory}`);
-		window.location.reload();
+		setIsDropdownOpen(false);
 	};
+
+	const navigateToMen = () => navigate("/products/Men");
+	const navigateToWomen = () => navigate("/products/Women");
+	const navigateToKids = () => navigate("/products/Kids");
+	const navigateToElectronic = () => navigate("/products/Electronic");
+	const navigateToOnlineLearnings = () => navigate("/online_learning");
+	const navigateToBanking = () => navigate("/banking");
 
 	return (
 		<div id="wrapper">
-			{/* navbar for the product page  */}
-			<div className="navbar mobile">
-				<div className="navbar-logo"></div>
-				<p className="navbar-fonts">
-					Categories <FaSortDown />
+			<div className="pp-navbar mobile">
+				<div className="pp-navbar-logo">
+					<img
+						src={Logo}
+						alt="Logo"
+						onClick={() => {
+							navigate("/");
+						}}
+					/>
+				</div>
+
+				<div className="relative">
+					<div
+						className="pp-navbar-fonts flex items-center cursor-pointer"
+						onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+					>
+						Categories <FaSortDown className="ml-1" />
+					</div>
+
+					{isDropdownOpen && (
+						<div className="absolute top-full left-0 mt-1 bg-white shadow-lg rounded-md py-2 z-50 min-w-[200px]">
+							<div
+								className="px-4 py-2 hover:bg-gray-100 cursor-pointer text-sm"
+								onClick={navigateToElectronic}
+							>
+								Electronic
+							</div>
+							<div
+								className="px-4 py-2 hover:bg-gray-100 cursor-pointer text-sm"
+								onClick={navigateToOnlineLearnings}
+							>
+								Online Learnings
+							</div>
+							<div
+								className="px-4 py-2 hover:bg-gray-100 cursor-pointer text-sm"
+								onClick={navigateToBanking}
+							>
+								Banking
+							</div>
+						</div>
+					)}
+				</div>
+
+				<p className="pp-navbar-fonts cursor-pointer" onClick={navigateToMen}>
+					Men
 				</p>
-				<p className="navbar-fonts">Men</p>
-				<p className="navbar-fonts">Women</p>
-				<p className="navbar-fonts">Kids</p>
-				<p className="navbar-fonts">New Arrivals</p>
+				<p className="pp-navbar-fonts cursor-pointer" onClick={navigateToWomen}>
+					Women
+				</p>
+				<p className="pp-navbar-fonts cursor-pointer" onClick={navigateToKids}>
+					Kids
+				</p>
+				<p className="pp-navbar-fonts cursor-pointer">New Arrivals</p>
+
 				<div className="search-container">
 					<CiSearch className="search-icon" />
-					<input
-						className="search-input"
-						placeholder="Search product ..."
-					></input>
+					<input className="search-input" placeholder="Search product ..." />
 				</div>
+
 				<div className="navbar-login">
 					<p className="navbar-login-text">Sign up / Login</p>
 				</div>
@@ -129,7 +159,6 @@ const ProductPage = () => {
 					))}
 				</div>
 
-				{/* Filter Modal */}
 				<div className={`filter-overlay ${showFilter ? "show" : ""}`}>
 					<div className="modal-container">
 						<div className="modal-header">
@@ -145,21 +174,87 @@ const ProductPage = () => {
 						<div className="category-container">
 							<div className="category-heading">CATEGORY</div>
 							<div className="radio-group">
-								{categories.map((cat) => (
-									<div className="radio-item" key={cat}>
-										<input
-											type="radio"
-											id={`category-${cat}`}
-											name="category"
-											value={cat}
-											checked={filters.category === cat}
-											onChange={() => handleCategoryChange(cat)}
-										/>
-										<label className="radio-label" htmlFor={`category-${cat}`}>
-											{cat}
-										</label>
-									</div>
-								))}
+								<div className="radio-item">
+									<input
+										type="radio"
+										id="category-men"
+										name="category"
+										value="Men"
+										checked={filters.category === "Men"}
+										onChange={() => handleCategoryClick("Men")}
+									/>
+									<label className="radio-label" htmlFor="category-men">
+										Men
+									</label>
+								</div>
+								<div className="radio-item">
+									<input
+										type="radio"
+										id="category-women"
+										name="category"
+										value="Women"
+										checked={filters.category === "Women"}
+										onChange={() => handleCategoryClick("Women")}
+									/>
+									<label className="radio-label" htmlFor="category-women">
+										Women
+									</label>
+								</div>
+								<div className="radio-item">
+									<input
+										type="radio"
+										id="category-kids"
+										name="category"
+										value="Kids"
+										checked={filters.category === "Kids"}
+										onChange={() => handleCategoryClick("Kids")}
+									/>
+									<label className="radio-label" htmlFor="category-kids">
+										Kids
+									</label>
+								</div>
+								<div className="radio-item">
+									<input
+										type="radio"
+										id="category-electronic"
+										name="category"
+										value="Electronic"
+										checked={filters.category === "Electronic"}
+										onChange={() => handleCategoryClick("Electronic")}
+									/>
+									<label className="radio-label" htmlFor="category-electronic">
+										Electronic
+									</label>
+								</div>
+								<div className="radio-item">
+									<input
+										type="radio"
+										id="category-online-learnings"
+										name="category"
+										value="Online Learnings"
+										checked={filters.category === "Online Learnings"}
+										onChange={() => handleCategoryClick("Online Learnings")}
+									/>
+									<label
+										className="radio-label"
+										htmlFor="category-online-learnings"
+									>
+										Online Learnings
+									</label>
+								</div>
+								<div className="radio-item">
+									<input
+										type="radio"
+										id="category-banking"
+										name="category"
+										value="Banking"
+										checked={filters.category === "Banking"}
+										onChange={() => handleCategoryClick("Banking")}
+									/>
+									<label className="radio-label" htmlFor="category-banking">
+										Banking
+									</label>
+								</div>
 							</div>
 						</div>
 
@@ -197,29 +292,81 @@ const ProductPage = () => {
 						<div className="discounts-container">
 							<div className="discount-heading">DISCOUNTS</div>
 							<div className="radio-group">
-								{discountOptions.map(({ value, label }) => (
-									<div className="radio-item" key={value}>
-										<input
-											type="radio"
-											id={`discount-${value}`}
-											name="discount"
-											value={value}
-											checked={filters.discount === value}
-											onChange={() =>
-												setFilters((prev) => ({
-													...prev,
-													discount: value,
-												}))
-											}
-										/>
-										<label
-											className="radio-label"
-											htmlFor={`discount-${value}`}
-										>
-											{label}
-										</label>
-									</div>
-								))}
+								<div className="radio-item">
+									<input
+										type="radio"
+										id="discount-10"
+										name="discount"
+										value="10"
+										checked={filters.discount === 10}
+										onChange={() =>
+											setFilters((prev) => ({ ...prev, discount: 10 }))
+										}
+									/>
+									<label className="radio-label" htmlFor="discount-10">
+										10% Off or more
+									</label>
+								</div>
+								<div className="radio-item">
+									<input
+										type="radio"
+										id="discount-20"
+										name="discount"
+										value="20"
+										checked={filters.discount === 20}
+										onChange={() =>
+											setFilters((prev) => ({ ...prev, discount: 20 }))
+										}
+									/>
+									<label className="radio-label" htmlFor="discount-20">
+										20% Off or more
+									</label>
+								</div>
+								<div className="radio-item">
+									<input
+										type="radio"
+										id="discount-30"
+										name="discount"
+										value="30"
+										checked={filters.discount === 30}
+										onChange={() =>
+											setFilters((prev) => ({ ...prev, discount: 30 }))
+										}
+									/>
+									<label className="radio-label" htmlFor="discount-30">
+										30% Off or more
+									</label>
+								</div>
+								<div className="radio-item">
+									<input
+										type="radio"
+										id="discount-50"
+										name="discount"
+										value="50"
+										checked={filters.discount === 50}
+										onChange={() =>
+											setFilters((prev) => ({ ...prev, discount: 50 }))
+										}
+									/>
+									<label className="radio-label" htmlFor="discount-50">
+										50% Off or more
+									</label>
+								</div>
+								<div className="radio-item">
+									<input
+										type="radio"
+										id="discount-70"
+										name="discount"
+										value="70"
+										checked={filters.discount === 70}
+										onChange={() =>
+											setFilters((prev) => ({ ...prev, discount: 70 }))
+										}
+									/>
+									<label className="radio-label" htmlFor="discount-70">
+										70% Off or more
+									</label>
+								</div>
 							</div>
 						</div>
 

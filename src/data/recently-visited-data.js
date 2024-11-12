@@ -1,16 +1,59 @@
-import cloths from "../assets/cloths.png";
-import purse from "../assets/purse.png";
-import stones from "../assets/stones.png";
+import image from "../assets/cloths.png";
 
 const recently_visited_data = [
 	{
-		image: cloths,
+		image: image,
+		company: "Zara",
+		type: "Formal Suit",
+		price: 1900,
+		prevPrice: 2500,
+		discount: 24,
+		category: "Men",
 	},
 	{
-		image: purse,
+		image: image,
+		company: "Zara",
+		type: "Formal Suit",
+		price: 1900,
+		prevPrice: 2500,
+		discount: 24,
+		category: "Men",
 	},
 	{
-		image: stones,
+		image: image,
+		company: "Zara",
+		type: "Formal Suit",
+		price: 1900,
+		prevPrice: 2500,
+		discount: 24,
+		category: "Men",
+	},
+	{
+		image: image,
+		company: "Zara",
+		type: "Formal Suit",
+		price: 1900,
+		prevPrice: 2500,
+		discount: 24,
+		category: "Men",
+	},
+	{
+		image: image,
+		company: "Zara",
+		type: "Formal Suit",
+		price: 1900,
+		prevPrice: 2500,
+		discount: 24,
+		category: "Men",
+	},
+	{
+		image: image,
+		company: "Zara",
+		type: "Formal Suit",
+		price: 1900,
+		prevPrice: 2500,
+		discount: 24,
+		category: "Men",
 	},
 ];
 

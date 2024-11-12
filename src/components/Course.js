@@ -1,70 +1,93 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import "../styles/Course.css";
 import course_data from "../data/course_data";
 import CourseCard from "./CourseCard";
-import { FaCaretLeft } from "react-icons/fa6";
-import { FaCaretRight } from "react-icons/fa6";
+import { FaArrowLeft, FaArrowRight } from "react-icons/fa6";
 
 const Course = () => {
 	const data = course_data;
-	const [currentPage, setCurrentPage] = useState(1);
-	const itemsPerPage = 8;
-	const totalPages = Math.ceil(data.length / itemsPerPage);
+	// Refs for each scrollable container
+	const allCourse = useRef(null);
+	const demand = useRef(null);
+	const preference = useRef(null);
 
-	const handlePageChange = (pageNumber) => {
-		setCurrentPage(pageNumber);
+	// Scroll function for left and right buttons
+	const scroll = (ref, direction) => {
+		const scrollAmount = 300;
+		if (direction === "left") {
+			ref.current.scrollBy({ left: -scrollAmount, behavior: "smooth" });
+		} else {
+			ref.current.scrollBy({ left: scrollAmount, behavior: "smooth" });
+		}
 	};
-
-	const handlePrevPage = () => {
-		setCurrentPage((prevPage) => (prevPage > 1 ? prevPage - 1 : prevPage));
-	};
-
-	const handleNextPage = () => {
-		setCurrentPage((prevPage) =>
-			prevPage < totalPages ? prevPage + 1 : prevPage
-		);
-	};
-
-	const indexOfLastItem = currentPage * itemsPerPage;
-	const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-	const currentItems = data.slice(indexOfFirstItem, indexOfLastItem);
 
 	return (
 		<div className="course_container">
-			<div className="cc_cards_container">
-				{currentItems.map((item, index) => (
-					<CourseCard data={item} key={index} />
-				))}
+			{/* all courses  */}
+			<div className="course_section">
+				<div className="course_section_heading">Explore Courses</div>
+				<button
+					className="scroll_button left"
+					onClick={() => scroll(allCourse, "left")}
+				>
+					<FaArrowLeft />
+				</button>
+				<button
+					className="scroll_button right"
+					onClick={() => scroll(allCourse, "right")}
+				>
+					<FaArrowRight />
+				</button>
+				<div className="all_course_cards_container" ref={allCourse}>
+					{data.map((item, index) => (
+						<CourseCard data={item} key={index} />
+					))}
+				</div>
 			</div>
 
-			<div className="cc_pages_button_container">
+			{/* in demand  */}
+			<div className="course_section">
+				<div className="course_section_heading">
+					Most In-Demand Certifications
+				</div>
 				<button
-					className="page_button"
-					onClick={handlePrevPage}
-					disabled={currentPage === 1}
+					className="scroll_button left"
+					onClick={() => scroll(demand, "left")}
 				>
-					<FaCaretLeft size={24} />
+					<FaArrowLeft />
 				</button>
-				{Array.from({ length: totalPages }, (_, i) => i + 1).map(
-					(pageNumber) => (
-						<button
-							key={pageNumber}
-							className={`page_button ${
-								currentPage === pageNumber ? "active" : ""
-							}`}
-							onClick={() => handlePageChange(pageNumber)}
-						>
-							{pageNumber}
-						</button>
-					)
-				)}
 				<button
-					className="page_button"
-					onClick={handleNextPage}
-					disabled={currentPage === totalPages}
+					className="scroll_button right"
+					onClick={() => scroll(demand, "right")}
 				>
-					<FaCaretRight size={24} />
+					<FaArrowRight />
 				</button>
+				<div className="all_course_cards_container" ref={demand}>
+					{data.map((item, index) => (
+						<CourseCard data={item} key={index} />
+					))}
+				</div>
+			</div>
+
+			<div className="course_section">
+				<div className="course_section_heading">Based on Your Preferences</div>
+				<button
+					className="scroll_button left"
+					onClick={() => scroll(preference, "left")}
+				>
+					<FaArrowLeft />
+				</button>
+				<button
+					className="scroll_button right"
+					onClick={() => scroll(preference, "right")}
+				>
+					<FaArrowRight />
+				</button>
+				<div className="all_course_cards_container" ref={preference}>
+					{data.map((item, index) => (
+						<CourseCard data={item} key={index} />
+					))}
+				</div>
 			</div>
 		</div>
 	);
