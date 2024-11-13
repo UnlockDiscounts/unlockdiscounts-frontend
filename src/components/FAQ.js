@@ -1,18 +1,17 @@
 import React, { useState } from 'react';
 import '../styles/FAQ.css';
-import Navbar from './components/Navbar'; 
-import Footer from './components/Footer'; 
+import Navbar from './Navbar'; 
+import Footer from './Footer'; 
 
 const faqData = [
   {
     section: "General FAQs",
     questions: [
-      { question: "How do I use a discount code?", answer: "Simply copy the discount code and apply it at checkout on the partner website. Look for a “Promo Code” or “Discount Code” box during the payment process. Enter the code, and the discount will apply if the terms are met." },
-      { question: "Why isn’t my discount code working?", answer: "Make sure the code is still valid, as some discounts have expiration dates. Also, check if there are specific conditions, such as minimum order value or restrictions on product categories. If you’re still facing issues, the code may be region-locked or limited to specific items." },
-      { question: "Can I use multiple codes in one transaction?", answer: "Many retailers allow only one discount code per order, so check the site’s policy. However, some banks may offer cashback or additional offers, which can stack with your promo code." },
+      { question: "How do I use a discount code?", answer: "Simply copy the discount code and apply it at checkout on the partner website..." },
+      { question: "Why isn’t my discount code working?", answer: "Make sure the code is still valid, as some discounts have expiration dates..." },
+      { question: "Can I use multiple codes in one transaction?", answer: "Many retailers allow only one discount code per order..." },
     ],
   },
-  
   {
     section: "Fashion Discounts FAQs",
     questions: [
@@ -43,7 +42,8 @@ const faqData = [
       { question: "Can I get banking discounts for international purchases?", answer: "Yes, many retailers offer refurbished products at a discount. Check the electronics section on our site to see available deals on refurbished items, which can be an affordable alternative to new items." },
       { question: "Are there discounts for digital payments?", answer: "Double-check the discount terms, including expiration date and eligible product categories. If you have issues, confirm on the retailer’s website or contact their customer service for help." },
     ],
-  },
+  }
+  // ... other sections here
 ];
 
 const FAQ = () => {
@@ -57,10 +57,10 @@ const FAQ = () => {
     <div className="App">
       <Navbar />
 
-      <div className="faq-sections">
+      <div className="faq-container">
         {faqData.map((section, sectionIndex) => (
           <div key={sectionIndex} className="faq-section">
-            <h3>{section.section}</h3>
+            <h3 className="faq-heading">{section.section}</h3>
             <ul className="faq-list">
               {section.questions.map((item, index) => (
                 <li
@@ -72,11 +72,9 @@ const FAQ = () => {
                     {item.question}
                     <span>{activeIndex === `${sectionIndex}-${index}` ? "▲" : "▼"}</span>
                   </div>
-                  {activeIndex === `${sectionIndex}-${index}` && (
-                    <div className="faq-answer">
-                      {item.answer}
-                    </div>
-                  )}
+                  <div className={`faq-answer ${activeIndex === `${sectionIndex}-${index}` ? 'active' : ''}`}>
+                    {item.answer}
+                  </div>
                 </li>
               ))}
             </ul>
@@ -84,7 +82,6 @@ const FAQ = () => {
         ))}
       </div>
 
-      
       <Footer />
     </div>
   );
