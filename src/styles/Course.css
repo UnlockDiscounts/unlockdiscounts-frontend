@@ -79,6 +79,7 @@
 	overflow: hidden;
 	text-overflow: ellipsis;
 	white-space: nowrap;
+	width: 100%;
 }
 
 .course_card_author {
@@ -91,6 +92,7 @@
 	overflow: hidden;
 	text-overflow: ellipsis;
 	white-space: nowrap;
+	width: 100%;
 }
 
 .course_card_footer {
@@ -211,4 +213,8 @@
 
 .all_course_cards_container::-webkit-scrollbar-thumb:hover {
 	background-color: #666666;
+}
+
+.course_card_name,
+.course_card_author {
 }

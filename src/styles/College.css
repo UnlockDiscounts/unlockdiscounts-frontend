@@ -32,7 +32,7 @@
 }
 
 .college_group_card {
-	width: 48%;
+	width: 46%;
 	flex: 0 0 auto;
 	display: flex;
 	flex-direction: column;
@@ -73,8 +73,14 @@
 .college_card_name {
 	color: #000;
 	font-family: "Sora", sans-serif;
-	font-size: 1rem;
+	font-size: 0.5rem;
+	font-style: normal;
 	font-weight: 600;
+	line-height: normal;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	width: 100%;
 }
 
 .college_card_footer {
@@ -86,20 +92,27 @@
 }
 
 .college_card_description {
+	width: 70%;
 	color: #000;
 	font-family: "Sora", sans-serif;
-	font-size: 0.875rem;
-	line-height: 1.5;
-	flex: 1;
+	font-size: 0.4375rem;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 1.5rem; /* 342.857% */
+
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
 }
 
 .college_card_button {
+	width: 20%;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	border-radius: 0.5rem;
 	background: rgba(0, 128, 0, 0.8);
-	padding: 0.5rem 1rem;
+	padding: 0.2rem 0.52rem;
 	cursor: pointer;
 	transition: background-color 0.3s;
 }
@@ -111,9 +124,10 @@
 .college_card_button_text {
 	color: #fff;
 	font-family: "Sora", sans-serif;
-	font-size: 0.875rem;
+	font-size: 0.5rem;
+	font-style: normal;
 	font-weight: 600;
-	white-space: nowrap;
+	line-height: 1.5rem; /* 300% */
 }
 
 /* Scroll buttons */
@@ -175,6 +189,19 @@
 	.college_card_img {
 		height: 12rem;
 	}
+
+	.college_card_name {
+		font-size: 0.8rem;
+	}
+
+	.college_card_description {
+		font-size: 0.8rem;
+	}
+
+	.college_card_button_text {
+		font-size: 0.8rem;
+		line-height: 1.3rem;
+	}
 }
 
 @media (min-width: 1325px) {
@@ -196,5 +223,6 @@
 
 	.college_card_button_text {
 		font-size: 1rem;
+		line-height: 2rem;
 	}
 }

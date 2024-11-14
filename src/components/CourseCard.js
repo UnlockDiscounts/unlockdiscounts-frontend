@@ -16,7 +16,7 @@ const CourseCard = ({ data }) => {
 				</div>
 				<div className="course_card_price">₹ {data.price}</div>
 				<div className="course_card_prevPrice">
-					₹ {data.prevPrice}{" "}
+					₹ {data.discounted_price}{" "}
 					<div className="course_card-prevPrice-stroke"></div>
 				</div>
 			</div>

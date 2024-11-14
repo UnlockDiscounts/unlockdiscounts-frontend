@@ -1,15 +1,25 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import college_data from "../data/college_data";
 import CollegeCard from "./CollegeCard";
+import { useCollege } from "../hooks/useCollege";
 
 const College = () => {
+	const [allCollegeData, setAllCollegeData] = useState({});
+	const { college } = useCollege();
+
+	useEffect(() => {
+		if (college) {
+			setAllCollegeData(college);
+		}
+	}, [college]);
+
 	// Group colleges into pairs for two rows per card
 	const groupedColleges = [];
-	for (let i = 0; i < college_data.length; i += 2) {
+	for (let i = 0; i < allCollegeData.length; i += 2) {
 		groupedColleges.push({
-			topRow: college_data[i],
-			bottomRow: college_data[i + 1],
+			topRow: allCollegeData[i],
+			bottomRow: allCollegeData[i + 1],
 		});
 	}
 
@@ -42,15 +52,19 @@ const College = () => {
 					<FaArrowRight />
 				</button>
 				<div className="college_cards_container" ref={scrollContainerRef}>
-					{groupedColleges.map((group, index) => (
-						<div className="college_group_card" key={index}>
-							{/* Top Row College */}
-							<CollegeCard data={group.topRow} />
+					{allCollegeData.length > 0 ? (
+						groupedColleges.map((group, index) => (
+							<div className="college_group_card" key={index}>
+								{/* Top Row College */}
+								<CollegeCard data={group.topRow} />
 
-							{/* Bottom Row College */}
-							{group.bottomRow && <CollegeCard data={group.bottomRow} />}
-						</div>
-					))}
+								{/* Bottom Row College */}
+								{group.bottomRow && <CollegeCard data={group.bottomRow} />}
+							</div>
+						))
+					) : (
+						<div>Loading</div>
+					)}
 				</div>
 			</div>
 		</div>
