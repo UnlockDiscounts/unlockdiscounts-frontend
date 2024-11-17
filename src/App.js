@@ -4,6 +4,8 @@ import Landing from "./components/Landing";
 import OnlineLearning from "./components/OnlineLearning";
 import ProductPage from "./components/ProductPage";
 import BankingPage from "./components/BankingPage";
+import FAQ from "./components/FAQ";
+import AboutContactPage from "./components/AboutContactPage";
 
 function App() {
 	return (
@@ -12,6 +14,8 @@ function App() {
 				<Route path="/" element={<Landing />} />
 				<Route path="/online_learning" element={<OnlineLearning />} />
 				<Route path="/banking" element={<BankingPage />} />
+				<Route path="/faq" element={<FAQ />} />
+				<Route path="/about" element={<AboutContactPage />} />
 				<Route path="/products/:category_param" element={<ProductPage />} />
 			</Routes>
 		</BrowserRouter>

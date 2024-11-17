@@ -98,11 +98,12 @@
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
+	gap: 1rem;
 }
 
 .cc_card_image {
-	width: 16rem;
-	height: 7.6875rem;
+	width: 12rem;
+	height: 6.6875rem;
 }
 
 .cc_card_image img {
@@ -351,12 +352,12 @@
 	.cc_card,
 	.zsa_card,
 	.sap_card {
-		width: 30%; /* Adjust width to fit 3 cards per row */
+		width: 32%; /* Adjust width to fit 3 cards per row */
 	}
 
 	.cc_card_image {
-		width: 21.31544rem;
-		height: 9.125rem;
+		width: 13.31544rem;
+		height: 8.125rem;
 	}
 
 	.zsa_card_image {
@@ -396,12 +397,12 @@
 	.cc_card,
 	.zsa_card,
 	.sap_card {
-		width: 22%; /* Adjust width to fit 4 cards per row */
+		width: 24%; /* Adjust width to fit 4 cards per row */
 	}
 
 	.cc_card_image {
-		width: 26.31544rem;
-		height: 12.125rem;
+		width: 19.31544rem;
+		height: 11.125rem;
 	}
 
 	.zsa_card_image {

@@ -9,13 +9,14 @@ import { IoMdClose } from "react-icons/io";
 import product_data from "../data/product_data";
 import ProductPageCard from "./ProductPageCard";
 import Logo from "../assets/Logo.svg";
+import { useProducts } from "../hooks/useProducts";
 
 const ProductPage = () => {
 	const { category_param } = useParams();
 	const [category, setCategory] = useState(category_param);
 	const navigate = useNavigate();
 	const [showFilter, setShowFilter] = useState(false);
-	const [filteredProducts, setFilteredProducts] = useState(product_data);
+	const [filteredProducts, setFilteredProducts] = useState([]);
 	const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 	const [filters, setFilters] = useState({
 		category: category_param,
@@ -23,6 +24,16 @@ const ProductPage = () => {
 		maxPrice: 10000,
 		discount: 0,
 	});
+	const [allData, setAllData] = useState({});
+
+	const { products } = useProducts({ category_param });
+
+	useEffect(() => {
+		if (products) {
+			setAllData(products);
+			applyFilters();
+		}
+	}, [products]);
 
 	useEffect(() => {
 		applyFilters();
@@ -33,19 +44,23 @@ const ProductPage = () => {
 	}, [category_param]);
 
 	const applyFilters = () => {
-		let filtered = product_data.filter((product) => {
-			const matchesCategory =
-				filters.category === "all" || product.category === filters.category;
-			const matchesPrice =
-				product.price >= filters.minPrice && product.price <= filters.maxPrice;
-			const matchesDiscount =
-				filters.discount === 0 || product.discount >= filters.discount;
+		if (allData.length > 0) {
+			let filtered = allData.filter((product) => {
+				const matchesCategory =
+					filters.category === "all" || product.section === filters.category;
+				const matchesPrice =
+					product.price >= filters.minPrice &&
+					product.price <= filters.maxPrice;
+				const matchesDiscount =
+					filters.discount === 0 ||
+					product.discountPercentage >= filters.discount;
 
-			return matchesCategory && matchesPrice && matchesDiscount;
-		});
-
-		setFilteredProducts(filtered);
-		setShowFilter(false);
+				return matchesCategory && matchesPrice && matchesDiscount;
+			});
+			console.log(filtered);
+			setFilteredProducts(filtered);
+			setShowFilter(false);
+		}
 	};
 
 	const handleCategoryClick = (newCategory) => {
@@ -55,7 +70,7 @@ const ProductPage = () => {
 		setIsDropdownOpen(false);
 	};
 
-	const navigateToMen = () => navigate("/products/Men");
+	const navigateToMen = () => navigate("/products/Mens");
 	const navigateToWomen = () => navigate("/products/Women");
 	const navigateToKids = () => navigate("/products/Kids");
 	const navigateToElectronic = () => navigate("/products/Electronic");
@@ -108,7 +123,7 @@ const ProductPage = () => {
 				</div>
 
 				<p className="pp-navbar-fonts cursor-pointer" onClick={navigateToMen}>
-					Men
+					Mens
 				</p>
 				<p className="pp-navbar-fonts cursor-pointer" onClick={navigateToWomen}>
 					Women
@@ -154,9 +169,13 @@ const ProductPage = () => {
 				<div className="product-page-line"></div>
 
 				<div className="product-page-cards-container">
-					{filteredProducts.map((item, index) => (
-						<ProductPageCard data={item} key={index} />
-					))}
+					{filteredProducts.length > 0 ? (
+						filteredProducts.map((item, index) => (
+							<ProductPageCard data={item} key={index} />
+						))
+					) : (
+						<div>Loading...</div>
+					)}
 				</div>
 
 				<div className={`filter-overlay ${showFilter ? "show" : ""}`}>
@@ -179,9 +198,9 @@ const ProductPage = () => {
 										type="radio"
 										id="category-men"
 										name="category"
-										value="Men"
-										checked={filters.category === "Men"}
-										onChange={() => handleCategoryClick("Men")}
+										value="Mens"
+										checked={filters.category === "Mens"}
+										onChange={() => handleCategoryClick("Mens")}
 									/>
 									<label className="radio-label" htmlFor="category-men">
 										Men

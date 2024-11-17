@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 import "../styles/BankingPage.css";
@@ -7,8 +7,18 @@ import { FaSortDown, FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import credit_cards_data from "../data/credit_cards_data";
 import saving_application_data from "../data/saving_application_data";
 import zero_savings_data from "../data/zero_savings_data";
+import { useBank } from "../hooks/useBank";
 
 const BankingPage = () => {
+	const [allData, setAllData] = useState({});
+	const { bankData } = useBank();
+
+	useEffect(() => {
+		if (bankData) {
+			setAllData(bankData);
+		}
+	}, [bankData]);
+
 	// Refs for each scrollable container
 	const creditCardsRef = useRef(null);
 	const zeroSavingsRef = useRef(null);
@@ -56,14 +66,21 @@ const BankingPage = () => {
 						<FaArrowRight />
 					</button>
 					<div className="cc_cards_container" ref={creditCardsRef}>
-						{credit_cards_data.map((item, index) => (
-							<div className="cc_card" key={index}>
-								<div className="cc_card_image">
-									<img src={item.image} alt={item.name} />
-								</div>
-								<div className="cc_card_button">Apply Now</div>
-							</div>
-						))}
+						{allData.length > 0 ? (
+							allData.map(
+								(item, index) =>
+									item.type === "credit cards" && (
+										<div className="cc_card" key={index}>
+											<div className="cc_card_image">
+												<img src={item.image} alt={item.name} />
+											</div>
+											<div className="cc_card_button">Apply Now</div>
+										</div>
+									)
+							)
+						) : (
+							<div>loading...</div>
+						)}
 					</div>
 				</div>
 
@@ -85,14 +102,21 @@ const BankingPage = () => {
 						</button>
 					</div>
 					<div className="zsa_cards_container" ref={zeroSavingsRef}>
-						{zero_savings_data.map((item, index) => (
-							<div className="zsa_card" key={index}>
-								<div className="zsa_card_image">
-									<img src={item.image} alt={item.name} />
-								</div>
-								<div className="zsa_card_button">Apply Now</div>
-							</div>
-						))}
+						{allData.length > 0 ? (
+							allData.map(
+								(item, index) =>
+									item.type === "zero saving accounts" && (
+										<div className="zsa_card" key={index}>
+											<div className="zsa_card_image">
+												<img src={item.image} alt={item.name} />
+											</div>
+											<div className="zsa_card_button">Apply Now</div>
+										</div>
+									)
+							)
+						) : (
+							<div>loading....</div>
+						)}
 					</div>
 				</div>
 
@@ -112,20 +136,29 @@ const BankingPage = () => {
 						<FaArrowRight />
 					</button>
 					<div className="sap_cards_container" ref={savingsApplicationsRef}>
-						{saving_application_data.map((item, index) => (
-							<div className="sap_card" key={index}>
-								<div className="sap_card_header">
-									<div className="sap_card_image">
-										<img src={item.image} alt={item.name} />
-									</div>
-									<div className="sap_card_heading">{item.name}</div>
-								</div>
-								<div className="sap_card_description">{item.description}</div>
-								<div className="sap_card_button">
-									Start Savings with {item.name}
-								</div>
-							</div>
-						))}
+						{allData.length > 0 ? (
+							allData.map(
+								(item, index) =>
+									item.type === "saving application" && (
+										<div className="sap_card" key={index}>
+											<div className="sap_card_header">
+												<div className="sap_card_image">
+													<img src={item.image} alt={item.name} />
+												</div>
+												<div className="sap_card_heading">Acorns</div>
+											</div>
+											<div className="sap_card_description">
+												{item.description}
+											</div>
+											<div className="sap_card_button">
+												Start Savings with Acorns
+											</div>
+										</div>
+									)
+							)
+						) : (
+							<div>loading...</div>
+						)}
 					</div>
 				</div>
 			</div>
