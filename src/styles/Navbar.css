@@ -98,12 +98,12 @@
 /* mobile and versions below 1200px  */
 @media (max-width: 1100px) {
 	.navbar-logo {
-		width: 2.9375rem;
-		height: 2.9375rem;
+		width: 2.7375rem;
+		height: 2.7375rem;
 	}
 
 	.navbar-search-container {
-		width: 70%;
+		width: 50%;
 		height: 1.75rem;
 		flex-shrink: 0;
 

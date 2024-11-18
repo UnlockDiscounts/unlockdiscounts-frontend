@@ -81,6 +81,10 @@
 	width: 100%;
 }
 
+.hm-category-card:hover {
+	cursor: pointer;
+}
+
 /* for medium sized devices  */
 @media (max-width: 1100px) {
 	.hero-section {

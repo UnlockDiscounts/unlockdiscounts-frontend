@@ -129,6 +129,10 @@
 	font-style: normal;
 	font-weight: 600;
 	line-height: normal;
+
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
 }
 
 .course_card_prevPrice {
@@ -139,6 +143,10 @@
 	font-style: normal;
 	font-weight: 400;
 	line-height: normal;
+
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
 }
 
 .course_card-prevPrice-stroke {

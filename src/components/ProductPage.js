@@ -66,14 +66,16 @@ const ProductPage = () => {
 	const handleCategoryClick = (newCategory) => {
 		setCategory(newCategory);
 		setFilters((prev) => ({ ...prev, category: newCategory }));
-		navigate(`/products/${newCategory}`);
+		if (newCategory == "Online Learnings") navigateToOnlineLearnings();
+		else if (newCategory == "Banking") navigateToBanking();
+		else navigate(`/products/${newCategory}`);
 		setIsDropdownOpen(false);
 	};
 
 	const navigateToMen = () => navigate("/products/Mens");
-	const navigateToWomen = () => navigate("/products/Women");
+	const navigateToWomen = () => navigate("/products/Womens");
 	const navigateToKids = () => navigate("/products/Kids");
-	const navigateToElectronic = () => navigate("/products/Electronic");
+	const navigateToElectronic = () => navigate("/products/Electronics");
 	const navigateToOnlineLearnings = () => navigate("/online_learning");
 	const navigateToBanking = () => navigate("/banking");
 
@@ -211,9 +213,9 @@ const ProductPage = () => {
 										type="radio"
 										id="category-women"
 										name="category"
-										value="Women"
-										checked={filters.category === "Women"}
-										onChange={() => handleCategoryClick("Women")}
+										value="Womens"
+										checked={filters.category === "Womens"}
+										onChange={() => handleCategoryClick("Womens")}
 									/>
 									<label className="radio-label" htmlFor="category-women">
 										Women
@@ -237,9 +239,9 @@ const ProductPage = () => {
 										type="radio"
 										id="category-electronic"
 										name="category"
-										value="Electronic"
-										checked={filters.category === "Electronic"}
-										onChange={() => handleCategoryClick("Electronic")}
+										value="Electronics"
+										checked={filters.category === "Electronics"}
+										onChange={() => handleCategoryClick("Electronics")}
 									/>
 									<label className="radio-label" htmlFor="category-electronic">
 										Electronic

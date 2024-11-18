@@ -10,11 +10,36 @@ const CompanyBar = () => {
 	return (
 		<div className="company-bar">
 			<div className="company-image-container">
-				<img id="amazon" src={amazon} alt="Amazon logo" />
-				<img id="myntra" src={myntra} alt="Myntra logo" />
-				<img id="meesho" src={meesho} alt="Meesho logo" />
-				<img id="flipkart" src={flipkart} alt="Flipkart logo" />
-				<img id="ajio" src={ajio} alt="Ajio logo" />
+				<img
+					id="amazon"
+					src={amazon}
+					alt="Amazon logo"
+					onClick={() => window.open("https://amzn.to/40ON71J", "_blank")}
+				/>
+				<img
+					id="myntra"
+					src={myntra}
+					alt="Myntra logo"
+					onClick={() => window.open("https://myntr.it/deZvrSF", "_blank")}
+				/>
+				<img
+					id="meesho"
+					src={meesho}
+					alt="Meesho logo"
+					onClick={() => window.open("http://meesho.com/", "_blank")}
+				/>
+				<img
+					id="flipkart"
+					src={flipkart}
+					alt="Flipkart logo"
+					onClick={() => window.open("https://fktr.in/EE6swwK", "_blank")}
+				/>
+				<img
+					id="ajio"
+					src={ajio}
+					alt="Ajio logo"
+					onClick={() => window.open("https://ajiio.in/j7rl885", "_blank")}
+				/>
 			</div>
 		</div>
 	);

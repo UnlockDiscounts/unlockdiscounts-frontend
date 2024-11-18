@@ -69,7 +69,7 @@ const Navbar = () => {
 
 			<p
 				className="navbar-fonts"
-				onClick={() => handleNavigate("products/Men")}
+				onClick={() => handleNavigate("products/Mens")}
 			>
 				Men
 			</p>
@@ -146,9 +146,9 @@ const Navbar = () => {
 						</div>
 						<p
 							className="sidebar-nav-item"
-							onClick={() => handleNavigate("products/Men")}
+							onClick={() => handleNavigate("products/Mens")}
 						>
-							Men
+							Mens
 						</p>
 						<p
 							className="sidebar-nav-item"

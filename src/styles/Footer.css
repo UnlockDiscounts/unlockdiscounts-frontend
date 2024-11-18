@@ -43,6 +43,11 @@
 	line-height: 1.375rem;
 }
 
+.footer-column-text:hover {
+	cursor: pointer;
+	text-decoration: underline;
+}
+
 /* Terms Section */
 .footer-terms {
 	width: 80%;
