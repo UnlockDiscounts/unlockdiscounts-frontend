@@ -46,9 +46,9 @@ const ContactUs = () => (
 		<p>
 			You can reach us at{" "}
 			<a href="mailto:support@unlockdiscounts.com" className="link">
-				support@unlockdiscounts.com
+				info@unlockdiscounts.com
 			</a>{" "}
-			or call us at <span>[Your Contact Number]</span>.
+			.</span>.
 		</p>
 		<p>
 			Additionally, feel free to connect with us on social media to stay in the
