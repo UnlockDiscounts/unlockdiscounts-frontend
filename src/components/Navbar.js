@@ -33,6 +33,7 @@ const Navbar = () => {
 
 	const handleNavigate = (category) => {
 		navigate(`/${category}`);
+		window.location.reload();
 		setShowDropdown(false);
 		setShowSidebar(false);
 	};

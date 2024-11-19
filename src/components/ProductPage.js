@@ -25,6 +25,7 @@ const ProductPage = () => {
 		discount: 0,
 	});
 	const [allData, setAllData] = useState({});
+	const [searchInput, setSearchInput] = useState(""); // State for search input
 
 	const { products } = useProducts({ category_param });
 
@@ -43,24 +44,31 @@ const ProductPage = () => {
 		setFilters((prev) => ({ ...prev, category: category_param }));
 	}, [category_param]);
 
-	const applyFilters = () => {
+	const applyFilters = (searchQuery = "") => {
 		if (allData.length > 0) {
 			let filtered = allData.filter((product) => {
 				const matchesCategory =
-					filters.category === "all" || product.section === filters.category;
-				const matchesPrice =
-					product.price >= filters.minPrice &&
-					product.price <= filters.maxPrice;
-				const matchesDiscount =
-					filters.discount === 0 ||
-					product.discountPercentage >= filters.discount;
+					category_param === "all" || product.section === category_param;
 
-				return matchesCategory && matchesPrice && matchesDiscount;
+				const matchesSearch =
+					searchQuery === "" ||
+					product.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+					product.description
+						.toLowerCase()
+						.includes(searchQuery.toLowerCase()) ||
+					product.section.toLowerCase().includes(searchQuery.toLowerCase());
+
+				return matchesCategory && matchesSearch;
 			});
-			console.log(filtered);
 			setFilteredProducts(filtered);
-			setShowFilter(false);
 		}
+	};
+
+	// Live search update
+	const handleSearchInput = (e) => {
+		const value = e.target.value || "";
+		setSearchInput(value);
+		applyFilters(value); // Trigger filtering as the user types
 	};
 
 	const handleCategoryClick = (newCategory) => {
@@ -72,12 +80,30 @@ const ProductPage = () => {
 		setIsDropdownOpen(false);
 	};
 
-	const navigateToMen = () => navigate("/products/Mens");
-	const navigateToWomen = () => navigate("/products/Womens");
-	const navigateToKids = () => navigate("/products/Kids");
-	const navigateToElectronic = () => navigate("/products/Electronics");
-	const navigateToOnlineLearnings = () => navigate("/online_learning");
-	const navigateToBanking = () => navigate("/banking");
+	const navigateToMen = () => {
+		navigate("/products/Mens");
+		window.location.reload();
+	};
+	const navigateToWomen = () => {
+		navigate("/products/Womens");
+		window.location.reload();
+	};
+	const navigateToKids = () => {
+		navigate("/products/Kids");
+		window.location.reload();
+	};
+	const navigateToElectronic = () => {
+		navigate("/products/Electronics");
+		window.location.reload();
+	};
+	const navigateToOnlineLearnings = () => {
+		navigate("/online_learning");
+		window.location.reload();
+	};
+	const navigateToBanking = () => {
+		navigate("/banking");
+		window.location.reload();
+	};
 
 	return (
 		<div id="wrapper">
@@ -137,7 +163,12 @@ const ProductPage = () => {
 
 				<div className="search-container">
 					<CiSearch className="search-icon" />
-					<input className="search-input" placeholder="Search product ..." />
+					<input
+						className="search-input"
+						placeholder="Search product ..."
+						value={searchInput} // Bind to search input state
+						onChange={(e) => handleSearchInput(e)} // Live filter on input change
+					/>
 				</div>
 
 				<div className="navbar-login">
@@ -160,6 +191,8 @@ const ProductPage = () => {
 							<input
 								className="pp-search-input"
 								placeholder="Search product ..."
+								value={searchInput} // Bind to search input state
+								onChange={(e) => handleSearchInput(e)} // Live filter on input change
 							/>
 						</div>
 						<div className="filter-text" onClick={() => setShowFilter(true)}>

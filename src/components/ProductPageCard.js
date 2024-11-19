@@ -31,9 +31,7 @@ const ProductPageCard = ({ data }) => {
 		<div className="pp_card">
 			<div className="pp_image">
 				<img
-					src={
-						"https://hips.hearstapps.com/hmg-prod/images/hoka-zinal-13085-1643565794.jpg"
-					}
+					src={data.images && data.images[0]}
 					alt={data.company || data.title}
 				/>
 				{discountPercentage > 0 && (
