@@ -16,51 +16,72 @@ const HeroLeft = () => {
 				<div className="hm-category-card">
 					<div
 						className="hmc-image-men"
-						onClick={() => navigate("/products/Mens")}
+						onClick={() => {
+							navigate("/products/Mens");
+							window.location.reload();
+						}}
 					>
-						<img src={Men} />
+						<img src={Men} alt="Mens" />
 					</div>
 					<div className="hmc-text">Mens</div>
 				</div>
 				<div
 					className="hm-category-card"
-					onClick={() => navigate("/products/Womens")}
+					onClick={() => {
+						navigate("/products/Women");
+						window.location.reload();
+					}}
 				>
 					<div className="hmc-image-women">
-						<img src={Women} />
+						<img src={Women} alt="Women" />
 					</div>
-					<div className="hmc-text">Womens</div>
+					<div className="hmc-text">Women</div>
 				</div>
 				<div
 					className="hm-category-card"
-					onClick={() => navigate("/products/Kids")}
+					onClick={() => {
+						navigate("/products/Kids");
+						window.location.reload();
+					}}
 				>
 					<div className="hmc-image-kid">
-						<img src={Kid} />
+						<img src={Kid} alt="Kids" />
 					</div>
 					<div className="hmc-text">Kids</div>
 				</div>
 				<div
 					className="hm-category-card"
-					onClick={() => navigate("/products/Electronics")}
+					onClick={() => {
+						navigate("/products/Electronics");
+						window.location.reload();
+					}}
 				>
 					<div className="hmc-image-electornics">
-						<img src={Electronics} />
+						<img src={Electronics} alt="Electronics" />
 					</div>
 					<div className="hmc-text">Electronics</div>
 				</div>
 				<div
 					className="hm-category-card"
-					onClick={() => navigate("/online_learning")}
+					onClick={() => {
+						navigate("/online_learning");
+						window.location.reload();
+					}}
 				>
 					<div className="hmc-image-onlineLearning">
-						<img src={OnlineLearning} />
+						<img src={OnlineLearning} alt="Online Learning" />
 					</div>
 					<div className="hmc-text">Online Learning</div>
 				</div>
-				<div className="hm-category-card" onClick={() => navigate("/banking")}>
+				<div
+					className="hm-category-card"
+					onClick={() => {
+						navigate("/banking");
+						window.location.reload();
+					}}
+				>
 					<div className="hmc-image-banking">
-						<img src={Banking} />
+						<img src={Banking} alt="Banking" />
 					</div>
 					<div className="hmc-text">Banking</div>
 				</div>
@@ -74,7 +95,13 @@ const HeroLeft = () => {
 				designed to bring out your individuality and cater to your sense of
 				style.
 			</p>
-			<div className="hero-button">
+			<div
+				className="hero-button"
+				onClick={() => {
+					navigate("/products/Mens");
+					window.location.reload();
+				}}
+			>
 				<IoBagHandleSharp className="bag-icon" />
 				Shop Now
 			</div>

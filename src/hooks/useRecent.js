@@ -11,7 +11,7 @@ export const useRecent = () => {
 
 	async function sendRequest() {
 		try {
-			const res = await axios.get(`${BACKEND_URL}/api/products/popular-picks`);
+			const res = await axios.get(`${BACKEND_URL}/api/products/recents`);
 			if (res.status === 200) {
 				setRecentData(res.data);
 			} else {

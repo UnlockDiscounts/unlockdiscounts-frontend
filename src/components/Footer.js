@@ -1,6 +1,6 @@
 import React from "react";
 import "../styles/Footer.css";
-import { FaTwitter } from "react-icons/fa";
+import { FaInstagram } from "react-icons/fa";
 import { FaFacebook } from "react-icons/fa";
 import { FaLinkedin } from "react-icons/fa";
 import { FaYoutube } from "react-icons/fa";
@@ -42,7 +42,7 @@ const Footer = () => {
 					</div>
 					<div
 						className="footer-column-text"
-						onClick={() => handleNavigation("/products/Womens")}
+						onClick={() => handleNavigation("/products/Women")}
 					>
 						Women's Wear
 					</div>
@@ -57,7 +57,7 @@ const Footer = () => {
 					<div className="footer-column-heading">Electronics</div>
 					<div
 						className="footer-column-text"
-						onClick={() => handleNavigation("/products/Mens")}
+						onClick={() => handleNavigation("/products/Electronics")}
 					>
 						Mobile And Accessories
 					</div>
@@ -132,7 +132,12 @@ const Footer = () => {
 					</div>
 					<div
 						className="footer-column-text"
-						onClick={() => handleNavigation("/about")}
+						onClick={() =>
+							window.open(
+								"https://www.linkedin.com/company/unlockdiscounts/jobs/",
+								"_blank"
+							)
+						}
 					>
 						Internships
 					</div>
@@ -154,7 +159,12 @@ const Footer = () => {
 				<p className="footer-terms-text">Sitemap</p>
 			</div>
 			<div className="footer-social-container">
-				<FaTwitter className="footer-social-logo" />
+				<FaInstagram
+					className="footer-social-logo"
+					onClick={() =>
+						window.open("https://www.instagram.com/unlock_discounts/", "_blank")
+					}
+				/>
 				<FaFacebook
 					className="footer-social-logo"
 					onClick={() =>

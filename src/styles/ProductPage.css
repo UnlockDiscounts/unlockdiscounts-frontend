@@ -473,6 +473,9 @@
 	font-style: normal;
 	font-weight: 400;
 	margin: 0;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
 }
 
 .pp-prevPrice {
@@ -483,6 +486,9 @@
 	font-style: normal;
 	font-weight: 400;
 	margin: 0;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
 }
 
 .pp-prevPrice-stroke {
@@ -493,15 +499,21 @@
 	height: 1px;
 	background-color: rgba(0, 0, 0, 0.65);
 	transform: translateY(-50%);
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
 }
 
 .pp-discount {
 	color: #d62b2b;
 	font-family: "Sora", sans-serif;
-	font-size: 0.5rem;
+	font-size: 0.4rem;
 	font-style: normal;
 	font-weight: 400;
 	margin: 0;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
 }
 
 .pp-card-button {

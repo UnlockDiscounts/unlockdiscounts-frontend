@@ -6,7 +6,6 @@ import { CiSearch } from "react-icons/ci";
 import { TbAdjustmentsHorizontal } from "react-icons/tb";
 import { FaSortDown } from "react-icons/fa";
 import { IoMdClose } from "react-icons/io";
-import product_data from "../data/product_data";
 import ProductPageCard from "./ProductPageCard";
 import Logo from "../assets/Logo.svg";
 import { useProducts } from "../hooks/useProducts";
@@ -38,7 +37,7 @@ const ProductPage = () => {
 
 	useEffect(() => {
 		applyFilters();
-	}, [category_param]);
+	}, [category_param, allData]);
 
 	useEffect(() => {
 		setFilters((prev) => ({ ...prev, category: category_param }));
@@ -96,8 +95,8 @@ const ProductPage = () => {
 	const handleCategoryClick = (newCategory) => {
 		setCategory(newCategory);
 		setFilters((prev) => ({ ...prev, category: newCategory }));
-		if (newCategory == "Online Learnings") navigateToOnlineLearnings();
-		else if (newCategory == "Banking") navigateToBanking();
+		if (newCategory === "Online Learnings") navigateToOnlineLearnings();
+		else if (newCategory === "Banking") navigateToBanking();
 		else navigate(`/products/${newCategory}`);
 		setIsDropdownOpen(false);
 		setShowFilter(false);
@@ -108,7 +107,7 @@ const ProductPage = () => {
 		window.location.reload();
 	};
 	const navigateToWomen = () => {
-		navigate("/products/Womens");
+		navigate("/products/Women");
 		window.location.reload();
 	};
 	const navigateToKids = () => {
@@ -269,9 +268,9 @@ const ProductPage = () => {
 										type="radio"
 										id="category-women"
 										name="category"
-										value="Womens"
-										checked={filters.category === "Womens"}
-										onChange={() => handleCategoryClick("Womens")}
+										value="Women"
+										checked={filters.category === "Women"}
+										onChange={() => handleCategoryClick("Women")}
 									/>
 									<label className="radio-label" htmlFor="category-women">
 										Women
