@@ -155,9 +155,30 @@ const Footer = () => {
 			</div>
 			<div className="footer-social-container">
 				<FaTwitter className="footer-social-logo" />
-				<FaFacebook className="footer-social-logo" />
-				<FaLinkedin className="footer-social-logo" />
-				<FaYoutube className="footer-social-logo" />
+				<FaFacebook
+					className="footer-social-logo"
+					onClick={() =>
+						window.open(
+							"https://www.facebook.com/people/UnlockDiscounts/61560425212006/?mibextid=ZbWKwL",
+							"_blank"
+						)
+					}
+				/>
+				<FaLinkedin
+					className="footer-social-logo"
+					onClick={() =>
+						window.open(
+							"https://www.linkedin.com/company/unlockdiscounts/posts/?feedView=all",
+							"_blank"
+						)
+					}
+				/>
+				<FaYoutube
+					className="footer-social-logo"
+					onClick={() =>
+						window.open("https://www.youtube.com/@UnlockDiscounts", "_blank")
+					}
+				/>
 			</div>
 		</div>
 	);

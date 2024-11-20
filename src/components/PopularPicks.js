@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "../styles/PopularPicks.css";
 import data from "../data/data";
-import PopularPickCard from "./PopularPickCard";
 import ProductPageCard from "./ProductPageCard";
 import { usePopularPicks } from "../hooks/usePopularPicks";
 

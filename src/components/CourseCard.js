@@ -6,7 +6,7 @@ const CourseCard = ({ data }) => {
 	return (
 		<div className="course_card">
 			<div className="course_card_img">
-				<img src={data.image} alt={data.name} />
+				<img src={data.image} alt={data.name} loading="lazy" />
 			</div>
 			<div className="course_card_author">{data.author}</div>
 			<div className="course_card_name">{data.name}</div>

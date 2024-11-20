@@ -47,18 +47,40 @@ const ProductPage = () => {
 	const applyFilters = (searchQuery = "") => {
 		if (allData.length > 0) {
 			let filtered = allData.filter((product) => {
+				// Category filter
 				const matchesCategory =
 					category_param === "all" || product.section === category_param;
 
-				const matchesSearch =
-					searchQuery === "" ||
-					product.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-					product.description
-						.toLowerCase()
-						.includes(searchQuery.toLowerCase()) ||
-					product.section.toLowerCase().includes(searchQuery.toLowerCase());
+				// Search filter
+				const matchesSearch = () => {
+					if (searchQuery === "") {
+						return true;
+					} else {
+						return (
+							product.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+							product.description
+								.toLowerCase()
+								.includes(searchQuery.toLowerCase()) ||
+							product.section.toLowerCase().includes(searchQuery.toLowerCase())
+						);
+					}
+				};
 
-				return matchesCategory && matchesSearch;
+				// Price filter
+				const productPrice = parseFloat(
+					product.discounted_price || product.price
+				);
+				const matchesPrice =
+					productPrice >= filters.minPrice && productPrice <= filters.maxPrice;
+
+				// Discount filter
+				const discountPercentage = product.discountPercentage || 0;
+				const matchesDiscount =
+					filters.discount === 0 || discountPercentage >= filters.discount;
+
+				return (
+					matchesCategory && matchesSearch && matchesPrice && matchesDiscount
+				);
 			});
 			setFilteredProducts(filtered);
 		}
@@ -78,6 +100,7 @@ const ProductPage = () => {
 		else if (newCategory == "Banking") navigateToBanking();
 		else navigate(`/products/${newCategory}`);
 		setIsDropdownOpen(false);
+		setShowFilter(false);
 	};
 
 	const navigateToMen = () => {
@@ -424,7 +447,13 @@ const ProductPage = () => {
 							</div>
 						</div>
 
-						<button className="apply-button" onClick={applyFilters}>
+						<button
+							className="apply-button"
+							onClick={() => {
+								applyFilters();
+								setShowFilter(false);
+							}}
+						>
 							Apply Filters
 						</button>
 					</div>

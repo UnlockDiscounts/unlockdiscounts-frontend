@@ -33,6 +33,7 @@ const ProductPageCard = ({ data }) => {
 				<img
 					src={data.images && data.images[0]}
 					alt={data.company || data.title}
+					loading="lazy"
 				/>
 				{discountPercentage > 0 && (
 					<div className="pp-image-discount">{discountPercentage}% OFF</div>
