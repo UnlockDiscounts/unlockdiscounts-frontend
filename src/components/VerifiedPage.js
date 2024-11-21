@@ -1,18 +1,34 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import verified from "../assets/Verified.svg";
 import image from "../assets/certi.png";
 import "../styles/Certificate.css";
 import "../styles/Verified.css";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
+import { useParams } from "react-router-dom";
+import axios from "axios";
 
 const VerifiedPage = () => {
-	const data = {
-		serialNumber: 123456789,
-		candidateName: "Conrad Hawkins",
-		internshipStartDate: "20-01-2024",
-		internshipEndDate: "10-05-2024",
-	};
+	const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
+	const { serialNo } = useParams();
+	const [verifiedData, setVerifiedData] = useState();
+
+	useEffect(() => {
+		sendRequest();
+	}, [serialNo]);
+
+	async function sendRequest() {
+		try {
+			const res = await axios.get(
+				`${BACKEND_URL}/api/verificationCertificate?serialNo=${serialNo}`
+			);
+			if (res.status === 200) {
+				setVerifiedData(res.data);
+			}
+		} catch (error) {
+			console.log(error);
+		}
+	}
 
 	return (
 		<div id="wrapper">
@@ -34,27 +50,33 @@ const VerifiedPage = () => {
 									The Certificate is verified
 								</div>
 							</div>
-							<div className="verified_data">
-								<div className="data_container">
-									<div className="data_text_container">
-										<div className="data_head">Serial Number : </div>
-										<div className="data_input">{data.serialNumber}</div>
+							{verifiedData && (
+								<div className="verified_data">
+									<div className="data_container">
+										<div className="data_text_container">
+											<div className="data_head">Serial Number : </div>
+											<div className="data_input">{verifiedData.serialNo}</div>
+										</div>
+										<div className="data_text_container">
+											<div className="data_head">Candidate Name : </div>
+											<div className="data_input">{verifiedData.name}</div>
+										</div>
+										<div className="data_text_container">
+											<div className="data_head">Internship Start Date : </div>
+											<div className="data_input">
+												{new Date(verifiedData.startDate).toLocaleDateString()}
+											</div>
+										</div>
+										<div className="data_text_container">
+											<div className="data_head">Internship End Date : </div>
+											<div className="data_input">
+												{new Date(verifiedData.endDate).toLocaleDateString()}
+											</div>
+										</div>
 									</div>
-									<div className="data_text_container">
-										<div className="data_head">Candidate Name : </div>
-										<div className="data_input">{data.candidateName}</div>
-									</div>
-									<div className="data_text_container">
-										<div className="data_head">Internship Start Date : </div>
-										<div className="data_input">{data.internshipStartDate}</div>
-									</div>
-									<div className="data_text_container">
-										<div className="data_head">Internship End Date : </div>
-										<div className="data_input">{data.internshipEndDate}</div>
-									</div>
+									<div className="cf_button">Generate Certificate</div>
 								</div>
-								<div className="cf_button">Generate Certificate</div>
-							</div>
+							)}
 						</div>
 					</div>
 					<div className="certificate_right">

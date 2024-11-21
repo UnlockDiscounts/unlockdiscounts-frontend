@@ -53,12 +53,9 @@ const ProductPageCard = ({ data }) => {
 					<div className="pp-discount">{discountPercentage}% OFF</div>
 				)}
 			</div>
-			<button
-				className="pp-card-button"
-				onClick={() => window.open(data.affiliatelink, "_blank")}
-			>
+			<a className="pp-card-button" href={data.affiliatelink} target="_blank">
 				Buy Now
-			</button>
+			</a>
 		</div>
 	);
 };

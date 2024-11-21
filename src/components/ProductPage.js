@@ -51,19 +51,13 @@ const ProductPage = () => {
 					category_param === "all" || product.section === category_param;
 
 				// Search filter
-				const matchesSearch = () => {
-					if (searchQuery === "") {
-						return true;
-					} else {
-						return (
-							product.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-							product.description
-								.toLowerCase()
-								.includes(searchQuery.toLowerCase()) ||
-							product.section.toLowerCase().includes(searchQuery.toLowerCase())
-						);
-					}
-				};
+				const matchesSearch =
+					searchQuery === "" ||
+					product.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+					product.description
+						.toLowerCase()
+						.includes(searchQuery.toLowerCase()) ||
+					product.section.toLowerCase().includes(searchQuery.toLowerCase());
 
 				// Price filter
 				const productPrice = parseFloat(
@@ -198,31 +192,30 @@ const ProductPage = () => {
 				</div>
 			</div>
 
-			<div className="product-page-container">
-				<div className="header-container">
-					<div className="text-container">
-						<div className="heading">{category_param} Category</div>
-						<div className="description">
-							{filteredProducts.length} result for "{category_param}"
-						</div>
-					</div>
-
-					<div className="filter-container">
-						<div className="pp-search-container">
-							<CiSearch className="pp-search-icon" />
-							<input
-								className="pp-search-input"
-								placeholder="Search product ..."
-								value={searchInput} // Bind to search input state
-								onChange={(e) => handleSearchInput(e)} // Live filter on input change
-							/>
-						</div>
-						<div className="filter-text" onClick={() => setShowFilter(true)}>
-							Filter <TbAdjustmentsHorizontal />
-						</div>
+			<div className="header-container">
+				<div className="text-container">
+					<div className="heading">{category_param} Category</div>
+					<div className="description">
+						{filteredProducts.length} result for "{category_param}"
 					</div>
 				</div>
 
+				<div className="filter-container">
+					<div className="pp-search-container">
+						<CiSearch className="pp-search-icon" />
+						<input
+							className="pp-search-input"
+							placeholder="Search product ..."
+							value={searchInput} // Bind to search input state
+							onChange={(e) => handleSearchInput(e)} // Live filter on input change
+						/>
+					</div>
+					<div className="filter-text" onClick={() => setShowFilter(true)}>
+						Filter <TbAdjustmentsHorizontal />
+					</div>
+				</div>
+			</div>
+			<div className="product-page-container">
 				<div className="product-page-line"></div>
 
 				<div className="product-page-cards-container">

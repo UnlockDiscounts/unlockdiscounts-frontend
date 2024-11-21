@@ -151,6 +151,10 @@
 	font-weight: 520;
 }
 
+.cf_button:hover {
+	cursor: pointer;
+}
+
 .certificate_right {
 	display: none;
 }

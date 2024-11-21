@@ -1,10 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import "../styles/Certificate.css";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 import image from "../assets/certi.png";
+import { useNavigate } from "react-router-dom";
 
 const Certificate = () => {
+	const navigate = useNavigate();
+	const [serialNo, setSerialNo] = useState();
+
 	return (
 		<div id="wrapper">
 			<Navbar />
@@ -33,6 +37,8 @@ const Certificate = () => {
 											type="text"
 											id="serial_number"
 											placeholder="Enter Your Serial Number"
+											value={serialNo}
+											onChange={(e) => setSerialNo(e.target.value)}
 										/>
 									</div>
 								</div>
@@ -44,7 +50,14 @@ const Certificate = () => {
 										<input type="text" id="name" placeholder="Name" />
 									</div>
 								</div>
-								<div className="cf_button">Submit</div>
+								<div
+									className="cf_button"
+									onClick={() => {
+										navigate(`/certificate_verified/${serialNo}`);
+									}}
+								>
+									Submit
+								</div>
 							</div>
 						</div>
 					</div>

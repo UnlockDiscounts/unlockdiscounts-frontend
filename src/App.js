@@ -19,7 +19,10 @@ function App() {
 				<Route path="/faq" element={<FAQ />} />
 				<Route path="/about" element={<AboutContactPage />} />
 				<Route path="/certificate_verification" element={<Certificate />} />
-				<Route path="/certificate_verified" element={<VerifiedPage />} />
+				<Route
+					path="/certificate_verified/:serialNo"
+					element={<VerifiedPage />}
+				/>
 				<Route path="/products/:category_param" element={<ProductPage />} />
 			</Routes>
 		</BrowserRouter>

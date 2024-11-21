@@ -146,12 +146,13 @@
 }
 
 .header-container {
-	width: 100%;
+	width: 90%;
 	display: flex;
 	gap: 0.81rem;
 	flex-direction: column;
 	justify-content: center;
 	align-items: flex-start;
+	margin-top: 3rem;
 }
 
 .text-container {
@@ -517,6 +518,7 @@
 }
 
 .pp-card-button {
+	text-decoration: none;
 	width: 100%;
 	display: flex;
 	justify-content: center;
@@ -635,8 +637,8 @@
 	}
 
 	.header-container {
-		width: 100%;
-		margin-bottom: 2rem;
+		width: 90%;
+		margin-top: 2rem;
 	}
 
 	.heading {
