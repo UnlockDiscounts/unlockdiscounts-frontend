@@ -5,13 +5,14 @@ import "../styles/Certificate.css";
 import "../styles/Verified.css";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 
 const VerifiedPage = () => {
 	const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 	const { serialNo } = useParams();
 	const [verifiedData, setVerifiedData] = useState();
+	const navigate = useNavigate();
 
 	useEffect(() => {
 		sendRequest();
@@ -22,10 +23,14 @@ const VerifiedPage = () => {
 			const res = await axios.get(
 				`${BACKEND_URL}/api/verificationCertificate?serialNo=${serialNo}`
 			);
+			console.log(res);
 			if (res.status === 200) {
 				setVerifiedData(res.data);
+			} else {
+				alert("Error");
 			}
 		} catch (error) {
+			navigate("/certificate_verification");
 			console.log(error);
 		}
 	}
@@ -74,7 +79,6 @@ const VerifiedPage = () => {
 											</div>
 										</div>
 									</div>
-									<div className="cf_button">Generate Certificate</div>
 								</div>
 							)}
 						</div>

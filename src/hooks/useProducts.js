@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 
-export const useProducts = ({ category_param }) => {
+export const useProducts = () => {
 	const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 	const [products, setProducts] = useState({});
 
@@ -11,9 +11,7 @@ export const useProducts = ({ category_param }) => {
 
 	async function sendRequest() {
 		try {
-			const res = await axios.get(`${BACKEND_URL}/api/products/products-list`, {
-				category: category_param,
-			});
+			const res = await axios.get(`${BACKEND_URL}/api/products/products-list`);
 			if (res.status === 200) {
 				setProducts(res.data.products);
 			} else {

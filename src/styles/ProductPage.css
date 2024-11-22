@@ -152,7 +152,8 @@
 	flex-direction: column;
 	justify-content: center;
 	align-items: flex-start;
-	margin-top: 3rem;
+	align-items: flex-start;
+	margin-top: 1rem;
 }
 
 .text-container {
@@ -638,7 +639,7 @@
 
 	.header-container {
 		width: 90%;
-		margin-top: 2rem;
+		margin-top: 1rem;
 	}
 
 	.heading {

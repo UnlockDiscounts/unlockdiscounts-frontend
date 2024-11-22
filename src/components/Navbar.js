@@ -12,6 +12,7 @@ const Navbar = () => {
 	const [showDropdown, setShowDropdown] = useState(false);
 	const navigate = useNavigate();
 	const dropdownRef = useRef(null);
+	const [searchQuery, setSearchQuery] = useState("");
 
 	const categories = [
 		{ name: "Electronics", path: "products/Electronics" },
@@ -92,7 +93,26 @@ const Navbar = () => {
 				<input
 					className="navbar-search-input"
 					placeholder="Search products ..."
+					value={searchQuery}
+					onChange={(e) => {
+						setSearchQuery(e.target.value);
+					}}
+					onKeyDown={(e) => {
+						if (e.key === "Enter" && searchQuery.trim()) {
+							navigate(`/searched_products/${searchQuery}`);
+							window.location.reload();
+						}
+					}}
 				/>
+				<button
+					className="navbar_search_button"
+					onClick={() => {
+						navigate(`/searched_products/${searchQuery}`);
+						window.location.reload();
+					}}
+				>
+					Search
+				</button>
 			</div>
 
 			<div className="navbar-login">
@@ -120,7 +140,28 @@ const Navbar = () => {
 
 					<div className="sidebar-search">
 						<CiSearch className="search-icon" />
-						<input className="search-input" placeholder="Search products ..." />
+						<input
+							className="search-input"
+							placeholder="Search products ..."
+							onChange={(e) => {
+								setSearchQuery(e.target.value);
+							}}
+							onKeyDown={(e) => {
+								if (e.key === "Enter" && searchQuery.trim()) {
+									navigate(`/searched_products/${searchQuery}`);
+									window.location.reload();
+								}
+							}}
+						/>
+						<button
+							className="navbar_search_button"
+							onClick={() => {
+								navigate(`/searched_products/${searchQuery}`);
+								window.location.reload();
+							}}
+						>
+							Search
+						</button>
 					</div>
 
 					<div className="sidebar-nav">

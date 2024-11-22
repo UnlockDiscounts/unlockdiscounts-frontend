@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import "../styles/PopularPicks.css";
-import data from "../data/data";
 import ProductPageCard from "./ProductPageCard";
 import { usePopularPicks } from "../hooks/usePopularPicks";
 
@@ -9,7 +8,13 @@ const PopularPicks = () => {
 	const [allCards, setAllCards] = useState({});
 
 	useEffect(() => {
-		setAllCards(popularData);
+		if (popularData.length > 0) {
+			const resizeArray = (data) => {
+				return data.slice(0, 6);
+			};
+
+			setAllCards(resizeArray(popularData));
+		}
 	}, [popularData]);
 
 	return (

@@ -26,7 +26,7 @@ const ProductPage = () => {
 	const [allData, setAllData] = useState({});
 	const [searchInput, setSearchInput] = useState(""); // State for search input
 
-	const { products } = useProducts({ category_param });
+	const { products } = useProducts();
 
 	useEffect(() => {
 		if (products) {

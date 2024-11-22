@@ -8,6 +8,7 @@ import FAQ from "./components/FAQ";
 import AboutContactPage from "./components/AboutContactPage";
 import Certificate from "./components/Certificate";
 import VerifiedPage from "./components/VerifiedPage";
+import SearchedProductsPage from "./components/SearchedProductsPage";
 
 function App() {
 	return (
@@ -24,6 +25,10 @@ function App() {
 					element={<VerifiedPage />}
 				/>
 				<Route path="/products/:category_param" element={<ProductPage />} />
+				<Route
+					path="/searched_products/:searched_param"
+					element={<SearchedProductsPage />}
+				/>
 			</Routes>
 		</BrowserRouter>
 	);
