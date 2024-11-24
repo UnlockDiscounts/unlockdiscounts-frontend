@@ -1,17 +1,40 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "../styles/Certificate.css";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 import image from "../assets/certi.png";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
+import toast, { Toaster } from "react-hot-toast";
 
 const Certificate = () => {
 	const navigate = useNavigate();
 	const [serialNo, setSerialNo] = useState();
+	const { incorrect } = useParams();
+
+	const toastShown = useRef(false);
+
+	useEffect(() => {
+		if (incorrect && !toastShown.current) {
+			toastShown.current = true;
+			toast.error("Incorrect Serial Number! Try Again!", {
+				id: "incorrect-serial",
+				duration: 3000,
+			});
+			// Small timeout to ensure toast is visible before navigation
+			setTimeout(() => {
+				navigate("/certificate_verification", { replace: true });
+			}, 100);
+		}
+
+		return () => {
+			toastShown.current = false;
+		};
+	}, [incorrect, navigate]);
 
 	return (
 		<div id="wrapper">
 			<Navbar />
+			<Toaster />
 			<div className="certificate_container">
 				<div className="certificate_heading">
 					<div className="certificate_heading_text">

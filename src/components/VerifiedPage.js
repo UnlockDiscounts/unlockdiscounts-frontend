@@ -30,7 +30,7 @@ const VerifiedPage = () => {
 				alert("Error");
 			}
 		} catch (error) {
-			navigate("/certificate_verification");
+			navigate(`/certificate_verification/${true}`);
 			console.log(error);
 		}
 	}

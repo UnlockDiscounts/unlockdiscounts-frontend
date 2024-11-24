@@ -21,6 +21,10 @@ function App() {
 				<Route path="/about" element={<AboutContactPage />} />
 				<Route path="/certificate_verification" element={<Certificate />} />
 				<Route
+					path="/certificate_verification/:incorrect"
+					element={<Certificate />}
+				/>
+				<Route
 					path="/certificate_verified/:serialNo"
 					element={<VerifiedPage />}
 				/>
