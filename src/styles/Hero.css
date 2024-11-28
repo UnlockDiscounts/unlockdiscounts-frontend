@@ -47,7 +47,7 @@
 
 .hero-button {
 	display: inline-flex;
-	padding: 2rem;
+	padding: 1.5rem;
 	justify-content: center;
 	align-items: center;
 	gap: 1.25rem;
@@ -56,7 +56,7 @@
 	background: #882a2a;
 
 	color: #fff;
-	font-family: Sora;
+	font-family: "Sora", sans-serif;
 	font-size: 1.5rem;
 	font-style: normal;
 	font-weight: 520;

@@ -175,7 +175,6 @@ const ProductPage = () => {
 				<p className="pp-navbar-fonts cursor-pointer" onClick={navigateToKids}>
 					Kids
 				</p>
-				<p className="pp-navbar-fonts cursor-pointer">New Arrivals</p>
 
 				<div className="search-container">
 					<CiSearch className="search-icon" />

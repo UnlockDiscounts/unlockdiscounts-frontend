@@ -417,7 +417,7 @@
 	color: #fff;
 	text-align: center;
 	font-family: "Sora", sans-serif;
-	font-size: 0.3125rem;
+	font-size: 0.5rem;
 	font-style: normal;
 	font-weight: 400;
 	padding: 2% 5% 2% 5%;
@@ -428,7 +428,6 @@
 	height: 100%;
 	object-fit: cover;
 	border-radius: 0.3125rem;
-	border: 0.1px solid #000;
 	background: lightgray 50% / cover no-repeat, #d9d9d9;
 }
 
@@ -509,7 +508,7 @@
 .pp-discount {
 	color: #d62b2b;
 	font-family: "Sora", sans-serif;
-	font-size: 0.4rem;
+	font-size: 0.6rem;
 	font-style: normal;
 	font-weight: 400;
 	margin: 0;
@@ -526,6 +525,7 @@
 	align-items: center;
 	border-radius: 0.425rem;
 	background: #882a2a;
+	padding: 2%;
 
 	color: #fff;
 	font-family: "Sora", sans-serif;
@@ -550,7 +550,7 @@
 	}
 
 	.pp-image-discount {
-		font-size: 0.4125rem;
+		font-size: 0.6rem;
 		padding: 3% 5% 3% 5%;
 	}
 
@@ -589,6 +589,11 @@
 
 	.pp_image {
 		height: 15rem;
+	}
+
+	.pp-image-discount {
+		font-size: 0.8rem;
+		padding: 3% 5% 3% 5%;
 	}
 
 	.pp-company {

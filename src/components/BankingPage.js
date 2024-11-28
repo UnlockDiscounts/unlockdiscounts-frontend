@@ -4,9 +4,6 @@ import Footer from "./Footer";
 import "../styles/BankingPage.css";
 import "../App.css";
 import { FaSortDown, FaArrowLeft, FaArrowRight } from "react-icons/fa";
-import credit_cards_data from "../data/credit_cards_data";
-import saving_application_data from "../data/saving_application_data";
-import zero_savings_data from "../data/zero_savings_data";
 import { useBank } from "../hooks/useBank";
 
 const BankingPage = () => {
@@ -69,10 +66,14 @@ const BankingPage = () => {
 						{allData.length > 0 ? (
 							allData.map(
 								(item, index) =>
-									item.type === "credit cards" && (
+									item.type === "Credit Card" && (
 										<div className="cc_card" key={index}>
 											<div className="cc_card_image">
 												<img src={item.image} alt={item.name} />
+											</div>
+											<div className="cc_card_title">{item.title}</div>
+											<div className="cc_card_description">
+												{item.description}
 											</div>
 											<div className="cc_card_button">Apply Now</div>
 										</div>
