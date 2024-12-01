@@ -75,7 +75,14 @@ const BankingPage = () => {
 											<div className="cc_card_description">
 												{item.description}
 											</div>
-											<div className="cc_card_button">Apply Now</div>
+											<div
+												className="cc_card_button"
+												onClick={() => {
+													window.open(item.link, "__blank");
+												}}
+											>
+												Apply Now
+											</div>
 										</div>
 									)
 							)

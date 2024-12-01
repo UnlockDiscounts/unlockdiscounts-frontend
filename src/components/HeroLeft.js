@@ -97,10 +97,7 @@ const HeroLeft = () => {
 			</p>
 			<div
 				className="hero-button"
-				onClick={() => {
-					navigate("/products/Mens");
-					window.location.reload();
-				}}
+				onClick={() => window.open("https://amzn.to/40ON71J", "_blank")}
 			>
 				<IoBagHandleSharp className="bag-icon" />
 				Shop Now
