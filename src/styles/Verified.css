@@ -38,6 +38,20 @@
 	line-height: normal;
 }
 
+.certificate_heading_back {
+	width: 100%;
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	color: black;
+	font-size: x-large;
+}
+
+.certificate_heading_back:hover {
+	text-decoration: underline;
+	cursor: pointer;
+}
+
 @media (min-width: 1000px) {
 	.verified_data {
 		gap: 6rem;
