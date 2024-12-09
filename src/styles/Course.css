@@ -102,6 +102,13 @@
 	align-items: center;
 }
 
+.course_card_prices_container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 1rem;
+}
+
 .course_card_rating {
 	display: flex;
 	justify-content: center;
