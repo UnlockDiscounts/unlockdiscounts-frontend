@@ -9,6 +9,8 @@ import AboutContactPage from "./components/AboutContactPage";
 import Certificate from "./components/Certificate";
 import VerifiedPage from "./components/VerifiedPage";
 import SearchedProductsPage from "./components/SearchedProductsPage";
+import Blog from "./components/Blog";
+import BlogPage from "./components/BlogPage";
 import Technology from "./components/Technology";
 
 function App() {
@@ -21,7 +23,6 @@ function App() {
 				<Route path="/faq" element={<FAQ />} />
 				<Route path="/blog" element={<Blog />} />
 				<Route path="/technology" element={<Technology />} />
-				<Route path="/blog/:title" element={<BlogPage/>} />
 				<Route path="/about" element={<AboutContactPage />} />
 				<Route path="/certificate_verification" element={<Certificate />} />
 				<Route
