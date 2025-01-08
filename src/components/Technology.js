@@ -19,7 +19,6 @@ const Technology = () => {
         for (let j = 0; j < arr.length; j++) { // Filling keys in objects
             obj[arr[j]] = [];
         }
-        // console.log(Object.values(obj).values.length,"dataaa")
         technology_data.forEach(data => {    // Filling values in keys with same genre 
             const key = data.genre;
             if (obj[key]) {
@@ -44,7 +43,6 @@ const Technology = () => {
     return (
         <div id="wrapper">
             <Navbar />
-            {/* <div className="main-container"> */}
 
             {Object.keys(nested).map((key) => {
                 return <div className="cart-category"><h2 className="category-heading">{key.charAt(0).toUpperCase() + key.slice(1)}</h2>
@@ -71,8 +69,6 @@ const Technology = () => {
                         </div>)}</div>
                 </div>
             })}
-            {/* </div> */}
-
             <Footer />
         </div>
     )

@@ -9,6 +9,7 @@ import AboutContactPage from "./components/AboutContactPage";
 import Certificate from "./components/Certificate";
 import VerifiedPage from "./components/VerifiedPage";
 import SearchedProductsPage from "./components/SearchedProductsPage";
+import Technology from "./components/Technology";
 
 function App() {
 	return (
