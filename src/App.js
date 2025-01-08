@@ -9,9 +9,6 @@ import AboutContactPage from "./components/AboutContactPage";
 import Certificate from "./components/Certificate";
 import VerifiedPage from "./components/VerifiedPage";
 import SearchedProductsPage from "./components/SearchedProductsPage";
-import Blog from "./components/Blogs";
-import BlogPage from "./components/BlogPage";
-import Technology from "./components/Technology";
 
 function App() {
 	return (
@@ -39,6 +36,7 @@ function App() {
 					path="/searched_products/:searched_param"
 					element={<SearchedProductsPage />}
 				/>
+				<Route path="/blogs" element={<Blog />} />
 			</Routes>
 		</BrowserRouter>
 	);

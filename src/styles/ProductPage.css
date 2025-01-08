@@ -660,7 +660,7 @@
 		position: absolute;
 		display: block !important; /* Force display */
 		background: none;
-		width: 30%;
+		width: 23%;
 		height: fit-content;
 		margin-top: 0;
 		top: 8rem;
@@ -682,7 +682,7 @@
 	}
 
 	.product-page-cards-container {
-		width: 65%;
+		width: 70%;
 		margin-left: auto;
 		margin-top: 0;
 	}

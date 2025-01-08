@@ -7,6 +7,7 @@ import Navbar from "./Navbar";
 import Footer from "./Footer";
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
+import { FaAngleLeft } from "react-icons/fa6";
 
 const VerifiedPage = () => {
 	const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
@@ -43,6 +44,10 @@ const VerifiedPage = () => {
 					<div className="certificate_heading_text">
 						Verify The Authenticity of The Certificate
 					</div>
+				</div>
+
+				<div className="certificate_heading_back" onClick={() => navigate(-1)}>
+					<FaAngleLeft /> Back
 				</div>
 				<div className="certificate_hero">
 					<div className="certificate_left">

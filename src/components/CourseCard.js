@@ -11,13 +11,15 @@ const CourseCard = ({ data }) => {
 			<div className="course_card_author">{data.author}</div>
 			<div className="course_card_name">{data.name}</div>
 			<div className="course_card_footer">
+				<div className="course_card_prices_container">
+					<div className="course_card_price">₹ {data.price}</div>
+					<div className="course_card_prevPrice">
+						₹ {data.discounted_price}{" "}
+						<div className="course_card-prevPrice-stroke"></div>
+					</div>
+				</div>
 				<div className="course_card_rating">
 					<FaStar /> {data.rating}
-				</div>
-				<div className="course_card_price">₹ {data.price}</div>
-				<div className="course_card_prevPrice">
-					₹ {data.discounted_price}{" "}
-					<div className="course_card-prevPrice-stroke"></div>
 				</div>
 			</div>
 		</div>

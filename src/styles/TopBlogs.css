@@ -1,0 +1,219 @@
+.top_blog_wrapper{
+    list-style-type: none;
+    padding-left: 0px;
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 1rem;
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    -webkit-overflow-scrolling: touch;
+   
+}
+    .latest_blog_wrapper{
+        list-style-type: none;
+        padding-left: 0px;
+        width: 100%;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 1rem;
+        overflow-x: auto;
+        flex-wrap: nowrap;
+        -webkit-overflow-scrolling: touch;
+        height:18rem ;
+    }
+.top_blog_tag_container{
+    width: 11rem;
+    height: 13rem;
+    margin: 0;
+   
+}
+.top_blog_heading{
+    font-size: 24PX;
+    margin: 0;
+    line-height: 1.5rem;
+    text-align: left;
+    width: 10rem;
+    padding: 0px;
+
+}
+.top_blog_heading-desktop{
+    display: none;
+
+}
+.top_blog_des{
+    font-size: 14px;
+    color: #000000BF;
+    line-height: 1.1rem;
+    width: 100%;
+    margin-top: 0.5rem;
+}
+.top_blog_image{
+    height: 6rem;
+    width: 10rem;
+    margin: 0;
+    border-radius: 5px;
+}
+.top_blog_title{
+    margin: 0px;
+    font-size: 14px;
+    color: #171A1F;
+}
+.top_blog_description{
+    color: #171A1FBF;
+    font-size: 11px;
+    margin: 0;
+    width: 100%;
+    line-height: 1.5em;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    overflow: hidden;
+    height: auto;
+}
+
+.top_blog_container {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    transition: transform 0.05s ease, box-shadow 0.05s ease;
+    cursor: pointer;
+  }
+  .top_blog_container:hover {
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2)!important;
+    transform: translateY(-3px) !important;
+    padding: 5px 10px 5px 10px;
+    border-radius: 8px;
+    
+}
+
+  
+  .image-container {
+    position: relative;
+  }
+  
+  
+  .time-badge {
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    color: #000000;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 14px;
+  }
+  .top_blogsNote{
+    color:maroon;
+    text-decoration: underline;
+    font-size: 0.7rem;
+    display: block;
+    font-weight: 600;
+    width: 80%;
+    margin-left: 10px;
+  }
+  .top_blogsNote_container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+   
+  }
+  .visibility-container{
+    display: none;
+  }
+  .top_blog_container:hover .visibility-container{
+    display: block;
+  }
+  @media screen and (min-width:900px) {
+
+    .top_blog_wrapper {
+        list-style-type: none;
+        padding: 0;
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap; /* Enable wrapping to the next row */
+        gap: 1rem; /* Space between cards */
+        justify-content: flex-start; /* Align cards to the left */
+        box-sizing: border-box; /* Include padding/borders in sizing */
+        overflow-x: visible;
+        height: auto;
+    }
+    .latest_blog_wrapper {
+        list-style-type: none;
+        padding: 0;
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap; /* Enable wrapping to the next row */
+        gap: 1rem; /* Space between cards */
+        justify-content: flex-start; /* Align cards to the left */
+        box-sizing: border-box; /* Include padding/borders in sizing */
+        overflow-x: visible;
+        height: auto;
+    }
+    .top_blogsNote_container{
+        display: none;
+    }
+    .top_blog_heading-desktop{
+        display: block;
+    }
+
+
+    .top_blog_container {
+        flex: 1 1 calc(33.33% - 1rem); 
+        max-width: 285px;
+        box-sizing: border-box;
+        border-radius: 8px;
+        height: auto;
+        transition: transform 0.1s ease, box-shadow 0.1s ease; /* Instant hover effect */
+        cursor: pointer;
+    }
+    
+    /* Hover effect */
+    .top_blog_container:hover {
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Shadow on hover */
+        transform: translateY(-3px); /* Slight lift effect */
+    }
+
+
+
+    .image-container {
+        width: 100%;
+        overflow: hidden; 
+    }
+
+/* Image styling */
+.card_image {
+    width: 100%;
+    height: auto; /* Maintain aspect ratio */
+    display: block;
+    border-radius: 8px;
+    
+}
+
+    .top_blog_tag_container{
+        display: none;
+    }
+    .top_blog_heading-desktop{
+        font-size: 2rem;
+        margin: 0;
+        line-height: 1.5rem;
+        text-align: left;
+        width: 10rem;
+        padding: 0px;
+    
+    }
+  
+      .image-container{
+        width: 100%;
+      }
+      .top_blog_image{
+        width: 100%;
+        height: 180px;
+        border-radius: 8px;
+      }
+      .time-badge {
+        display: none;
+      }
+
+  }
