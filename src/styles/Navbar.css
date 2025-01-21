@@ -1,13 +1,17 @@
 /* navbar stylings  */
 .navbar {
 	height: auto;
-	width: 90%;
-	padding: 19px 0px 19px 0px;
-
+	width: 100%;
+	padding: 19px 0px 19px 79px;
+	/* background-color: rgb(230, 81, 81); */
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
 	flex-wrap: wrap;
+}
+.navbar-container {
+    width: 100%;
+    background-color: rgb(255, 255, 255);
 }
 
 .navbar-logo {
@@ -20,11 +24,12 @@
 }
 
 .navbar-fonts {
+	margin-left:2.4%;
 	color: #000;
 	font-family: "Sora", sans-serif;
-	font-size: 1.25rem;
+	font-size: 0.96rem;
 	font-style: normal;
-	font-weight: 400;
+	font-weight: 500;
 	line-height: normal;
 }
 
@@ -33,7 +38,7 @@
 }
 
 .navbar-search-container {
-	width: 20.6875rem;
+	width: 12.6875rem;
 	height: 3rem;
 	border-radius: 2.1875rem;
 	border: 1px solid #000;
@@ -42,6 +47,7 @@
 	align-items: center;
 	justify-content: space-between;
 	gap: 10px;
+	margin-left: 3%;
 
 	padding: 6px 10px 6px 10px;
 }
@@ -53,14 +59,14 @@
 }
 
 .navbar-search-input {
-	width: 60%;
+	width: 68%;
 	border: none;
 
 	color: rgba(16, 16, 16, 0.5);
 	font-family: "Sora", sans-serif;
-	font-size: 1rem;
+	font-size: 0.89rem;
 	font-style: normal;
-	font-weight: 400;
+	font-weight: 500;
 	line-height: normal;
 }
 
@@ -86,24 +92,24 @@
 	background: #2a1c17;
 }
 
-.navbar-login {
+/* .navbar-login {
 	display: flex;
 	padding: 1rem 1.25rem;
+	border-radius: 3.36538rem;
 	justify-content: center;
 	align-items: center;
 	gap: 0.67306rem;
-	border-radius: 3.36538rem;
 	background: #0f0705;
 }
 
 .navbar-login-text {
 	color: #fff;
 	font-family: "Sora", sans-serif;
-	font-size: 1.07694rem;
+	font-size: 0.91694rem;
 	font-style: normal;
 	font-weight: 400;
 	line-height: normal;
-}
+} */
 
 .navbar-login:hover {
 	cursor: pointer;

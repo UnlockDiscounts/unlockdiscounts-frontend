@@ -10,8 +10,9 @@ import Certificate from "./components/Certificate";
 import VerifiedPage from "./components/VerifiedPage";
 import SearchedProductsPage from "./components/SearchedProductsPage";
 import Blog from "./components/Blog";
-import BlogPage from "./components/BlogPage";
 import Technology from "./components/Technology";
+import Login from "./components/Login";
+import Signup from "./components/Signup";
 
 function App() {
 	return (
@@ -25,6 +26,8 @@ function App() {
 				<Route path="/technology" element={<Technology />} />
 				<Route path="/about" element={<AboutContactPage />} />
 				<Route path="/certificate_verification" element={<Certificate />} />
+				<Route path="/login" element={<Login />} />
+				<Route path="/signup" element={<Signup />} />
 				<Route
 					path="/certificate_verification/:incorrect"
 					element={<Certificate />}

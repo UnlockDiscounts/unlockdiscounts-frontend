@@ -40,7 +40,7 @@
 	background: #fff;
 	display: flex;
 	align-items: center;
-	gap: 12px;
+	/* gap: 15px; */
 
 	padding: 6px 10px 6px 10px;
 }
@@ -69,19 +69,22 @@
 }
 
 .navbar-login {
+	margin-right: 1.75rem;
 	display: flex;
-	padding: 1rem 1.25rem;
+	padding: 1rem 2.25rem;
+	border-radius: 3.36538rem;
 	justify-content: center;
 	align-items: center;
-	gap: 0.67306rem;
-	border-radius: 3.36538rem;
+	/* gap: 0.37306rem; */
 	background: #0f0705;
+	margin-left: 0; /* Remove margin */
+	margin-right:50px;
 }
 
 .navbar-login-text {
 	color: #fff;
 	font-family: "Sora", sans-serif;
-	font-size: 1.07694rem;
+	font-size: 0.81694rem;
 	font-style: normal;
 	font-weight: 400;
 	line-height: normal;

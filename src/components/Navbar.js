@@ -13,6 +13,8 @@ const Navbar = () => {
 	const navigate = useNavigate();
 	const dropdownRef = useRef(null);
 	const [searchQuery, setSearchQuery] = useState("");
+	const [sidebarsearchQuery, setSideBarSearchQuery] = useState("");
+	const [homePage, setHomePage] = useState(true);
 
 	const categories = [
 		{ name: "Electronics", path: "products/Electronics" },
@@ -40,13 +42,14 @@ const Navbar = () => {
 	};
 
 	return (
+		<div className="navbar-container">
 		<div className="navbar">
 			<div className="navbar-logo" onClick={() => navigate("/")}>
 				<img src={Logo} alt="Logo" />
 			</div>
 
 			{/* Categories Dropdown */}
-			<div className="navbar-fonts relative" ref={dropdownRef}>
+			{/* <div className="navbar-fonts relative" ref={dropdownRef}>
 				<div
 					className="flex items-center cursor-pointer"
 					onClick={() => setShowDropdown(!showDropdown)}
@@ -67,11 +70,33 @@ const Navbar = () => {
 						))}
 					</div>
 				)}
-			</div>
+			</div> */}
 
 			<p
 				className="navbar-fonts"
+				onClick={() => {handleNavigate("products/electronics")
+				setHomePage(false)}}
+			>
+				Electronics
+			</p>
+			<p
+				className="navbar-fonts"
+				onClick={() => handleNavigate("products/onlinelearning")}
+				// setHomePage={setHomePage(true)}
+			>
+				Online Learning
+			</p>
+			<p
+				className="navbar-fonts"
+				onClick={() => handleNavigate("products/banking")}
+				// setHomePage={setHomePage(true)}
+			>
+				Banking
+			</p>
+			<p
+				className="navbar-fonts"
 				onClick={() => handleNavigate("products/Mens")}
+				// setHomePage={setHomePage(true)}
 			>
 				Men
 			</p>
@@ -89,7 +114,6 @@ const Navbar = () => {
 			</p>
 
 			<div className="navbar-search-container">
-				<CiSearch className="navbar-search-icon" />
 				<input
 					className="navbar-search-input"
 					placeholder="Search products ..."
@@ -103,32 +127,40 @@ const Navbar = () => {
 							window.location.reload();
 						}
 					}}
+					
 				/>
-				<button
+					<CiSearch className="navbar-search-icon"
+						onClick={(e)=>{
+							if(searchQuery !== ""){
+							navigate(`/searched_products/${searchQuery}/${sidebarsearchQuery}`);
+							window.location.reload();
+						}}}/>
+				{/* <button
 					className="navbar_search_button"
 					onClick={() => {
 						navigate(`/searched_products/${searchQuery}`);
 						window.location.reload();
-					}}
-				>
-					Search
-				</button>
+						}}
+						>
+						Search
+						</button> */}
 			</div>
 
-			<div className="navbar-login">
-				<p className="navbar-login-text">Sign up / Login</p>
+			<div className="navbar-login" onClick={(e)=>{navigate("/signup")}}>
+				<p className="navbar-login-text">Signup</p>
 			</div>
 
-			<RiMenu4Fill
+			{/* <RiMenu4Fill
 				className="navbar-mobile-popup"
 				onClick={() => setShowSidebar(true)}
-			/>
+			/> */}
 
-			{/* Sidebar Modal */}
-			<div
+				{/* Sidebar Modal */}
+			{/* {!homePage&&<div
 				className={`sidebar-overlay ${showSidebar ? "show" : ""}`}
 				onClick={() => setShowSidebar(false)}
 			>
+				<h1>Hellooooo</h1>
 				<div className="sidebar" onClick={(e) => e.stopPropagation()}>
 					<div className="sidebar-header">
 						<div className="sidebar-logo"></div>
@@ -139,16 +171,20 @@ const Navbar = () => {
 					</div>
 
 					<div className="sidebar-search">
-						<CiSearch className="search-icon" />
+						<CiSearch className="search-icon" 
+							onClick={(e)=>{
+								navigate(`/products/${searchQuery}/${sidebarsearchQuery}`);
+								window.location.reload();
+							}}/>
 						<input
 							className="search-input"
 							placeholder="Search products ..."
 							onChange={(e) => {
-								setSearchQuery(e.target.value);
+								setSideBarSearchQuery(e.target.value);
 							}}
 							onKeyDown={(e) => {
 								if (e.key === "Enter" && searchQuery.trim()) {
-									navigate(`/searched_products/${searchQuery}`);
+									navigate(`/products/${searchQuery}/${sidebarsearchQuery}`);
 									window.location.reload();
 								}
 							}}
@@ -156,7 +192,7 @@ const Navbar = () => {
 						<button
 							className="navbar_search_button"
 							onClick={() => {
-								navigate(`/searched_products/${searchQuery}`);
+								navigate(`/products/${searchQuery}/${sidebarsearchQuery}`);
 								window.location.reload();
 							}}
 						>
@@ -216,7 +252,8 @@ const Navbar = () => {
 						<p className="sidebar-login-text">Sign up / Login</p>
 					</div>
 				</div>
-			</div>
+			</div>} */}
+		</div>
 		</div>
 	);
 };

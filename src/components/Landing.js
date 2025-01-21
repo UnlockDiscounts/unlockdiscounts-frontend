@@ -7,6 +7,7 @@ import RecentlyVisited from "./RecentlyVisited";
 import NewsLetter from "./NewsLetter";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
+import Slider from "./Slider";
 
 const Landing = () => {
 	return (
@@ -14,7 +15,8 @@ const Landing = () => {
 			<Navbar />
 			<div className="container">
 				<Hero />
-				<CompanyBar />
+				{/* <CompanyBar /> */}
+				<Slider/>
 				<PopularPicks />
 				<Advertisement />
 				<RecentlyVisited />

@@ -97,7 +97,7 @@ const Footer = () => {
 						<div className="footer-column-heading">Resources</div>
 						<div
 							className="footer-column-text"
-							onClick={() => handleNavigation("/")}
+							onClick={() => handleNavigation("/blog")}
 						>
 							Blogs
 						</div>

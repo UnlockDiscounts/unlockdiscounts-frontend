@@ -9,6 +9,7 @@ import { IoMdClose } from "react-icons/io";
 import ProductPageCard from "./ProductPageCard";
 import Logo from "../assets/Logo.svg";
 import { useProducts } from "../hooks/useProducts";
+import Navbar from "./Navbar";
 
 const ProductPage = () => {
 	const { category_param } = useParams();
@@ -123,8 +124,9 @@ const ProductPage = () => {
 
 	return (
 		<div id="wrapper">
-			<div className="pp-navbar mobile">
-				<div className="pp-navbar-logo">
+			<Navbar/>
+			{/* <di className="pp-navbar mobile"> */}
+				{/* <div className="pp-navbar-logo">
 					<img
 						src={Logo}
 						alt="Logo"
@@ -189,7 +191,7 @@ const ProductPage = () => {
 				<div className="navbar-login">
 					<p className="navbar-login-text">Sign up / Login</p>
 				</div>
-			</div>
+			</di> */}
 
 			<div className="header-container">
 				<div className="text-container">
