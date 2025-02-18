@@ -72,6 +72,26 @@ const Navbar = () => {
 				)}
 			</div> */}
 
+<p
+				className="navbar-fonts"
+				onClick={() => handleNavigate("products/Mens")}
+				// setHomePage={setHomePage(true)}
+			>
+				Men
+			</p>
+			<p
+				className="navbar-fonts"
+				onClick={() => handleNavigate("products/Women")}
+			>
+				Women
+			</p>
+			<p
+				className="navbar-fonts"
+				onClick={() => handleNavigate("products/Kids")}
+			>
+				Kids
+			</p>
+
 			<p
 				className="navbar-fonts"
 				onClick={() => {handleNavigate("products/electronics")
@@ -92,25 +112,6 @@ const Navbar = () => {
 				// setHomePage={setHomePage(true)}
 			>
 				Banking
-			</p>
-			<p
-				className="navbar-fonts"
-				onClick={() => handleNavigate("products/Mens")}
-				// setHomePage={setHomePage(true)}
-			>
-				Men
-			</p>
-			<p
-				className="navbar-fonts"
-				onClick={() => handleNavigate("products/Women")}
-			>
-				Women
-			</p>
-			<p
-				className="navbar-fonts"
-				onClick={() => handleNavigate("products/Kids")}
-			>
-				Kids
 			</p>
 
 			<div className="navbar-search-container">

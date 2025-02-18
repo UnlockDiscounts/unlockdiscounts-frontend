@@ -13,6 +13,9 @@ import Blog from "./components/Blog";
 import Technology from "./components/Technology";
 import Login from "./components/Login";
 import Signup from "./components/Signup";
+import Categories from "./components/Categories";
+import CategoryPage from "./components/CategoryPage";
+import BlogDetail from "./components/BlogDetail";
 
 function App() {
 	return (
@@ -41,7 +44,9 @@ function App() {
 					path="/searched_products/:searched_param"
 					element={<SearchedProductsPage />}
 				/>
-				<Route path="/blogs" element={<Blog />} />
+				<Route path="/categories" element={<Categories />} />
+				<Route path="/category/:category_name" element={<CategoryPage />} />
+				<Route path="/blog/:id" element={<BlogDetail />} />
 			</Routes>
 		</BrowserRouter>
 	);

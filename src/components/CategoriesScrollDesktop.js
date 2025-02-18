@@ -1,4 +1,3 @@
-import React, { useState } from 'react';
 import '../styles/CategoriesScrollDesktop.css';
 
 const CategoriesScrollDesktop = ({ catloglist }) => {

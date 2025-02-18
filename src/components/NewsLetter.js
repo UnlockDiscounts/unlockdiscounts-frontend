@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { MdEmail } from "react-icons/md";
-import logo from "../assets/logo.png";
+import logo from "../assets/Logo1.svg";
 import "../styles/NewsLetter.css";
 import axios from "axios";
 import toast, { Toaster } from "react-hot-toast";

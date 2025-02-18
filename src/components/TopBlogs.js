@@ -18,7 +18,6 @@ const TopBlogs = () =>{
 
                 {
                     TopBlogsData.map((BlogItem)=>(
-                       
                         <TopBlogsItems key={BlogItem.id} blogsData={BlogItem}/>
                     ))
                 }
