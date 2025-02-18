@@ -62,6 +62,7 @@
 .Blogs-hero-button:hover {
 	cursor: pointer;
 }
+
 .Blogs-hero-image {
 	min-width: 6rem;
 	width: -webkit-fill-available;

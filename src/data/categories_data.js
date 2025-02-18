@@ -7,7 +7,7 @@ const categories_data = [
     },
     {
         id:"2",
-        categorie_name:"E_Commerce",
+        categorie_name:"ECommerce",
         is_Active:"False"
     },
     {
@@ -60,24 +60,7 @@ const categories_data = [
         id:"12",
         categorie_name:"Fashion & beauty",
         is_Active:"False"
-    },{
-        id:"13",
-        categorie_name:"Parenting",
-        is_Active:"False"
-    },{
-        id:"14",
-        categorie_name:"Parenting",
-        is_Active:"False"
-    },{
-        id:"15",
-        categorie_name:"Parenting",
-        is_Active:"False"
-    },{
-        id:"16",
-        categorie_name:"Parenting",
-        is_Active:"False"
     }
-
 ]
 
 

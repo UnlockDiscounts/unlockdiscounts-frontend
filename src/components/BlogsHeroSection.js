@@ -1,4 +1,3 @@
-import React from "react";
 import BlogsHeroLeft from "./BlogsHeroLeft";
 import BlogsHeroRight from "./BlogsHeroRight";
 import "../styles/BlogsHeroSection.css";
