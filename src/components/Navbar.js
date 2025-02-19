@@ -151,78 +151,33 @@ const Navbar = () => {
 				<p className="navbar-login-text">Signup</p>
 			</div>
 
-			{/* <RiMenu4Fill
+			<RiMenu4Fill
 				className="navbar-mobile-popup"
-				onClick={() => setShowSidebar(true)}
-			/> */}
+				onClick={() => {
+					setShowSidebar(true);
+					setHomePage(false);
+				}}
+			/>
 
 				{/* Sidebar Modal */}
-			{/* {!homePage&&<div
+			{!homePage&&<div
 				className={`sidebar-overlay ${showSidebar ? "show" : ""}`}
 				onClick={() => setShowSidebar(false)}
 			>
 				<h1>Hellooooo</h1>
 				<div className="sidebar" onClick={(e) => e.stopPropagation()}>
 					<div className="sidebar-header">
-						<div className="sidebar-logo"></div>
+					<div className="navbar-logo" onClick={() => navigate("/")}>
+							<img src={Logo} alt="Logo" />
+						</div>
 						<IoMdClose
 							className="close-icon"
 							onClick={() => setShowSidebar(false)}
 						/>
-					</div>
-
-					<div className="sidebar-search">
-						<CiSearch className="search-icon" 
-							onClick={(e)=>{
-								navigate(`/products/${searchQuery}/${sidebarsearchQuery}`);
-								window.location.reload();
-							}}/>
-						<input
-							className="search-input"
-							placeholder="Search products ..."
-							onChange={(e) => {
-								setSideBarSearchQuery(e.target.value);
-							}}
-							onKeyDown={(e) => {
-								if (e.key === "Enter" && searchQuery.trim()) {
-									navigate(`/products/${searchQuery}/${sidebarsearchQuery}`);
-									window.location.reload();
-								}
-							}}
-						/>
-						<button
-							className="navbar_search_button"
-							onClick={() => {
-								navigate(`/products/${searchQuery}/${sidebarsearchQuery}`);
-								window.location.reload();
-							}}
-						>
-							Search
-						</button>
+						
 					</div>
 
 					<div className="sidebar-nav">
-						<div className="sidebar-nav-item">
-							<div
-								className="flex items-center w-full"
-								onClick={() => setShowDropdown(!showDropdown)}
-							>
-								Categories <FaSortDown />
-							</div>
-							{showDropdown && (
-								<div className="ml-4 mt-2">
-									{categories.map((category) => (
-										<div
-											key={category.path}
-											className="py-2 cursor-pointer"
-											onClick={() => handleNavigate(category.path)}
-										>
-											{category.name}
-										</div>
-									))}
-								</div>
-							)}
-						</div>
 						<p
 							className="sidebar-nav-item"
 							onClick={() => handleNavigate("products/Mens")}
@@ -243,9 +198,21 @@ const Navbar = () => {
 						</p>
 						<p
 							className="sidebar-nav-item"
-							onClick={() => handleNavigate("new-arrivals")}
+							onClick={() => handleNavigate("products/Electronics")}
 						>
-							New Arrivals
+							Electronics
+						</p>
+						<p
+							className="sidebar-nav-item"
+							onClick={() => handleNavigate("online_learning")}
+						>
+							Online Learning
+						</p>
+						<p
+							className="sidebar-nav-item"
+							onClick={() => handleNavigate("products/Banking")}
+						>
+							Banking
 						</p>
 					</div>
 
@@ -253,7 +220,7 @@ const Navbar = () => {
 						<p className="sidebar-login-text">Sign up / Login</p>
 					</div>
 				</div>
-			</div>} */}
+			</div>}
 		</div>
 		</div>
 	);
