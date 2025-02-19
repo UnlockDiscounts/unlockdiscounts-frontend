@@ -1,4 +1,4 @@
-.top_blog_wrapper,
+/* .top_blog_wrapper,
 .latest_blog_wrapper {
   list-style-type: none;
   padding-left: 0px;
@@ -10,10 +10,10 @@
   overflow-x: auto;
   flex-wrap: nowrap;
   -webkit-overflow-scrolling: touch;
-  scrollbar-width: none; /* For Firefox: hide scrollbar */
-  -ms-overflow-style: none; /* For IE and Edge: hide scrollbar */
-  scroll-behavior: smooth; /* Enable smooth scrolling */
-}
+  scrollbar-width: none; 
+  -ms-overflow-style: none; 
+  scroll-behavior: smooth; 
+} */
 
 .top_blog_wrapper::-webkit-scrollbar,
 .latest_blog_wrapper::-webkit-scrollbar {
@@ -139,6 +139,7 @@
     list-style-type: none;
     padding: 0;
     width: 100%;
+    margin-bottom: 15px;
     display: flex;
     flex-wrap: wrap; /* Wrap to next row for desktop */
     gap: 2rem; /* Increased spacing between cards */
