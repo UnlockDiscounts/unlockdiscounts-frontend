@@ -118,7 +118,7 @@ const ProductPage = () => {
 		window.location.reload();
 	};
 	const navigateToBanking = () => {
-		navigate("/banking");
+		navigate("/finance/banking-cards");
 		window.location.reload();
 	};
 
