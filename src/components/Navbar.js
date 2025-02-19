@@ -94,21 +94,21 @@ const Navbar = () => {
 
 			<p
 				className="navbar-fonts"
-				onClick={() => {handleNavigate("products/electronics")
+				onClick={() => {handleNavigate("products/Electronics")
 				setHomePage(false)}}
 			>
 				Electronics
 			</p>
 			<p
 				className="navbar-fonts"
-				onClick={() => handleNavigate("products/onlinelearning")}
+				onClick={() => handleNavigate("online_learning")}
 				// setHomePage={setHomePage(true)}
 			>
 				Online Learning
 			</p>
 			<p
 				className="navbar-fonts"
-				onClick={() => handleNavigate("products/banking")}
+				onClick={() => handleNavigate("products/Banking")}
 				// setHomePage={setHomePage(true)}
 			>
 				Banking
