@@ -103,7 +103,7 @@ position: absolute;
         display: none;
     }
     
-    .card_wrapper-desktop{
+    /* .card_wrapper-desktop{
         list-style-type: none;
         padding-left: 0px;
         display: flex;
@@ -113,8 +113,8 @@ position: absolute;
         overflow-x: auto;
         flex-wrap: nowrap;
         width: 100%;
-        -webkit-overflow-scrolling: touch; /* Optional, can be removed */
-    }
+        -webkit-overflow-scrolling: touch; 
+    } */
 
     .card_wrapper > .card_container {
         flex: none; /* Prevent shrinking */

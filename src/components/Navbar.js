@@ -148,7 +148,7 @@ const Navbar = () => {
 			</div>
 
 			<div className="navbar-login" onClick={(e)=>{navigate("/signup")}}>
-				<p className="navbar-login-text">Signup</p>
+				<p className="navbar-login-text">Sign Up / Login</p>
 			</div>
 
 			<RiMenu4Fill
