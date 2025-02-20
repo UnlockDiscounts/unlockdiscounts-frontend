@@ -2,20 +2,19 @@ import React from "react";
 import "../styles/Footer.css";
 import { FaInstagram, FaFacebook, FaLinkedin, FaYoutube } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
-
 const Footer = () => {
   const navigate = useNavigate();
-
   const handleNavigation = (path) => {
     navigate(path);
     window.scrollTo(0, 0); // Scroll to top instead of reloading
   };
   const handleIntern = () => {
-    window.open("https://www.linkedin.com/company/unlockdiscounts/jobs/", "_blank");
+    window.open(
+      "https://www.linkedin.com/company/unlockdiscounts/jobs/",
+      "_blank"
+    );
     window.scrollTo(0, 0);
-};
-
-
+  };
   return (
     <footer className="footer-container">
       <div className="footer-content-wrapper">
@@ -111,13 +110,13 @@ const Footer = () => {
             <div className="footer-column-heading">Company</div>
             <div
               className="footer-column-text"
-              onClick={() => handleNavigation("/about")}
+              onClick={() => handleNavigation("/aboutUS")}
             >
               About Us
             </div>
             <div
               className="footer-column-text"
-              onClick={() => handleNavigation("/about")}
+              onClick={() => handleNavigation("/contactUS")}
             >
               Contact Us
             </div>
@@ -197,5 +196,4 @@ const Footer = () => {
     </footer>
   );
 };
-
 export default Footer;
