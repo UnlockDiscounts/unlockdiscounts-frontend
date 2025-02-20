@@ -219,7 +219,7 @@ const Navbar = () => {
                 </p>
                 <p
                   className="sidebar-nav-item"
-                  onClick={() => handleNavigate("products/Banking")}
+                  onClick={() => handleNavigate("banking")}
                 >
                   Banking
                 </p>
