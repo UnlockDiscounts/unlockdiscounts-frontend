@@ -111,13 +111,13 @@ const Footer = () => {
             <div className="footer-column-heading">Company</div>
             <div
               className="footer-column-text"
-              onClick={() => handleNavigation("/aboutUS")}
+              onClick={() => handleNavigation("/about")}
             >
               About Us
             </div>
             <div
               className="footer-column-text"
-              onClick={() => handleNavigation("/contactUS")}
+              onClick={() => handleNavigation("/about")}
             >
               Contact Us
             </div>
