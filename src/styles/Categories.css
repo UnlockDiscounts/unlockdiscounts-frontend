@@ -43,7 +43,7 @@
 	font-weight: bold;
   }
   
-  .explore-more-button {
+  /* .explore-more-button {
 	padding: 12px 20px;
 	font-size: 18px;
 	border: none;
@@ -57,7 +57,7 @@
   .explore-more-button:hover {
 	background-color: #a00000;
 	box-shadow: 0px 5px 15px rgba(128, 0, 0, 0.3);
-  }
+  } */
   
   /* Responsive Adjustments */
   @media (max-width: 768px) { /* Mobile devices */
@@ -79,11 +79,10 @@
 	  border-radius: 20px; /* Slightly smaller buttons */
 	}
   
-	.explore-more-button {
-	  padding: 10px 18px; /* Reduced padding */
-	  font-size: 16px; /* Reduced font size */
+	/* .explore-more-button {
+	  font-size: 16px; 
 	  border-radius: 20px;
-	}
+	} */
   }
   
   /* Tablet adjustments */
@@ -102,9 +101,9 @@
 	  font-size: 15px;
 	}
   
-	.explore-more-button {
+	/* .explore-more-button {
 	  padding: 11px 19px;
 	  font-size: 17px;
-	}
+	} */
   }
   
