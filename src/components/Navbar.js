@@ -108,7 +108,7 @@ const Navbar = () => {
 			</p>
 			<p
 				className="navbar-fonts"
-				onClick={() => handleNavigate("products/Banking")}
+				onClick={() => handleNavigate("banking")}
 				// setHomePage={setHomePage(true)}
 			>
 				Banking

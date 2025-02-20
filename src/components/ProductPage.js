@@ -315,14 +315,17 @@ const ProductPage = () => {
 								<div className="radio-item">
 									<input
 										type="radio"
-										id="category-banking"
+										id="category-health_care"
 										name="category"
-										value="Banking"
-										checked={filters.category === "Banking"}
-										onChange={() => handleCategoryClick("Banking")}
+										value="Health Care"
+										checked={filters.category === "health_care"}
+										onChange={() => handleCategoryClick("health_care")}
 									/>
-									<label className="radio-label" htmlFor="category-banking">
-										Banking
+									<label
+										className="radio-label"
+										htmlFor="category-health_care"
+									>
+										Health Care
 									</label>
 								</div>
 							</div>
