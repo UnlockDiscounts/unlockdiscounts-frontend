@@ -58,7 +58,7 @@
 	flex-shrink: 0;
 }
 
-.navbar-search-input {
+.navbar-Search-Input {
 	width: 68%;
 	border: none;
 
@@ -146,8 +146,8 @@
 	.navbar-search-icon {
 		background-color: black;
 		color: white;
-		width: 0.925rem;
-		height: 0.925rem;
+		width: 1.525rem;
+		height: 1.525rem;
 		flex-shrink: 0;
 		border-radius: 50%;
 		padding: 0.1rem;

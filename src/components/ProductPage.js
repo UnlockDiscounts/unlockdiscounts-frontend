@@ -4,10 +4,10 @@ import Footer from "./Footer";
 import { useNavigate, useParams } from "react-router-dom";
 import { CiSearch } from "react-icons/ci";
 import { TbAdjustmentsHorizontal } from "react-icons/tb";
-import { FaSortDown } from "react-icons/fa";
+// import { FaSortDown } from "react-icons/fa";
 import { IoMdClose } from "react-icons/io";
 import ProductPageCard from "./ProductPageCard";
-import Logo from "../assets/Logo.svg";
+// import Logo from "../assets/Logo.svg";
 import { useProducts } from "../hooks/useProducts";
 import Navbar from "./Navbar";
 
@@ -118,7 +118,7 @@ const ProductPage = () => {
 		window.location.reload();
 	};
 	const navigateToBanking = () => {
-		navigate("/finance/banking-cards");
+		navigate("/banking");
 		window.location.reload();
 	};
 
@@ -315,14 +315,17 @@ const ProductPage = () => {
 								<div className="radio-item">
 									<input
 										type="radio"
-										id="category-banking"
+										id="category-health_care"
 										name="category"
-										value="Banking"
-										checked={filters.category === "Banking"}
-										onChange={() => handleCategoryClick("Banking")}
+										value="Health Care"
+										checked={filters.category === "health_care"}
+										onChange={() => handleCategoryClick("health_care")}
 									/>
-									<label className="radio-label" htmlFor="category-banking">
-										Banking
+									<label
+										className="radio-label"
+										htmlFor="category-health_care"
+									>
+										Health Care
 									</label>
 								</div>
 							</div>
