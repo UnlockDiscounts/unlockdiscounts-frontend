@@ -48,34 +48,10 @@ const Navbar = () => {
           <img src={Logo} alt="Logo" />
         </div>
 
-        {/* Categories Dropdown */}
-        {/* <div className="navbar-fonts relative" ref={dropdownRef}>
-				<div
-					className="flex items-center cursor-pointer"
-					onClick={() => setShowDropdown(!showDropdown)}
-				>
-					Categories <FaSortDown />
-				</div>
-
-				{showDropdown && (
-					<div className="absolute top-full mt-2 bg-white border border-gray-200 rounded-md shadow-lg z-50 min-w-[200px]">
-						{categories.map((category) => (
-							<div
-								key={category.path}
-								className="px-4 py-2 hover:bg-gray-100 cursor-pointer"
-								onClick={() => handleNavigate(category.path)}
-							>
-								{category.name}
-							</div>
-						))}
-					</div>
-				)}
-			</div> */}
-
         <p
           className="navbar-fonts"
           onClick={() => handleNavigate("products/Mens")}
-          // setHomePage={setHomePage(true)}
+          
         >
           Men
         </p>
@@ -92,29 +68,27 @@ const Navbar = () => {
           Kids
         </p>
 
-        <p
-          className="navbar-fonts"
-          onClick={() => {
-            handleNavigate("products/Electronics");
-            setHomePage(false);
-          }}
-        >
-          Electronics
-        </p>
-        <p
-          className="navbar-fonts"
-          onClick={() => handleNavigate("online_learning")}
-          // setHomePage={setHomePage(true)}
-        >
-          Online Learning
-        </p>
-        <p
-          className="navbar-fonts"
-          onClick={() => handleNavigate("products/Banking")}
-          // setHomePage={setHomePage(true)}
-        >
-          Banking
-        </p>
+			<p
+				className="navbar-fonts"
+				onClick={() => {handleNavigate("products/Electronics")
+				setHomePage(false)}}
+			>
+				Electronics
+			</p>
+			<p
+				className="navbar-fonts"
+				onClick={() => handleNavigate("online_learning")}
+				
+			>
+				Online Learning
+			</p>
+			<p
+				className="navbar-fonts"
+				onClick={() => handleNavigate("banking")}
+				
+			>
+				Banking
+			</p>
 
         <div className="navbar-search-container">
           <input
@@ -142,15 +116,6 @@ const Navbar = () => {
               }
             }}
           />
-          {/* <button
-					className="navbar_search_button"
-					onClick={() => {
-						navigate(`/searched_products/${searchQuery}`);
-						window.location.reload();
-						}}
-						>
-						Search
-						</button> */}
         </div>
 
         <div
@@ -221,7 +186,7 @@ const Navbar = () => {
                 </p>
                 <p
                   className="sidebar-nav-item"
-                  onClick={() => handleNavigate("products/Banking")}
+                  onClick={() => handleNavigate("banking")}
                 >
                   Banking
                 </p>

@@ -2,15 +2,19 @@ import React from "react";
 import "../styles/Footer.css";
 import { FaInstagram, FaFacebook, FaLinkedin, FaYoutube } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
-
 const Footer = () => {
   const navigate = useNavigate();
-
   const handleNavigation = (path) => {
     navigate(path);
     window.scrollTo(0, 0); // Scroll to top instead of reloading
   };
-
+  const handleIntern = () => {
+    window.open(
+      "https://www.linkedin.com/company/unlockdiscounts/jobs/",
+      "_blank"
+    );
+    window.scrollTo(0, 0);
+  };
   return (
     <footer className="footer-container">
       <div className="footer-content-wrapper">
@@ -46,13 +50,13 @@ const Footer = () => {
             </div>
             <div
               className="footer-column-text"
-              onClick={() => handleNavigation("/health_care")}
+              onClick={() => handleNavigation("/products/health_care")}
             >
               Health Care
             </div>
             <div
               className="footer-column-text"
-              onClick={() => handleNavigation("/home_appliances")}
+              onClick={() => handleNavigation("/products/Home_Appliances")}
             >
               Home Appliances
             </div>
@@ -61,19 +65,19 @@ const Footer = () => {
             <div className="footer-column-heading">Banking</div>
             <div
               className="footer-column-text"
-              onClick={() => handleNavigation("/zero_saving_accounts")}
+              onClick={() => handleNavigation("/banking")}
             >
               Zero Saving Accounts
             </div>
             <div
               className="footer-column-text"
-              onClick={() => handleNavigation("/credit_cards")}
+              onClick={() => handleNavigation("/banking")}
             >
               Credit Cards
             </div>
             <div
               className="footer-column-text"
-              onClick={() => handleNavigation("/saving_applications")}
+              onClick={() => handleNavigation("/banking")}
             >
               Saving Applications
             </div>
@@ -92,10 +96,7 @@ const Footer = () => {
             >
               Colleges
             </div>
-            <div
-              className="footer-column-text"
-              onClick={() => handleNavigation("/internships")}
-            >
+            <div className="footer-column-text" onClick={handleIntern}>
               Internships
             </div>
             <div
@@ -109,13 +110,13 @@ const Footer = () => {
             <div className="footer-column-heading">Company</div>
             <div
               className="footer-column-text"
-              onClick={() => handleNavigation("/aboutUs")}
+              onClick={() => handleNavigation("/aboutUS")}
             >
               About Us
             </div>
             <div
               className="footer-column-text"
-              onClick={() => handleNavigation("/contactUs")}
+              onClick={() => handleNavigation("/contactUS")}
             >
               Contact Us
             </div>
@@ -195,5 +196,4 @@ const Footer = () => {
     </footer>
   );
 };
-
 export default Footer;

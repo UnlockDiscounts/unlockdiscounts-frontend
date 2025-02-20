@@ -118,7 +118,7 @@ const ProductPage = () => {
 		window.location.reload();
 	};
 	const navigateToBanking = () => {
-		navigate("/finance/banking-cards");
+		navigate("/banking");
 		window.location.reload();
 	};
 
@@ -315,14 +315,33 @@ const ProductPage = () => {
 								<div className="radio-item">
 									<input
 										type="radio"
-										id="category-banking"
+										id="category-health_care"
 										name="category"
-										value="Banking"
-										checked={filters.category === "Banking"}
-										onChange={() => handleCategoryClick("Banking")}
+										value="Health Care"
+										checked={filters.category === "health_care"}
+										onChange={() => handleCategoryClick("health_care")}
 									/>
-									<label className="radio-label" htmlFor="category-banking">
-										Banking
+									<label
+										className="radio-label"
+										htmlFor="category-health_care"
+									>
+										Health Care
+									</label>
+								</div>
+								<div className="radio-item">
+									<input
+										type="radio"
+										id="category-Home Appliances"
+										name="category"
+										value="Health Care"
+										checked={filters.category === "Home_Appliances"}
+										onChange={() => handleCategoryClick("Home_Appliances")}
+									/>
+									<label
+										className="radio-label"
+										htmlFor="category-Home_Appliances"
+									>
+										Home Appliances
 									</label>
 								</div>
 							</div>
