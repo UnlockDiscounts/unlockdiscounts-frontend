@@ -57,7 +57,7 @@ const Footer = () => {
             </div>
             <div
               className="footer-column-text"
-              onClick={() => handleNavigation("/products/Electronics")}
+              onClick={() => handleNavigation("/products/Home_Appliances")}
             >
               Home Appliances
             </div>

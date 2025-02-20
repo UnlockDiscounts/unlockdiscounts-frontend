@@ -328,6 +328,22 @@ const ProductPage = () => {
 										Health Care
 									</label>
 								</div>
+								<div className="radio-item">
+									<input
+										type="radio"
+										id="category-Home Appliances"
+										name="category"
+										value="Health Care"
+										checked={filters.category === "Home_Appliances"}
+										onChange={() => handleCategoryClick("Home_Appliances")}
+									/>
+									<label
+										className="radio-label"
+										htmlFor="category-Home_Appliances"
+									>
+										Home Appliances
+									</label>
+								</div>
 							</div>
 						</div>
 
