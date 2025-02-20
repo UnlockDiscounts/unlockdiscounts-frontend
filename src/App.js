@@ -16,40 +16,44 @@ import Signup from "./components/Signup";
 import Categories from "./components/Categories";
 import CategoryPage from "./components/CategoryPage";
 import BlogDetail from "./components/BlogDetail";
+import ContactUs from "./components/ContactUs";
+import AboutUs from "./components/AboutUs";
 
 function App() {
-	return (
-		<BrowserRouter>
-			<Routes>
-				<Route path="/" element={<Landing />} />
-				<Route path="/online_learning" element={<OnlineLearning />} />
-				<Route path="/banking" element={<BankingPage />} />
-				<Route path="/faq" element={<FAQ />} />
-				<Route path="/blog" element={<Blog />} />
-				<Route path="/technology" element={<Technology />} />
-				<Route path="/about" element={<AboutContactPage />} />
-				<Route path="/certificate_verification" element={<Certificate />} />
-				<Route path="/login" element={<Login />} />
-				<Route path="/signup" element={<Signup />} />
-				<Route
-					path="/certificate_verification/:incorrect"
-					element={<Certificate />}
-				/>
-				<Route
-					path="/certificate_verified/:serialNo"
-					element={<VerifiedPage />}
-				/>
-				<Route path="/products/:category_param" element={<ProductPage />} />
-				<Route
-					path="/searched_products/:searched_param"
-					element={<SearchedProductsPage />}
-				/>
-				<Route path="/categories" element={<Categories />} />
-				<Route path="/category/:category_name" element={<CategoryPage />} />
-				<Route path="/blog/:id" element={<BlogDetail />} />
-			</Routes>
-		</BrowserRouter>
-	);
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Landing />} />
+        <Route path="/online_learning" element={<OnlineLearning />} />
+        <Route path="/banking" element={<BankingPage />} />
+        <Route path="/faq" element={<FAQ />} />
+        <Route path="/blog" element={<Blog />} />
+        <Route path="/technology" element={<Technology />} />
+        {/* <Route path="/about" element={<AboutContactPage />} /> */}
+        <Route path="/certificate_verification" element={<Certificate />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/contactUs" element={<ContactUs />} />
+        <Route path="/aboutUs" element={<AboutUs />} />
+        <Route
+          path="/certificate_verification/:incorrect"
+          element={<Certificate />}
+        />
+        <Route
+          path="/certificate_verified/:serialNo"
+          element={<VerifiedPage />}
+        />
+        <Route path="/products/:category_param" element={<ProductPage />} />
+        <Route
+          path="/searched_products/:searched_param"
+          element={<SearchedProductsPage />}
+        />
+        <Route path="/categories" element={<Categories />} />
+        <Route path="/category/:category_name" element={<CategoryPage />} />
+        <Route path="/blog/:id" element={<BlogDetail />} />
+      </Routes>
+    </BrowserRouter>
+  );
 }
 
 export default App;

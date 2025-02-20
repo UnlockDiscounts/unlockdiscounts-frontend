@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { FaSortDown } from "react-icons/fa";
 import "../styles/OnlineLearning.css";
 
 const OnlineLearningNavbar = ({
@@ -34,14 +33,6 @@ const OnlineLearningNavbar = ({
 					}`}
 				>
 					Colleges
-				</div>
-			</div>
-
-			{/* right part  */}
-			<div className="oln_rightPart">
-				<div className="oln_rightPart-text1">Filter By</div>
-				<div className="oln_rightPart-text2">
-					Subject <FaSortDown />
 				</div>
 			</div>
 		</div>

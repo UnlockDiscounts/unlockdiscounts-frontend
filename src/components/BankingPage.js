@@ -5,15 +5,22 @@ import "../styles/BankingPage.css";
 import "../App.css";
 import { FaSortDown, FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import { useBank } from "../hooks/useBank";
+import Zero_SavingData from "../data/zero_savings_data";
+import saving_application_data from "../data/saving_application_data";
 
 const BankingPage = () => {
-	const [allData, setAllData] = useState({});
+	const [bankingData, setBankingData] = useState([]);
+	const [zeroSavingsData, setZeroSavingsData] = useState([]);
+	const [savingsAppsData, setSavingsAppsData] = useState([]);
+
 	const { bankData } = useBank();
 
 	useEffect(() => {
 		if (bankData) {
-			setAllData(bankData);
+			setBankingData(bankData);
 		}
+		setZeroSavingsData(Zero_SavingData);
+		setSavingsAppsData(saving_application_data);
 	}, [bankData]);
 
 	// Refs for each scrollable container
@@ -24,11 +31,10 @@ const BankingPage = () => {
 	// Scroll function for left and right buttons
 	const scroll = (ref, direction) => {
 		const scrollAmount = 300;
-		if (direction === "left") {
-			ref.current.scrollBy({ left: -scrollAmount, behavior: "smooth" });
-		} else {
-			ref.current.scrollBy({ left: scrollAmount, behavior: "smooth" });
-		}
+		ref.current.scrollBy({
+			left: direction === "left" ? -scrollAmount : scrollAmount,
+			behavior: "smooth",
+		});
 	};
 
 	return (
@@ -47,7 +53,7 @@ const BankingPage = () => {
 					</p>
 				</div>
 
-				{/* Credit cards container */}
+				{/* Credit Cards Section */}
 				<div className="credit_cards">
 					<div className="cc_heading">CREDIT CARDS</div>
 					<button
@@ -63,36 +69,31 @@ const BankingPage = () => {
 						<FaArrowRight />
 					</button>
 					<div className="cc_cards_container" ref={creditCardsRef}>
-						{allData.length > 0 ? (
-							allData.map(
-								(item, index) =>
-									item.type === "Credit Card" && (
-										<div className="cc_card" key={index}>
-											<div className="cc_card_image">
-												<img src={item.image} alt={item.name} />
-											</div>
-											<div className="cc_card_title">{item.title}</div>
-											<div className="cc_card_description">
-												{item.description}
-											</div>
-											<div
-												className="cc_card_button"
-												onClick={() => {
-													window.open(item.link, "__blank");
-												}}
-											>
-												Apply Now
-											</div>
+						{bankingData.length > 0 ? (
+							bankingData
+								.filter((item) => item.type === "Credit Card")
+								.map((item, index) => (
+									<div className="cc_card" key={index}>
+										<div className="cc_card_image">
+											<img src={item.image} alt={item.name} />
 										</div>
-									)
-							)
+										<div className="cc_card_title">{item.title}</div>
+										<div className="cc_card_description">{item.description}</div>
+										<button
+											className="cc_card_button"
+											onClick={() => window.open(item.link, "_blank")}
+										>
+											Apply Now
+										</button>
+									</div>
+								))
 						) : (
-							<div>loading...</div>
+							<div>Loading...</div>
 						)}
 					</div>
 				</div>
 
-				{/* Zero savings account container */}
+				{/* Zero Savings Accounts Section */}
 				<div className="zero-saving-account">
 					<div className="zsa_heading">ZERO SAVING ACCOUNTS</div>
 					<div className="scroll_buttons">
@@ -110,25 +111,22 @@ const BankingPage = () => {
 						</button>
 					</div>
 					<div className="zsa_cards_container" ref={zeroSavingsRef}>
-						{allData.length > 0 ? (
-							allData.map(
-								(item, index) =>
-									item.type === "zero saving accounts" && (
-										<div className="zsa_card" key={index}>
-											<div className="zsa_card_image">
-												<img src={item.image} alt={item.name} />
-											</div>
-											<div className="zsa_card_button">Apply Now</div>
-										</div>
-									)
-							)
+						{zeroSavingsData.length > 0 ? (
+							zeroSavingsData.map((item, index) => (
+								<div className="zsa_card" key={index}>
+									<div className="zsa_card_image">
+										<img src={item.image} alt={item.name} />
+									</div>
+									<button className="zsa_card_button">Apply Now</button>
+								</div>
+							))
 						) : (
-							<div>loading....</div>
+							<div>Loading...</div>
 						)}
 					</div>
 				</div>
 
-				{/* Saving applications container */}
+				{/* Saving Applications Section */}
 				<div className="saving-applications">
 					<div className="sap_heading">SAVING APPLICATIONS</div>
 					<button
@@ -144,28 +142,21 @@ const BankingPage = () => {
 						<FaArrowRight />
 					</button>
 					<div className="sap_cards_container" ref={savingsApplicationsRef}>
-						{allData.length > 0 ? (
-							allData.map(
-								(item, index) =>
-									item.type === "saving application" && (
-										<div className="sap_card" key={index}>
-											<div className="sap_card_header">
-												<div className="sap_card_image">
-													<img src={item.image} alt={item.name} />
-												</div>
-												<div className="sap_card_heading">Acorns</div>
-											</div>
-											<div className="sap_card_description">
-												{item.description}
-											</div>
-											<div className="sap_card_button">
-												Start Savings with Acorns
-											</div>
+						{savingsAppsData.length > 0 ? (
+							savingsAppsData.map((item, index) => (
+								<div className="sap_card" key={index}>
+									<div className="sap_card_header">
+										<div className="sap_card_image">
+											<img src={item.image} alt={item.name} />
 										</div>
-									)
-							)
+										<div className="sap_card_heading">{item.name}</div>
+									</div>
+									<div className="sap_card_description">{item.description}</div>
+									<button className="sap_card_button">Start Saving</button>
+								</div>
+							))
 						) : (
-							<div>loading...</div>
+							<div>Loading...</div>
 						)}
 					</div>
 				</div>
