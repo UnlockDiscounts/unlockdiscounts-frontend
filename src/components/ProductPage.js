@@ -4,10 +4,10 @@ import Footer from "./Footer";
 import { useNavigate, useParams } from "react-router-dom";
 import { CiSearch } from "react-icons/ci";
 import { TbAdjustmentsHorizontal } from "react-icons/tb";
-import { FaSortDown } from "react-icons/fa";
+// import { FaSortDown } from "react-icons/fa";
 import { IoMdClose } from "react-icons/io";
 import ProductPageCard from "./ProductPageCard";
-import Logo from "../assets/Logo.svg";
+// import Logo from "../assets/Logo.svg";
 import { useProducts } from "../hooks/useProducts";
 import Navbar from "./Navbar";
 

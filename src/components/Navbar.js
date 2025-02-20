@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { FaSortDown } from "react-icons/fa";
+// import { FaSortDown } from "react-icons/fa";
 import { CiSearch } from "react-icons/ci";
 import { RiMenu4Fill } from "react-icons/ri";
 import { IoMdClose } from "react-icons/io";
