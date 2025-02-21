@@ -41,12 +41,6 @@ const BankingPage = () => {
 		<div id="wrapper">
 			<Navbar />
 			<div className="banking-page-container">
-				<div className="bp_filter_container">
-					<div className="bp_filter_text">Filter By</div>
-					<div className="bp_filter_dropdown">
-						Bank Name <FaSortDown />
-					</div>
-				</div>
 				<div className="bp_heading">
 					<p className="bp_heading_text">
 						EXPLORE OUR RANGE OF BANKING SERVICES AND SOLUTIONS

@@ -132,12 +132,6 @@ const Footer = () => {
             >
               Blogs
             </div>
-            <div
-              className="footer-column-text"
-              onClick={() => handleNavigation("/user_guides")}
-            >
-              User Guides
-            </div>
           </div>
         </div>
         <div className="footer-bottom-section">

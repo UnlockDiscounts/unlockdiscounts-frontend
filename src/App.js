@@ -51,6 +51,7 @@ function App() {
         <Route path="/categories" element={<Categories />} />
         <Route path="/category/:category_name" element={<CategoryPage />} />
         <Route path="/blog/:id" element={<BlogDetail />} />
+        <Route path="*" element={<Landing />} />
       </Routes>
     </BrowserRouter>
   );
