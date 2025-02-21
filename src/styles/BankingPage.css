@@ -8,36 +8,6 @@
 	gap: 1.2rem;
 }
 
-.bp_filter_container {
-	width: 100%;
-	display: flex;
-	justify-content: flex-end;
-	align-items: center;
-	gap: 3%;
-}
-
-.bp_filter_text {
-	color: #000;
-	font-family: "Sora", sans-serif;
-	font-size: 0.625rem;
-	font-style: normal;
-	font-weight: 600;
-	line-height: normal;
-}
-
-.bp_filter_dropdown {
-	display: flex;
-	justify-content: center;
-	align-items: baseline;
-
-	color: #000;
-	font-family: "Sora", sans-serif;
-	font-size: 0.625rem;
-	font-style: normal;
-	font-weight: 400;
-	line-height: normal;
-}
-
 .bp_heading {
 	width: 120%;
 	display: flex;

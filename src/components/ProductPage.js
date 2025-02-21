@@ -97,22 +97,22 @@ const ProductPage = () => {
 		setShowFilter(false);
 	};
 
-	const navigateToMen = () => {
-		navigate("/products/Mens");
-		window.location.reload();
-	};
-	const navigateToWomen = () => {
-		navigate("/products/Women");
-		window.location.reload();
-	};
-	const navigateToKids = () => {
-		navigate("/products/Kids");
-		window.location.reload();
-	};
-	const navigateToElectronic = () => {
-		navigate("/products/Electronics");
-		window.location.reload();
-	};
+	// const navigateToMen = () => {
+	// 	navigate("/products/Mens");
+	// 	window.location.reload();
+	// };
+	// const navigateToWomen = () => {
+	// 	navigate("/products/Women");
+	// 	window.location.reload();
+	// };
+	// const navigateToKids = () => {
+	// 	navigate("/products/Kids");
+	// 	window.location.reload();
+	// };
+	// const navigateToElectronic = () => {
+	// 	navigate("/products/Electronics");
+	// 	window.location.reload();
+	// };
 	const navigateToOnlineLearnings = () => {
 		navigate("/online_learning");
 		window.location.reload();
