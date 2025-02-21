@@ -4,10 +4,10 @@ import Footer from "./Footer";
 import { useNavigate, useParams } from "react-router-dom";
 import { CiSearch } from "react-icons/ci";
 import { TbAdjustmentsHorizontal } from "react-icons/tb";
-import { FaSortDown } from "react-icons/fa";
+// import { FaSortDown } from "react-icons/fa";
 import { IoMdClose } from "react-icons/io";
 import ProductPageCard from "./ProductPageCard";
-import Logo from "../assets/Logo.svg";
+// import Logo from "../assets/Logo.svg";
 import { useProducts } from "../hooks/useProducts";
 import Navbar from "./Navbar";
 
@@ -97,22 +97,22 @@ const ProductPage = () => {
 		setShowFilter(false);
 	};
 
-	const navigateToMen = () => {
-		navigate("/products/Mens");
-		window.location.reload();
-	};
-	const navigateToWomen = () => {
-		navigate("/products/Women");
-		window.location.reload();
-	};
-	const navigateToKids = () => {
-		navigate("/products/Kids");
-		window.location.reload();
-	};
-	const navigateToElectronic = () => {
-		navigate("/products/Electronics");
-		window.location.reload();
-	};
+	// const navigateToMen = () => {
+	// 	navigate("/products/Mens");
+	// 	window.location.reload();
+	// };
+	// const navigateToWomen = () => {
+	// 	navigate("/products/Women");
+	// 	window.location.reload();
+	// };
+	// const navigateToKids = () => {
+	// 	navigate("/products/Kids");
+	// 	window.location.reload();
+	// };
+	// const navigateToElectronic = () => {
+	// 	navigate("/products/Electronics");
+	// 	window.location.reload();
+	// };
 	const navigateToOnlineLearnings = () => {
 		navigate("/online_learning");
 		window.location.reload();
@@ -315,14 +315,33 @@ const ProductPage = () => {
 								<div className="radio-item">
 									<input
 										type="radio"
-										id="category-banking"
+										id="category-health_care"
 										name="category"
-										value="Banking"
-										checked={filters.category === "Banking"}
-										onChange={() => handleCategoryClick("Banking")}
+										value="Health Care"
+										checked={filters.category === "health_care"}
+										onChange={() => handleCategoryClick("health_care")}
 									/>
-									<label className="radio-label" htmlFor="category-banking">
-										Banking
+									<label
+										className="radio-label"
+										htmlFor="category-health_care"
+									>
+										Health Care
+									</label>
+								</div>
+								<div className="radio-item">
+									<input
+										type="radio"
+										id="category-Home Appliances"
+										name="category"
+										value="Health Care"
+										checked={filters.category === "Home_Appliances"}
+										onChange={() => handleCategoryClick("Home_Appliances")}
+									/>
+									<label
+										className="radio-label"
+										htmlFor="category-Home_Appliances"
+									>
+										Home Appliances
 									</label>
 								</div>
 							</div>

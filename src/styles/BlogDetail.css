@@ -1,0 +1,95 @@
+/* General styles - Add to the top to apply to all elements if desired */
+body {
+    font-family: sans-serif, Arial, sans-serif; /* Consistent font */
+  }
+  
+  .blog-detail-container {
+      display: grid;  /* Use grid for overall layout */
+      grid-template-columns: 1fr; /* Single column initially */
+      gap: 20px;       /* Spacing between sections */
+      padding: 20px;   /* Padding around the content */
+      max-width: 900px; /* Limit content width */
+      margin: 0 auto;  /* Center the container */
+  }
+  
+  .blog-title {
+      font-size: 2.5rem; /* Increased size */
+      font-weight: bold;
+      text-align: left; /* Align title to the left */
+      margin-bottom: 10px; /* Slightly reduced margin */
+      color: #222;         /* Darker color for title */
+  }
+  
+  .blog-description {
+      text-align: left; /* Align description to the left */
+      font-size: 1.1rem;
+      color: #555;       /* Slightly darker */
+      margin-bottom: 20px;
+  }
+  
+  .blog-writer {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      margin-bottom: 20px;
+  }
+  
+  .writer-image {
+      width: 60px;    /* Slightly larger */
+      height: 60px;   /* Slightly larger */
+      border-radius: 50%;
+      object-fit: cover; /* Important to maintain aspect ratio */
+  }
+  
+  .writer-info {
+      display: flex;
+      flex-direction: column;
+  }
+  
+  .writer-name {
+      font-weight: bold;
+      color: #333;       /* Darker */
+  }
+  
+  .blog-time {
+      color: #777;       /* Slightly lighter */
+      font-size: 0.9rem;
+  }
+  
+  /* Image Grid */
+  .blog-images-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Adjust minmax */
+      gap: 15px;       /* Increased gap */
+      margin: 20px 0;
+  }
+  
+  .blog-image {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;   /* Rounded corners */
+      display: block;        /* Removes extra space below image */
+  }
+  
+  /* Blog Content */
+  .blog-content {
+      line-height: 1.7;  /* Increased line height */
+      font-size: 1.05rem; /* Slightly larger font */
+      color: #444;       /* Darker color */
+      text-align: justify; /* Justify text */
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+      .blog-detail-container {
+          padding: 10px; /* Reduce padding on smaller screens */
+      }
+  
+      .blog-title {
+          font-size: 2rem; /* Slightly smaller on smaller screens */
+      }
+  
+      .blog-images-grid {
+          grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Smaller images on small screens */
+      }
+  }

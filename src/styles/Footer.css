@@ -78,22 +78,38 @@
 	font-weight: 400;
 }
 
-/* Social Media Icons */
+/* Social Media Section */
 .footer-social-container {
 	display: flex;
-	gap: 1rem;
+	align-items: center;
+	gap: 1rem; /* Spacing between elements */
+}
+
+.footer-social-heading {
+	color: #f3f4f6; /* Text color */
+	font-family: "Archivo", sans-serif;
+	font-size: 1rem; /* Adjusted font size */
+	font-weight: 600; /* Make it bold */
+	margin-right: 1rem; /* Space between heading and icons */
 }
 
 .footer-social-logo {
-	color: #f3f4f6;
-	width: 1.5rem;
+	/* color: #f3f4f6;  */
+	width: 1.5rem; 
 	height: 1.5rem;
 	cursor: pointer;
-	transition: color 0.3s ease;
+	background-color: #ffffff; 
+	border-radius: 50%; /* Circular icons */
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 0.2rem; 
+	transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .footer-social-logo:hover {
-	color: #a0a0a0;
+	background-color: #f3f4f6; 
+	color: #171a1f; 
 }
 
 /* Responsive Breakpoints */
@@ -105,7 +121,7 @@
 
 @media (max-width: 768px) {
 	.footer-text-container {
-		grid-template-columns: repeat(3, 1fr);
+		grid-template-columns: repeat(2, 1fr);
 		gap: 1.5rem;
 	}
 
@@ -131,12 +147,12 @@
 
 @media (max-width: 480px) {
 	.footer-text-container {
-		grid-template-columns: repeat(2, 1fr);
-		text-align: left;
+		grid-template-columns: 1fr;
+		text-align: center;
 	}
 
 	.footer-column-container {
-		align-items: flex-start;
+		align-items: center;
 	}
 
 	.footer-terms {

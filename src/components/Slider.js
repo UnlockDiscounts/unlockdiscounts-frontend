@@ -6,15 +6,11 @@ import ajio from '../assets/ajio.png'
 import book from '../assets/bookmy.png'
 import meesho from '../assets/meesho.png'
 import myntra from '../assets/Myntra-Logo-New.png'
-import flipkart from '../assets/flipkart.png'
-// import udemy from '../assets/udemy.png'
+import flipkart from '../assets/flipkart.svg'
+
 import nykaa from '../assets/nykaa.png'
 import course from '../assets/coursera.png'
-// import amazon from "../assets/amazon.png";
-// import myntra from "../assets/myntra.png";
-// import meesho from "../assets/meesho.png";
-// import flipkart from "../assets/flipkart.png";
-// import ajio from "../assets/ajio.png";
+
 
 const Slider = () => {
   return (

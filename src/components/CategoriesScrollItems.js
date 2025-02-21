@@ -3,13 +3,12 @@ import '../styles/CategoriesScroll.css';
 
 const CategoriesScrollItems = ({ catloglist }) => {
     const [isExpanded, setIsExpanded] = useState(false);
-    const maxTextLength = 60; // Adjust based on where "home" is in the description
+    const maxTextLength = 60;
 
     const toggleReadMore = () => {
         setIsExpanded(!isExpanded);
     };
 
-    // Function to handle truncation
     const getTruncatedText = (text) => {
         if (text.length <= maxTextLength || isExpanded) {
             return text;
