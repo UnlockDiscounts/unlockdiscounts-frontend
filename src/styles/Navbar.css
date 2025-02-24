@@ -60,7 +60,7 @@
 	flex-shrink: 0;
 }
 
-.navbar-search-input {
+.navbar-Search-Input {
 	width: 68%;
 	border: none;
 	color: rgba(16, 16, 16, 0.5);
@@ -71,7 +71,7 @@
 	line-height: normal;
 }
 
-.navbar-search-input:focus {
+.navbar-Search-Input:focus {
 	outline: none;
 	border: none;
 }
@@ -154,7 +154,7 @@
 		padding: 0.1rem;
 	}
 
-	.navbar-search-input {
+	.navbar-Search-Input {
 		width: 60%;
 		font-size: 0.5rem;
 		font-weight: 400;
