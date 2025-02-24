@@ -16,6 +16,7 @@
 
 .navbar-logo {
 	width: 4.25rem;
+	cursor: pointer;
 }
 
 .navbar-logo img {
@@ -63,7 +64,6 @@
 .navbar-Search-Input {
 	width: 68%;
 	border: none;
-
 	color: rgba(16, 16, 16, 0.5);
 	font-family: "Sora", sans-serif;
 	font-size: 0.89rem;
@@ -88,6 +88,7 @@
 	cursor: pointer;
 	border: none;
 	transition: background-color 0.2s ease;
+	cursor: pointer;
 }
 
 .search_button:hover {
@@ -128,7 +129,7 @@
 		padding: 19px 19px 19px 19px;
 	}
 	.navbar-logo {
-
+		cursor: pointer;
 		width: 2.375rem;
 		height: 2.7375rem;
 	}
@@ -153,9 +154,10 @@
 		flex-shrink: 0;
 		border-radius: 50%;
 		padding: 0.1rem;
+		cursor: pointer;
 	}
 
-	.navbar-search-input {
+	.navbar-Search-Input {
 		width: 60%;
 		font-size: 0.5rem;
 		font-weight: 400;
@@ -165,6 +167,7 @@
 		padding: 0.25rem 0.5rem;
 		font-size: 0.5rem;
 		border-radius: 0.5rem;
+		cursor: pointer;
 	}
 
 	.navbar-fonts {
