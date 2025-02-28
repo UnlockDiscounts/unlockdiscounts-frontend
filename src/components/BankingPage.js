@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
+import { useLocation } from "react-router-dom";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 import "../styles/BankingPage.css";
@@ -9,11 +10,46 @@ import Zero_SavingData from "../data/zero_savings_data";
 import saving_application_data from "../data/saving_application_data";
 
 const BankingPage = () => {
+	const location = useLocation();
+	console.log(location.state.heading)
+	const [heading, setHeading] = useState(location.state?.heading || '');
 	const [bankingData, setBankingData] = useState([]);
 	const [zeroSavingsData, setZeroSavingsData] = useState([]);
 	const [savingsAppsData, setSavingsAppsData] = useState([]);
 
 	const { bankData } = useBank();
+
+	const scrollToHeading = () => {
+		if (location.state?.heading) {
+            const section = document.getElementById(location.state.heading);
+
+				if(section.id === 'credit_cards'){
+					window.scrollTo(0, 0);
+				}
+				if(section.id === 'zero-saving-account'){
+					setTimeout(() => {
+						const yOffset = 0; 
+						const y = section.getBoundingClientRect().top + window.scrollY + yOffset;
+				
+						console.log('Scrolling to:', y);
+						window.scrollTo({ top: y, behavior: 'smooth' });
+					}, 100); 
+				}
+				if(section.id === 'saving-applications'){
+					setTimeout(() => {
+						const yOffset = 0; 
+						const y = section.getBoundingClientRect().top + window.scrollY + yOffset;
+				
+						console.log('Scrolling to:', y); 
+						window.scrollTo({ top: y, behavior: 'smooth' });
+					}, 100);
+				}
+        }
+	}
+	useEffect(() => {
+		setHeading(location.state?.heading || '');
+        scrollToHeading();
+    }, [location]);
 
 	useEffect(() => {
 		if (bankData) {
@@ -48,7 +84,7 @@ const BankingPage = () => {
 				</div>
 
 				{/* Credit Cards Section */}
-				<div className="credit_cards">
+				<div className="credit_cards" id="credit_cards">
 					<div className="cc_heading">CREDIT CARDS</div>
 					<button
 						className="scroll_button left"
@@ -88,7 +124,7 @@ const BankingPage = () => {
 				</div>
 
 				{/* Zero Savings Accounts Section */}
-				<div className="zero-saving-account">
+				<div className="zero-saving-account" id="zero-saving-account">
 					<div className="zsa_heading">ZERO SAVING ACCOUNTS</div>
 					<div className="scroll_buttons">
 						<button
@@ -121,7 +157,7 @@ const BankingPage = () => {
 				</div>
 
 				{/* Saving Applications Section */}
-				<div className="saving-applications">
+				<div className="saving-applications" id="saving-applications">
 					<div className="sap_heading">SAVING APPLICATIONS</div>
 					<button
 						className="scroll_button left"
