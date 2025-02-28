@@ -11,7 +11,6 @@ import saving_application_data from "../data/saving_application_data";
 
 const BankingPage = () => {
 	const location = useLocation();
-	console.log(location.state.heading)
 	const [heading, setHeading] = useState(location.state?.heading || '');
 	const [bankingData, setBankingData] = useState([]);
 	const [zeroSavingsData, setZeroSavingsData] = useState([]);
