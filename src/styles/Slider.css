@@ -4,21 +4,20 @@
     box-sizing: border-box;
 }
 .slider{
-    overflow: hidden;
+    /* overflow: hidden; */
     padding: 20px 0;   
     white-space: nowrap;
-    margin-top: 400px;
-    background-color: rgb(253, 244, 233);
+    /* background-color: rgb(253, 244, 233); */
     position: relative;
 }
-.slider::before,.slider::after{
+/* .slider::before,.slider::after{
     position: absolute;
     top:0;
     width: 120px;
     height: 100%;
     content: "";
     z-index: 2;
-}
+} */
 .slider::before{
     left: 0;
     background: linear-gradient(to left,rgba(255,255,255,0), white);
