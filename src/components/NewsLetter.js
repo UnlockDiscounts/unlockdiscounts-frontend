@@ -9,9 +9,10 @@ const NewsLetter = () => {
 	const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 	const [email, setEmail] = useState("");
 
-	// Email validation regex
+	// Enhanced email validation function
 	const isValidEmail = (email) => {
-		const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+		// Ensure email starts with a letter and follows proper format
+		const emailRegex = /^[a-zA-Z][a-zA-Z0-9._%+-]*@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 		return emailRegex.test(email);
 	};
 
