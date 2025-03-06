@@ -4,9 +4,14 @@ import { FaInstagram, FaFacebook, FaLinkedin, FaYoutube } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 const Footer = () => {
   const navigate = useNavigate();
-  const handleNavigation = (path) => {
-    navigate(path);
-    window.scrollTo(0, 0); // Scroll to top instead of reloading
+  const handleNavigation = (path,heading = '') => {
+    if(heading !== ''){
+      navigate(path,{state:{heading:heading}});
+    }
+    else{
+      navigate(path);
+      window.scrollTo(0, 0); // Scroll to top instead of reloading the page
+    }
   };
   const handleIntern = () => {
     window.open(
@@ -65,19 +70,19 @@ const Footer = () => {
             <div className="footer-column-heading">Banking</div>
             <div
               className="footer-column-text"
-              onClick={() => handleNavigation("/banking")}
+              onClick={() => handleNavigation("/banking",'zero-saving-account')}
             >
               Zero Saving Accounts
             </div>
             <div
               className="footer-column-text"
-              onClick={() => handleNavigation("/banking")}
+              onClick={() => handleNavigation("/banking",'credit_cards')}
             >
               Credit Cards
             </div>
             <div
               className="footer-column-text"
-              onClick={() => handleNavigation("/banking")}
+              onClick={() => handleNavigation("/banking",'saving-applications')}
             >
               Saving Applications
             </div>

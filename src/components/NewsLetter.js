@@ -8,23 +8,36 @@ import toast, { Toaster } from "react-hot-toast";
 const NewsLetter = () => {
 	const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 	const [email, setEmail] = useState("");
+
+	// Enhanced email validation function
+	const isValidEmail = (email) => {
+		// Ensure email starts with a letter and follows proper format
+		const emailRegex = /^[a-zA-Z][a-zA-Z0-9._%+-]*@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+		return emailRegex.test(email);
+	};
+
 	async function sendRequest() {
+		if (!email) {
+			toast.error("Please enter an email address");
+			return;
+		}
+
+		if (!isValidEmail(email)) {
+			toast.error("Please enter a valid email address");
+			return;
+		}
+
 		try {
-			const res = await axios.post(`${BACKEND_URL}/api/subsribe`, {
-				email: email,
-			});
-			console.log(res.status);
+			const res = await axios.post(`${BACKEND_URL}/api/subscribe`, { email });
+
 			if (res.status === 200) {
 				toast.success(res.data.message);
-			} else if (res.status === 400) {
-				toast.error(res.data.message);
 			} else {
-				console.log(res.data);
+				toast.error(res.data.message);
 			}
 			setEmail("");
 		} catch (error) {
-			console.log(error);
-			toast.error(error.response.data.message);
+			toast.error(error.response?.data?.message || "Something went wrong");
 			setEmail("");
 		}
 	}

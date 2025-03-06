@@ -358,7 +358,7 @@ const ProductPage = () => {
 									onChange={(e) =>
 										setFilters((prev) => ({
 											...prev,
-											minPrice: Number(e.target.value),
+											minPrice: e.target.value ? Number(e.target.value) : "",
 										}))
 									}
 								/>
@@ -371,7 +371,7 @@ const ProductPage = () => {
 									onChange={(e) =>
 										setFilters((prev) => ({
 											...prev,
-											maxPrice: Number(e.target.value),
+											maxPrice: e.target.value ? Number(e.target.value) : "",
 										}))
 									}
 								/>

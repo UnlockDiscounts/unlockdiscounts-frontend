@@ -5,22 +5,46 @@ import { useState } from "react";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 const Signup = () => {
-    // const [valid, setValid] = useState(true);
-    // const [containSpecial,setContainSpecial] = useState(true);
+    const [name,setName] = useState('');
+    const [email,setEmail] = useState('');
+    const nameElement = document.getElementById('name');
+    function handleName(e){
+        const value = e.target.value;
+        const regex = /^[a-zA-Z\s]*$/;
+          if(regex.test(value) || value === ''){
+            setName(value);
+          }
+        
+    }
+    function handleEmail(e){
+        const emailRegex = /^[a-zA-Z][a-zA-Z0-9._%+-]*@?[a-zA-Z0-9.-]*\.?[a-zA-Z]*$/;
+        const emailValue = e.target.value;
+        if(emailRegex.test(emailValue) || emailValue === ''){
+            setEmail(emailValue);
+        }
+    }
     const formData = (e) => {
         e.preventDefault();
         const confirm_password_error = document.getElementById('cp');
         const password_error = document.getElementById('password');
-        const name = e.target.name.value;
-        const email = e.target.email.value;
+        const Name = e.target.name.value;
+        const Email = e.target.email.value;
         const password = e.target.password.value;
         const confirm_password = e.target.confirm_password.value;
         const existingErrorCp = document.querySelector('.error-message');
         const existingErrorPassword = document.querySelector('.error-message');
-        const hasSpecialChar = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/.test(password)
+        const hasSpecialChar = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/.test(password);
+        const passwordLengthRegex = /^.{8,}$/;
+
+
         if (existingErrorPassword) {
             existingErrorPassword.remove();
             password_error.classList.remove('invalid');
+        }
+        if(!passwordLengthRegex.test(password)){
+            password_error.insertAdjacentHTML('afterend','<div class="error-message">Password must be at least 8 characters long</div>');
+            password_error.classList.add('invalid');
+            return;
         }
         if(!hasSpecialChar){
             password_error.insertAdjacentHTML('afterend','<div class="error-message">Password must contain a special character</div>');
@@ -36,7 +60,7 @@ const Signup = () => {
             confirm_password_error.classList.add('invalid');
             return;
         }
-        console.log(name,email,password,confirm_password)
+        // console.log(Name,Email,password,confirm_password)
     }
     return (
         <div id="wrapper">
@@ -44,8 +68,8 @@ const Signup = () => {
             <div class="signup-container">
             <h2>Sign Up</h2>
             <form onSubmit={formData} action="#" method="POST">
-                <input id="name" type="text" name="name" placeholder="Full Name" required/>
-                <input id="email" type="email" name="email" placeholder="Email" required/>
+                <input id="name" type="text" name="name" placeholder="Full Name" required onChange={handleName} value={name}/>
+                <input id="email" type="email" name="email" placeholder="Email" required onChange={handleEmail} value={email}/>
                 <input id="password" type="password" name="password" placeholder="Password" required/>
                 <input id="cp" type="password" name="confirm_password" placeholder="Confirm Password" required/>
                 <select name="gender" required>
