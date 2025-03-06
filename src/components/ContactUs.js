@@ -23,7 +23,7 @@ const ContactUs = () => {
 
   const validateField = (name, value) => {
     let error = "";
-
+  
     switch (name) {
       case "firstName":
       case "lastName":
@@ -35,15 +35,17 @@ const ContactUs = () => {
           error = `${name === "firstName" ? "First" : "Last"} name must be at least 2 characters`;
         }
         break;
-
+  
       case "email":
         if (!value.trim()) {
           error = "Email is required";
         } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(value)) {
           error = "Invalid email address";
+        } else if (/^[0-9]/.test(value)) {  // Check if email starts with a number
+          error = "Email cannot start with a number";
         }
         break;
-
+  
       case "phone":
         if (!value.trim()) {
           error = "Phone number is required";
@@ -51,7 +53,7 @@ const ContactUs = () => {
           error = "Phone number must be exactly 10 digits";
         }
         break;
-
+  
       case "message":
         if (!value.trim()) {
           error = "Message is required";
@@ -61,13 +63,14 @@ const ContactUs = () => {
           error = "Message cannot exceed 120 characters";
         }
         break;
-
+  
       default:
         break;
     }
-
+  
     return error;
   };
+  
 
   const handleChange = (e) => {
     const { name, value } = e.target;
