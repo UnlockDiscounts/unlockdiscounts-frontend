@@ -2,17 +2,22 @@ import React from "react";
 import "../styles/Footer.css";
 import { FaInstagram, FaFacebook, FaLinkedin, FaYoutube } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
+import PrivacyPolicy from "../assets/pdfs/PrivacyPolicy.pdf";
+import TermsConditions from "../assets/pdfs/Terms&Conditions.pdf";
+import Sitemap from "../assets/pdfs/Disclaimer&Sitemap.pdf";
+
 const Footer = () => {
   const navigate = useNavigate();
-  const handleNavigation = (path,heading = '') => {
-    if(heading !== ''){
-      navigate(path,{state:{heading:heading}});
-    }
-    else{
+
+  const handleNavigation = (path, heading = "") => {
+    if (heading !== "") {
+      navigate(path, { state: { heading: heading } });
+    } else {
       navigate(path);
-      window.scrollTo(0, 0); // Scroll to top instead of reloading the page
+      window.scrollTo(0, 0);
     }
   };
+
   const handleIntern = () => {
     window.open(
       "https://www.linkedin.com/company/unlockdiscounts/jobs/",
@@ -20,6 +25,7 @@ const Footer = () => {
     );
     window.scrollTo(0, 0);
   };
+
   return (
     <footer className="footer-container">
       <div className="footer-content-wrapper">
@@ -70,19 +76,23 @@ const Footer = () => {
             <div className="footer-column-heading">Banking</div>
             <div
               className="footer-column-text"
-              onClick={() => handleNavigation("/banking",'zero-saving-account')}
+              onClick={() =>
+                handleNavigation("/banking", "zero-saving-account")
+              }
             >
               Zero Saving Accounts
             </div>
             <div
               className="footer-column-text"
-              onClick={() => handleNavigation("/banking",'credit_cards')}
+              onClick={() => handleNavigation("/banking", "credit_cards")}
             >
               Credit Cards
             </div>
             <div
               className="footer-column-text"
-              onClick={() => handleNavigation("/banking",'saving-applications')}
+              onClick={() =>
+                handleNavigation("/banking", "saving-applications")
+              }
             >
               Saving Applications
             </div>
@@ -139,18 +149,42 @@ const Footer = () => {
             </div>
           </div>
         </div>
+
+        {/* Footer Bottom Section */}
         <div className="footer-bottom-section">
           <div className="footer-terms">
             <p className="footer-terms-text">
               © 2024-2025 UnlockDiscounts, Inc.
             </p>
             <p className="footer-terms-dot">•</p>
-            <p className="footer-terms-text">Privacy</p>
+            <a
+              href={PrivacyPolicy}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="footer-terms-text"
+            >
+              Privacy
+            </a>
             <p className="footer-terms-dot">•</p>
-            <p className="footer-terms-text">Terms and Conditions</p>
+            <a
+              href={TermsConditions}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="footer-terms-text"
+            >
+              Terms and Conditions
+            </a>
             <p className="footer-terms-dot">•</p>
-            <p className="footer-terms-text">Sitemap</p>
+            <a
+              href={Sitemap}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="footer-terms-text"
+            >
+              Sitemap
+            </a>
           </div>
+
           <div className="footer-social-container">
             <p className="footer-social-heading">Connect With Us</p>
             <FaFacebook
@@ -195,4 +229,5 @@ const Footer = () => {
     </footer>
   );
 };
+
 export default Footer;
