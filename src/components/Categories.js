@@ -26,7 +26,6 @@ const Categories = () => {
           </button>
         ))}
       </div>
-      {/* <button className="explore-more-button">Explore More</button> */}
     </div>
   );
 };
