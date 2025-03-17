@@ -40,6 +40,9 @@ const Navbar = () => {
     setShowDropdown(false);
     setShowSidebar(false);
   };
+  const handleSignup = ()=>{
+    navigate("/signup")
+  }
 
   return (
     <div className="navbar-container">
@@ -193,7 +196,7 @@ const Navbar = () => {
               </div>
 
               <div className="sidebar-login">
-                <p className="sidebar-login-text">Sign up / Login</p>
+                <p className="sidebar-login-text" onClick={handleSignup}>Sign up / Login</p>
               </div>
             </div>
           </div>

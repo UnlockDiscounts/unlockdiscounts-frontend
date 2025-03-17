@@ -1,20 +1,48 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import NewsLetter from "../components/NewsLetter";
-import LatestBlogsData from "../data/LatestBlogsData";
-import TopBlogsData from "../data/TopBlogs";
 import "../styles/BlogDetail.css";
 
 const BlogDetail = () => {
     const { id } = useParams();
-    const blogFromLatest = LatestBlogsData.find(blog => blog.BlogId === parseInt(id));
-    const blogFromTop = TopBlogsData.find(blog => blog.BlogId === parseInt(id));
+    const [blog, setBlog] = useState(null);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
 
-    const blog = blogFromLatest || blogFromTop;
+    useEffect(() => {
+        const fetchBlogDetail = async () => {
+            try {
+                const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/blogging/blogs/${id}`);
+                if (!response.ok) {
+                    throw new Error("Failed to fetch blog details");
+                }
+                const data = await response.json();
+                setBlog(data);
+            } catch (error) {
+                setError(error.message);
+            } finally {
+                setLoading(false);
+            }
+        };
 
-    if (!blog) {
+        fetchBlogDetail();
+    }, [id]);
+
+    if (loading) {
+        return (
+            <div id="wrapper">
+                <Navbar />
+                <div className="container">
+                    <p className="loading-message">Loading blog...</p>
+                </div>
+                <Footer />
+            </div>
+        );
+    }
+
+    if (error || !blog) {
         return (
             <div id="wrapper">
                 <Navbar />
@@ -35,37 +63,15 @@ const BlogDetail = () => {
             <div className="container">
                 <div className="blog-detail-container">
                     <h1 className="blog-title">{blog.title}</h1>
-                    <p className="blog-description">{blog.description}</p>
-
+                    <div className="writer-info">
+                        <p className="writer-name">{blog.heading}</p>
+                    </div>
                     <div className="blog-writer">
-                        <img
-                            src={blog.writer.writer_image}
-                            alt={blog.writer.writer_name}
-                            className="writer-image"
-                        />
-                        <div className="writer-info">
-                            <p className="writer-name">{blog.writer.writer_name}</p>
-                            <p className="blog-time">{blog.time}</p>
-                        </div>
+                        <img src={blog.image} alt={blog.heading} className="blog-image" />
                     </div>
 
-                    {/* Render Images */}
-                    {blog.images && blog.images.length > 0 && (
-                        <div className="blog-images-grid">
-                            {blog.images.map((image, index) => (
-                                <img
-                                    key={index}
-                                    src={image}
-                                    alt={`Blog image ${index + 1}`}
-                                    className="blog-image"
-                                />
-                            ))}
-                        </div>
-                    )}
-
-                    {/* Render Blog Content */}
                     <div className="blog-content">
-                        {blog.content.split("\n").map((paragraph, index) => (
+                        {blog.description.split("\n").map((paragraph, index) => (
                             <p key={index}>{paragraph}</p>
                         ))}
                     </div>

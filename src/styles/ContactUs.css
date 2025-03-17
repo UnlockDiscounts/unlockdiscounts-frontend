@@ -19,7 +19,6 @@
     font-size: 1.5rem;
     margin-bottom: 1.25rem;
     font-weight: 600;
-   
 }
 
 .contact-description,
@@ -50,19 +49,29 @@
     font-size: 1rem;
 }
 
+/* Fix for name group layout */
 .contact-name-group {
     display: flex;
     gap: 1rem;
     margin-bottom: 1rem;
+    width: 100%;
 }
 
-.contact-name-group .contact-input {
+.contact-input-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    position: relative;
+}
+
+.contact-name-group .contact-input-container {
     flex: 1;
 }
 
 .contact-input-group {
     margin-bottom: 1rem;
     position: relative;
+    width: 100%;
 }
 
 .contact-input,
@@ -72,6 +81,7 @@
     border: 1px solid #ddd;
     border-radius: 0.25rem;
     font-size: 0.875rem;
+    box-sizing: border-box;
 }
 
 .contact-textarea {
@@ -79,9 +89,11 @@
     resize: vertical;
 }
 
+/* Fix for phone group layout */
 .contact-phone-group {
     display: flex;
-    align-items: center;
+    align-items: stretch;
+    width: 100%;
 }
 
 .contact-country-code {
@@ -90,11 +102,17 @@
     border: 1px solid #ddd;
     border-right: none;
     border-radius: 0.25rem 0 0 0.25rem;
+    display: flex;
+    align-items: center;
+}
+
+.contact-phone-group .contact-input-container {
+    flex: 1;
 }
 
 .contact-phone-input {
-    border-left: none;
-    border-radius: 0 0.25rem 0.25rem 0;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
 }
 
 .contact-char-count {
@@ -121,6 +139,27 @@
     background-color: #333;
 }
 
+/* Error styling */
+.contact-input-error {
+    border: 1px solid #ff3333 !important;
+    background-color: #fff8f8;
+}
+  
+.contact-error-message {
+    color: #ff3333;
+    font-size: 0.8rem;
+    margin-top: 3px;
+    display: block;
+}
+  
+.contact-char-count-error {
+    color: #ff3333;
+}
+.country-code-error-size-fix
+{
+    height: 2.65rem;
+}
+
 /* Responsive Design */
 @media screen and (max-width: 48rem) {
     .contact-wrapper {
@@ -131,6 +170,10 @@
     .contact-name-group {
         flex-direction: column;
         gap: 1rem;
+    }
+
+    .contact-name-group .contact-input-container {
+        width: 100%;
     }
 
     .contact-form-section {

@@ -18,7 +18,7 @@ const Landing = () => {
 				{/* <CompanyBar /> */}
 				<Slider/>
 				<PopularPicks />
-				<Advertisement />
+				{/* <Advertisement /> */}
 				<RecentlyVisited />
 				<NewsLetter />
 			</div>
