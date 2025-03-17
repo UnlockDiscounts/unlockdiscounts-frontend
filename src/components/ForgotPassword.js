@@ -9,6 +9,15 @@ const ForgotPassword = () => {
     const [countDown, setCountDown] = useState(10);
     const [sendOtp, setSendOtp] = useState(false);
     const [child, setChild] = useState(false);
+    const [email, setEmail] = useState('');
+    
+    const handleEmail = (e) => {
+        const emailRegex = /^[a-z][a-zA-Z0-9._%+-]*@?[a-zA-Z0-9.-]*\.?[a-zA-Z]*$/;
+        const emailValue = e.target.value;
+        if (emailRegex.test(emailValue) || emailValue === '') {
+            setEmail(emailValue);
+        }
+    };
     const confirmOtp = (otp) => {
         setChild(!child);
         console.log(otp);
@@ -77,7 +86,7 @@ const ForgotPassword = () => {
                     <h2>Forgot Password</h2>
                     <form action="/reset-password" method="POST">
                         <label for="email">Email Address</label>
-                        <input type="email" id="email" name="email" placeholder="Enter your email" required />
+                        <input type="email" id="email" name="email" placeholder="Enter your email" required onChange={handleEmail} value={email}/>
                         <button type="submit" onClick={handleOtp}>Send Otp</button>
                     </form>
                 </div>}
