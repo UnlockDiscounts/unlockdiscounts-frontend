@@ -17,7 +17,8 @@ const Signup = () => {
         
     }
     function handleEmail(e){
-        const emailRegex = /^[a-zA-Z][a-zA-Z0-9._%+-]*@?[a-zA-Z0-9.-]*\.?[a-zA-Z]*$/;
+        // const emailRegex = /^[a-zA-Z][a-zA-Z0-9._%+-]*@?[a-zA-Z0-9.-]*\.?[a-zA-Z]*$/;
+        const emailRegex = /^[a-z][a-zA-Z0-9._%+-]*@?[a-zA-Z0-9.-]*\.?[a-zA-Z]*$/;;
         const emailValue = e.target.value;
         if(emailRegex.test(emailValue) || emailValue === ''){
             setEmail(emailValue);
