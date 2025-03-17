@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "../styles/ContactUs.css";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
+import toast, { Toaster } from "react-hot-toast";
 
 const ContactUs = () => {
   const [formData, setFormData] = useState({
@@ -22,40 +23,37 @@ const ContactUs = () => {
 
   const validateField = (name, value) => {
     let error = "";
-
+  
     switch (name) {
       case "firstName":
-        if (!value.trim()) {
-          error = "First name is required";
-        } else if (value.trim().length < 2) {
-          error = "First name must be at least 2 characters";
-        }
-        break;
-
       case "lastName":
         if (!value.trim()) {
-          error = "Last name is required";
+          error = `${name === "firstName" ? "First" : "Last"} name is required`;
+        } else if (!/^[A-Za-z]+$/.test(value.trim())) {
+          error = `${name === "firstName" ? "First" : "Last"} name must contain only alphabets`;
         } else if (value.trim().length < 2) {
-          error = "Last name must be at least 2 characters";
+          error = `${name === "firstName" ? "First" : "Last"} name must be at least 2 characters`;
         }
         break;
-
+  
       case "email":
         if (!value.trim()) {
           error = "Email is required";
         } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(value)) {
           error = "Invalid email address";
+        } else if (/^[0-9]/.test(value)) {  // Check if email starts with a number
+          error = "Email cannot start with a number";
         }
         break;
-
+  
       case "phone":
         if (!value.trim()) {
           error = "Phone number is required";
-        } else if (!/^[0-9]{10}$/.test(value)) {
-          error = "Phone number must be 10 digits";
+        } else if (!/^\d{10}$/.test(value)) {
+          error = "Phone number must be exactly 10 digits";
         }
         break;
-
+  
       case "message":
         if (!value.trim()) {
           error = "Message is required";
@@ -65,16 +63,32 @@ const ContactUs = () => {
           error = "Message cannot exceed 120 characters";
         }
         break;
-
+  
       default:
         break;
     }
-
+  
     return error;
   };
+  
 
   const handleChange = (e) => {
     const { name, value } = e.target;
+
+    // Prevent typing numbers in First Name and Last Name
+    if ((name === "firstName" || name === "lastName") && /[^A-Za-z]/.test(value)) {
+      return;
+    }
+
+    // Prevent typing anything except digits in Phone Number
+    if (name === "phone" && /[^0-9]/.test(value)) {
+      return;
+    }
+
+    // Limit message length to 120 characters
+    if (name === "message" && value.length > 120) {
+      return;
+    }
 
     setFormData((prevState) => ({
       ...prevState,
@@ -112,6 +126,7 @@ const ContactUs = () => {
 
     if (validateForm()) {
       console.log("Form submitted successfully:", formData);
+      toast.success("Thank you for contacting us! We'll get back to you soon.");
 
       // Reset form after successful submission
       setFormData({
@@ -121,17 +136,15 @@ const ContactUs = () => {
         phone: "",
         message: "",
       });
-
-      // You would typically send the data to your backend here
-      alert("Thank you for contacting us! We'll get back to you soon.");
     } else {
-      console.log("Form has errors");
+      toast.error("Please fix the errors before submitting.");
     }
   };
 
   return (
     <>
       <Navbar />
+      <Toaster />
       <main className="contact-main">
         <h1 className="contact-title">Contact Us</h1>
         <div className="contact-wrapper">
@@ -152,8 +165,8 @@ const ContactUs = () => {
             </p>
 
             <p className="contact-thank-you">
-              Thank you for choosing UnlockDiscounts we look forward to
-              connecting with you!
+              Thank you for choosing UnlockDiscounts! We look forward to
+              connecting with you.
             </p>
           </section>
 
@@ -167,117 +180,63 @@ const ContactUs = () => {
                   <input
                     type="text"
                     name="firstName"
-                    className={`contact-input ${
-                      errors.firstName ? "contact-input-error" : ""
-                    }`}
+                    className={`contact-input ${errors.firstName ? "contact-input-error" : ""}`}
                     placeholder="First Name"
                     value={formData.firstName}
                     onChange={handleChange}
-                    onBlur={(e) => handleChange(e)}
                   />
-                  {errors.firstName && (
-                    <span className="contact-error-message">
-                      {errors.firstName}
-                    </span>
-                  )}
+                  {errors.firstName && <span className="contact-error-message">{errors.firstName}</span>}
                 </div>
 
                 <div className="contact-input-container">
                   <input
                     type="text"
                     name="lastName"
-                    className={`contact-input ${
-                      errors.lastName ? "contact-input-error" : ""
-                    }`}
+                    className={`contact-input ${errors.lastName ? "contact-input-error" : ""}`}
                     placeholder="Last Name"
                     value={formData.lastName}
                     onChange={handleChange}
-                    onBlur={(e) => handleChange(e)}
                   />
-                  {errors.lastName && (
-                    <span className="contact-error-message">
-                      {errors.lastName}
-                    </span>
-                  )}
+                  {errors.lastName && <span className="contact-error-message">{errors.lastName}</span>}
                 </div>
               </div>
 
-              <div className="contact-input-group">
-                <div className="contact-input-container">
-                  <input
-                    type="email"
-                    name="email"
-                    className={`contact-input ${
-                      errors.email ? "contact-input-error" : ""
-                    }`}
-                    placeholder="Your Email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    onBlur={(e) => handleChange(e)}
-                  />
-                  {errors.email && (
-                    <span className="contact-error-message">
-                      {errors.email}
-                    </span>
-                  )}
-                </div>
+              <div className="contact-input-container">
+                <input
+                  type="email"
+                  name="email"
+                  className={`contact-input ${errors.email ? "contact-input-error" : ""}`}
+                  placeholder="Your Email"
+                  value={formData.email}
+                  onChange={handleChange}
+                />
+                {errors.email && <span className="contact-error-message">{errors.email}</span>}
               </div>
 
-              <div className="contact-input-group contact-phone-group">
-                <span
-                  className={`contact-country-code ${
-                    errors.phone ? "country-code-error-size-fix" : ""
-                  }`}
-                >
-                  +91
+              <div className="contact-input-container">
+                <input
+                  type="tel"
+                  name="phone"
+                  className={`contact-input ${errors.phone ? "contact-input-error" : ""}`}
+                  placeholder="Phone Number"
+                  value={formData.phone}
+                  onChange={handleChange}
+                />
+                {errors.phone && <span className="contact-error-message">{errors.phone}</span>}
+              </div>
+
+              <div className="contact-input-container">
+                <textarea
+                  name="message"
+                  className={`contact-textarea ${errors.message ? "contact-input-error" : ""}`}
+                  placeholder="How can we help?"
+                  value={formData.message}
+                  onChange={handleChange}
+                />
+                <span className={`contact-char-count ${formData.message.length > 120 ? "contact-char-count-error" : ""}`}>
+                  {formData.message.length}/120
                 </span>
-                <div className="contact-input-container">
-                  <input
-                    type="tel"
-                    name="phone"
-                    className={`contact-input contact-phone-input ${
-                      errors.phone ? "contact-input-error" : ""
-                    }`}
-                    placeholder="Phone Number"
-                    value={formData.phone}
-                    onChange={handleChange}
-                    onBlur={(e) => handleChange(e)}
-                  />
-                  {errors.phone && (
-                    <span className="contact-error-message">
-                      {errors.phone}
-                    </span>
-                  )}
-                </div>
-              </div>
-
-              <div className="contact-input-group">
-                <div className="contact-input-container">
-                  <textarea
-                    name="message"
-                    className={`contact-textarea ${
-                      errors.message ? "contact-input-error" : ""
-                    }`}
-                    placeholder="How can we help?"
-                    value={formData.message}
-                    onChange={handleChange}
-                    onBlur={(e) => handleChange(e)}
-                  />
-                  <span
-                    className={`contact-char-count ${
-                      formData.message.length > 120
-                        ? "contact-char-count-error"
-                        : ""
-                    }`}
-                  >
-                    {formData.message.length}/120
-                  </span>
-                  {errors.message && (
-                    <span className="contact-error-message">
-                      {errors.message}
-                    </span>
-                  )}
-                </div>
+                {errors.message && <span className="contact-error-message">{errors.message}</span>}
               </div>
 
               <button type="submit" className="contact-submit-btn">
