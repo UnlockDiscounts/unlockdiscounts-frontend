@@ -1,23 +1,56 @@
-import LatestBlogsData from "../data/LatestBlogsData";
+import React, { useEffect, useState } from "react";
+import "../styles/TopBlogs.css";
 import LatestBlogsItems from "./LatestBlogsItems";
+
 const LatestBlogs = () => {
+  const [blogs, setBlogs] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const fetchBlogs = async () => {
+      try {
+        const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/blogging/blogs`);
+        if (!response.ok) {
+          throw new Error("Failed to fetch blog list");
+        }
+        const data = await response.json();
+        setBlogs(data);
+      } catch (error) {
+        setError(error.message);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchBlogs();
+  }, []);
+
+  if (loading) {
+    return <p className="loading-message">Loading blogs...</p>;
+  }
+
+  if (error) {
+    return <p className="error-message">Error: {error}</p>;
+  }
+
   return (
     <>
-      <h1 className="top_blog_heading-desktop">Latest-Blogs</h1>
+      <h1 className="top_blog_heading-desktop">Latest Blogs</h1>
       <ul className="top_blog_wrapper">
         <div className="top_blog_tag_container">
           <h1 className="top_blog_heading">Latest Blogs</h1>
           <p className="top_blog_des">
-            Lorem ipsum dolor sit amet consectetur. Porta ut aenean ultrices
-            lacus vulputate mauris varius sed elementum. Cursus massa nibh ac
-            neque sit felis. Laoreet facilisis
+            Stay updated with the latest trends and insights in technology,
+            innovation, and beyond.
           </p>
         </div>
-        {LatestBlogsData.map((BlogItem) => (
-          <LatestBlogsItems key={BlogItem.id} blogsData={BlogItem} />
+        {blogs.map((blogItem) => (
+          <LatestBlogsItems key={blogItem._id} blogsData={blogItem} />
         ))}
       </ul>
     </>
   );
 };
+
 export default LatestBlogs;

@@ -1,3 +1,4 @@
+import ForgotPassword from "./ForgotPassword";
 import "../styles/Login.css";
 import "../App.css";
 import { Link } from "react-router-dom";
@@ -21,7 +22,7 @@ const Login = () => {
                     <button type="submit">Login</button>
                 </form>
                 <div class="forgot-password">
-                    <a href="#">Forgot Password?</a>
+                    <Link to="/password_reset">Forgot Password?</Link>
                 </div>
                 <div class="sign-up">
                     <p>

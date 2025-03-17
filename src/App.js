@@ -18,6 +18,7 @@ import CategoryPage from "./components/CategoryPage";
 import BlogDetail from "./components/BlogDetail";
 import ContactUs from "./components/ContactUs";
 import AboutUs from "./components/AboutUs";
+import ForgotPassword from "./components/ForgotPassword";
 
 function App() {
   return (
@@ -35,6 +36,7 @@ function App() {
         <Route path="/signup" element={<Signup />} />
         <Route path="/contactUs" element={<ContactUs />} />
         <Route path="/aboutUs" element={<AboutUs />} />
+        <Route path="/password_reset" element={<ForgotPassword />} />
         <Route
           path="/certificate_verification/:incorrect"
           element={<Certificate />}

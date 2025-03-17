@@ -33,7 +33,8 @@ const Signup = () => {
         const confirm_password = e.target.confirm_password.value;
         const existingErrorCp = document.querySelector('.error-message');
         const existingErrorPassword = document.querySelector('.error-message');
-        const hasSpecialChar = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/.test(password);
+        // const hasSpecialChar = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/.test(password);
+        const hasSpecialChar = /(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@#$%^&+=!]).{8,20}/.test(password);
         const passwordLengthRegex = /^.{8,}$/;
 
 
@@ -47,7 +48,7 @@ const Signup = () => {
             return;
         }
         if(!hasSpecialChar){
-            password_error.insertAdjacentHTML('afterend','<div class="error-message">Password must contain a special character</div>');
+            password_error.insertAdjacentHTML('afterend','<div class="error-message">Password must contain a combination of special characters,capital and small letters and numbers</div>');
             password_error.classList.add('invalid');
             return;
         }
