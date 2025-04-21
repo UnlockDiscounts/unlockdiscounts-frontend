@@ -27,7 +27,7 @@ const Footer = () => {
   };
 
   return (
-    <footer className="footer-container">
+    <footer className="footer-container" id="footer">
       <div className="footer-content-wrapper">
         <div className="footer-text-container">
           <div className="footer-column-container">
@@ -176,8 +176,7 @@ const Footer = () => {
             </a>
             <p className="footer-terms-dot">•</p>
             <a
-              href={Sitemap}
-              target="_blank"
+              href="#footer"
               rel="noopener noreferrer"
               className="footer-terms-text"
             >
