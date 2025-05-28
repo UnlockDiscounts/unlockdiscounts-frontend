@@ -19,6 +19,9 @@ import BlogDetail from "./components/BlogDetail";
 import ContactUs from "./components/ContactUs";
 import AboutUs from "./components/AboutUs";
 import ForgotPassword from "./components/ForgotPassword";
+import ThumbnailsToExplore from "./components/ThumbnailsToExplore";
+import Academics from "./components/Academics";
+import Purchase from "./components/Purchase";
 
 function App() {
   return (
@@ -46,6 +49,7 @@ function App() {
           element={<VerifiedPage />}
         />
         <Route path="/products/:category_param" element={<ProductPage />} />
+        <Route path="/academics" element={<Academics />} />
         <Route
           path="/searched_products/:searched_param"
           element={<SearchedProductsPage />}
@@ -54,6 +58,9 @@ function App() {
         <Route path="/category/:category_name" element={<CategoryPage />} />
         <Route path="/blog/:id" element={<BlogDetail />} />
         <Route path="*" element={<Landing />} />
+        <Route path="/thumbnails_to_explore" element={<ThumbnailsToExplore />} />
+        <Route path="/academics" element={<Academics />} />
+        <Route path="/purchase" element={<Purchase />} />
       </Routes>
     </BrowserRouter>
   );
