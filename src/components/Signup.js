@@ -1,13 +1,11 @@
 import "../styles/Signup.css";
 import "../App.css";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useState } from "react";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 
 const Signup = () => {
-  const navigate = useNavigate(); // for redirecting to /login
-
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -16,7 +14,6 @@ const Signup = () => {
 
   const [passwordError, setPasswordError] = useState("");
   const [cpError, setCpError] = useState("");
-  const [apiError, setApiError] = useState("");
 
   const handleName = (e) => {
     const value = e.target.value;
@@ -34,11 +31,10 @@ const Signup = () => {
     }
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     setPasswordError("");
     setCpError("");
-    setApiError("");
 
     const passwordRegex = /(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@#$%^&+=!]).{8,20}/;
     const passwordLengthRegex = /^.{8,}$/;
@@ -60,35 +56,21 @@ const Signup = () => {
       return;
     }
 
-    // Send data to backend
-    try {
-      const response = await fetch("http://localhost:5000/api/signup", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ name, email, password, gender }),
-      });
+    // Form passed all checks, proceed
+    console.log("Form submitted:", {
+      name,
+      email,
+      password,
+      confirmPassword,
+      gender,
+    });
 
-      if (response.ok) {
-        // success
-        console.log("Signup successful");
-        setName("");
-        setEmail("");
-        setPassword("");
-        setConfirmPassword("");
-        setGender("");
-
-        // Redirect to login page
-        navigate("/login");
-      } else {
-        const errorData = await response.json();
-        setApiError(errorData.message || "Signup failed");
-      }
-    } catch (error) {
-      console.error("Signup error:", error);
-      setApiError("Something went wrong. Please try again.");
-    }
+    // Clear form
+    setName("");
+    setEmail("");
+    setPassword("");
+    setConfirmPassword("");
+    setGender("");
   };
 
   return (
@@ -154,8 +136,6 @@ const Signup = () => {
           </select>
 
           <button type="submit">Sign Up</button>
-
-          {apiError && <div className="error-message">{apiError}</div>}
         </form>
 
         <div className="already-account">
