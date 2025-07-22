@@ -39,10 +39,10 @@ const TopBlogs = () => {
       <h1 className="top_blog_heading-desktop">Top Blogs</h1>
       <ul className="top_blog_wrapper">
         <div className="top_blog_tag_container">
-          <h1 className="top_blog_heading">Top Blogs</h1>
-          <p className="top_blog_des">
-            Discover the most popular blogs covering tech, trends, and more!
-          </p>
+          // <h1 className="top_blog_heading">Top Blogs</h1>
+          // <p className="top_blog_des">
+          //   Discover the most popular blogs covering tech, trends, and more!
+          // </p>
         </div>
         {blogs.slice(0, 4).map((blogItem) => (
         <TopBlogsItems key={blogItem._id} blogsData={blogItem} />
