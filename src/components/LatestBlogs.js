@@ -38,8 +38,7 @@ const LatestBlogs = () => {
     <>
       <h1 className="top_blog_heading-desktop">Latest Blogs</h1>
       <ul className="top_blog_wrapper">
-        <div className="top_blog_tag_container">
-          
+      
         {blogs.map((blogItem) => (
           <LatestBlogsItems key={blogItem._id} blogsData={blogItem} />
         ))}
