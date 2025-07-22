@@ -1,45 +1,51 @@
-/* ---------- Blog Section Wrapper ---------- */
+/* ---------- Blog Section ---------- */
 .blogs-section {
-  max-width: 1200px;
+  max-width: 100%;
   margin: 0 auto;
   padding: 2rem 1rem;
   text-align: center;
+  overflow-x: auto;
 }
 
-/* ---------- Section Title ---------- */
+/* ---------- Section Title & Subtitle ---------- */
 .section-title {
   font-size: 2rem;
   font-weight: 700;
   margin-bottom: 0.5rem;
 }
 
-/* ---------- Section Subtitle ---------- */
 .section-subtitle {
   font-size: 1rem;
   color: #555;
   margin-bottom: 2rem;
 }
 
-/* ---------- Blog Cards Container ---------- */
+/* ---------- Horizontal Scrollable Container ---------- */
 .top_blog_wrapper {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap; /* Prevent wrap */
   gap: 2rem;
-  justify-content: center;
   padding: 0;
   margin: 0;
   list-style: none;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scrollbar-width: none; /* Firefox */
 }
 
-/* ---------- Individual Blog Card ---------- */
+.top_blog_wrapper::-webkit-scrollbar {
+  display: none; /* Chrome, Safari */
+}
+
+/* ---------- Blog Card ---------- */
 .top_blog_container {
-  flex: 1 1 300px;
-  max-width: 300px;
+  flex: 0 0 25%; /* 4 in a row */
+  max-width: 25%;
+  min-width: 250px;
   background-color: #fff;
   border-radius: 8px;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
   cursor: pointer;
-  padding: 0;
 }
 
 .top_blog_container:hover {
@@ -47,7 +53,7 @@
   transform: translateY(-5px);
 }
 
-/* ---------- Blog Image ---------- */
+/* ---------- Image ---------- */
 .top_blog_image {
   width: 100%;
   height: 180px;
@@ -55,16 +61,16 @@
   object-fit: cover;
 }
 
-/* ---------- Blog Tagline (optional) ---------- */
+/* ---------- Tagline (optional) ---------- */
 .top_blog_tagline {
   font-size: 0.75rem;
   color: #555;
-  margin: 0.5rem 0 0 0;
+  margin-top: 0.5rem;
   padding: 0 1rem;
   text-align: left;
 }
 
-/* ---------- Blog Title ---------- */
+/* ---------- Title ---------- */
 .top_blog_heading {
   font-size: 1rem;
   font-weight: bold;
@@ -73,21 +79,21 @@
   text-align: left;
 }
 
-/* ---------- Blog Description ---------- */
+/* ---------- Description ---------- */
 .top_blog_description {
   font-size: 0.875rem;
   color: #666;
   padding: 0 1rem;
   text-align: left;
   line-height: 1.4;
-  -webkit-line-clamp: 3;
   display: -webkit-box;
+  -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
   margin: 0.5rem 0;
 }
 
-/* ---------- Read More Link ---------- */
+/* ---------- Read More ---------- */
 .top_blog_readmore {
   color: red;
   font-weight: 500;
@@ -98,27 +104,10 @@
   text-align: left;
 }
 
-/* ---------- Hide Scrollbars if Wrapping ---------- */
-.top_blog_wrapper::-webkit-scrollbar {
-  display: none;
-}
-
-/* ---------- Responsive Adjustments ---------- */
-@media screen and (max-width: 768px) {
+/* ---------- Mobile Scroll Behavior ---------- */
+@media screen and (max-width: 1000px) {
   .top_blog_container {
-    flex: 1 1 100%;
-    max-width: 100%;
-  }
-
-  .top_blog_image {
-    height: 160px;
-  }
-
-  .section-title {
-    font-size: 1.5rem;
-  }
-
-  .section-subtitle {
-    font-size: 0.95rem;
+    flex: 0 0 75%;
+    max-width: 75%;
   }
 }
