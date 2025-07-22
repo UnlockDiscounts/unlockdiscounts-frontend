@@ -39,12 +39,7 @@ const LatestBlogs = () => {
       <h1 className="top_blog_heading-desktop">Latest Blogs</h1>
       <ul className="top_blog_wrapper">
         <div className="top_blog_tag_container">
-          <h1 className="top_blog_heading">Latest Blogs</h1>
-          <p className="top_blog_des">
-            Stay updated with the latest trends and insights in technology,
-            innovation, and beyond.
-          </p>
-        </div>
+          
         {blogs.map((blogItem) => (
           <LatestBlogsItems key={blogItem._id} blogsData={blogItem} />
         ))}
