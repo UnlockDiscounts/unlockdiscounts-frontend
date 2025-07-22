@@ -44,8 +44,8 @@ const TopBlogs = () => {
             Discover the most popular blogs covering tech, trends, and more!
           </p>
         </div>
-        {blogs.map((blogItem) => (
-          <TopBlogsItems key={blogItem._id} blogsData={blogItem} />
+        {blogs.slice(0, 4).map((blogItem) => (
+        <TopBlogsItems key={blogItem._id} blogsData={blogItem} />
         ))}
       </ul>
     </>
