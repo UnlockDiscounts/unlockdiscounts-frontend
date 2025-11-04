@@ -200,7 +200,7 @@ const Footer = () => {
               className="footer-social-logo"
               onClick={() =>
                 window.open(
-                  "https://www.instagram.com/unlock_discounts/",
+                  "https://www.instagram.com/unlockdigiservices/",
                   "_blank"
                 )
               }

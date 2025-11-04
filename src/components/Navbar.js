@@ -8,6 +8,7 @@ import "../styles/Navbar.css";
 import Logo from "../assets/Logo.svg";
 
 const Navbar = () => {
+
   const [showSidebar, setShowSidebar] = useState(false);
   const [showDropdown, setShowDropdown] = useState(false);
   const navigate = useNavigate();
@@ -73,10 +74,10 @@ const Navbar = () => {
 
 			<p
 				className="navbar-fonts"
-				onClick={() => {handleNavigate("products/Electronics")
+				onClick={() => {window.location.href = "https://mendora-woad.vercel.app/";
 				setHomePage(false)}}
 			>
-				Electronics
+				Mendora
 			</p>
 			<p
 				className="navbar-fonts"
@@ -177,9 +178,9 @@ const Navbar = () => {
                 </p>
                 <p
                   className="sidebar-nav-item"
-                  onClick={() => handleNavigate("products/Electronics")}
+                  onClick={() => window.location.href = "https://mendora-woad.vercel.app/"}
                 >
-                  Electronics
+                  Mendora
                 </p>
                 <p
                   className="sidebar-nav-item"

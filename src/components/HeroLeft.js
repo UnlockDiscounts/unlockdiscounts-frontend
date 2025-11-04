@@ -7,6 +7,7 @@ import Kid from "../assets/Kid.png";
 import OnlineLearning from "../assets/Online Learning.png";
 import Banking from "../assets/Banking.png";
 import { useNavigate } from "react-router-dom";
+import logoo from '../assets/logoo.jpg'
 
 const HeroLeft = () => {
 	const navigate = useNavigate();
@@ -52,14 +53,14 @@ const HeroLeft = () => {
 				<div
 					className="hm-category-card"
 					onClick={() => {
-						navigate("/products/Electronics");
-						window.location.reload();
+						window.location.href = "https://mendora-woad.vercel.app/";
+						// window.location.reload();
 					}}
 				>
 					<div className="hmc-image-electornics">
-						<img src={Electronics} alt="Electronics" />
+						<img src={logoo} alt="logo" />
 					</div>
-					<div className="hmc-text">Electronics</div>
+					<div className="hmc-text">Mendora</div>
 				</div>
 				<div
 					className="hm-category-card"
